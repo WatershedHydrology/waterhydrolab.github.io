@@ -24,7 +24,7 @@ email: g.golmohammadi@ufl.edu
 # ----- Academic identifiers (PI: Dr. Golmar Golmohammadi) -----
 orcid_id: 0000-0001-5532-3892          # ORCID — https://orcid.org/0000-0001-5532-3892
 scholar_userid: cpXxmlYAAAAJ           # Google Scholar — VERIFY this ID with Dr. Golmohammadi before going live
-researchgate_profile: Golmar-Golmohammadi  # ResearchGate slug
+research_gate_profile: Golmar-Golmohammadi  # ResearchGate slug (jekyll-socials key MUST be `research_gate_profile` with underscore)
 # scopus_id:                            # Scopus author ID (not yet known — add when found)
 # semanticscholar_id:                   # Semantic Scholar author ID
 # publons_id:                           # Publons / Web of Science
@@ -37,7 +37,7 @@ researchgate_profile: Golmar-Golmohammadi  # ResearchGate slug
 # and a lab LinkedIn under the handle `ufrecwater` — those are NOT the lab's
 # current accounts. Do not link to them unless the PI confirms.
 x_username: WaterHydroLab              # X / Twitter — https://x.com/WaterHydroLab
-linkedin_username: in/golmar-golmohammadi-35791a17    # PI's LinkedIn; replace with lab company-page slug if/when created
+linkedin_username: golmar-golmohammadi-35791a17    # PI's LinkedIn slug only — jekyll-socials prepends `https://www.linkedin.com/in/`
 github_username: waterhydrolab         # GitHub organisation that owns this repository
 # instagram_id:                        # add if the lab confirms an IG handle
 # facebook_id:                         # add if the lab confirms an FB page
@@ -45,13 +45,12 @@ github_username: waterhydrolab         # GitHub organisation that owns this repo
 
 # ----- Optional university profile (custom entry — al-folio supports any
 #       link by giving it a custom logo + URL) -----
-# jekyll-socials expects custom_social to be a LIST of entries (each with
-# title/url/logo). Don't drop the leading `-` — without it the plugin
-# iterates over the hash keys and crashes with `nil.split`.
+# jekyll-socials handles unknown keys via `social[1]['logo']` so the value
+# MUST be a hash with at least a `logo` field — not a list.
 custom_social:
-  - title: UF/IFAS faculty page
-    url: https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/
-    logo: https://soils.ifas.ufl.edu/media/soilsifasufledu/sws-main-site/images/UF_IFAS_horizontal.svg
+  logo: https://soils.ifas.ufl.edu/media/soilsifasufledu/sws-main-site/images/UF_IFAS_horizontal.svg
+  title: UF/IFAS faculty page
+  url: https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/
 
 # ----- RSS icon for the news feed -----
 rss_icon: true
