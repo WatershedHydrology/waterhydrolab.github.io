@@ -45,10 +45,13 @@ github_username: waterhydrolab         # GitHub organisation that owns this repo
 
 # ----- Optional university profile (custom entry — al-folio supports any
 #       link by giving it a custom logo + URL) -----
+# jekyll-socials expects custom_social to be a LIST of entries (each with
+# title/url/logo). Don't drop the leading `-` — without it the plugin
+# iterates over the hash keys and crashes with `nil.split`.
 custom_social:
-  logo: https://soils.ifas.ufl.edu/media/soilsifasufledu/sws-main-site/images/UF_IFAS_horizontal.svg
-  title: UF/IFAS faculty page
-  url: https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/
+  - title: UF/IFAS faculty page
+    url: https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/
+    logo: https://soils.ifas.ufl.edu/media/soilsifasufledu/sws-main-site/images/UF_IFAS_horizontal.svg
 
 # ----- RSS icon for the news feed -----
 rss_icon: true
