@@ -2,37 +2,88 @@
 #  Sveltia CMS — content manager for the Watershed Hydrology Lab website.
 #  Panel:  https://watershedhydrologylab.com/admin/
 #
-#  Sveltia is a drop-in, Decap-compatible CMS. When an editor clicks "Save",
-#  the change is committed to this GitHub repo (branch: main) and Cloudflare
-#  Pages rebuilds the live site automatically. Editors never touch code.
+#  Sveltia is a drop-in, Decap-compatible CMS. "Save" commits to GitHub
+#  (branch: main); Cloudflare Pages then rebuilds the live site. Editors
+#  never touch code.
 #
-#  ⚠️ LOGIN WON'T WORK until these three one-time steps are done (see the
-#     chat walkthrough / CMS-SETUP notes):
-#       1. Create a GitHub OAuth App  -> gives a Client ID + Client Secret.
-#       2. Deploy the `sveltia-cms-auth` Cloudflare Worker with those secrets
-#          and ALLOWED_DOMAINS=watershedhydrologylab.com.
-#       3. Paste the Worker URL into `backend.base_url` below, commit, done.
+#  NOTE: this CMS edits CONTENT (text, images, items, order). Visual DESIGN
+#  (fonts, colors, sizes, positioning, backgrounds) lives in the theme CSS
+#  (assets/whl.css) on purpose, to keep the site consistent.
+#
+#  ⚠️ Every front-matter field is enumerated below. Sveltia drops any field
+#     it doesn't know about, so DO NOT remove the `hidden` fields — they keep
+#     the page's structural settings intact when an editor saves.
 # =============================================================================
 
 backend:
   name: github
   repo: HugoMachadoRodrigues/waterhydrolab.github.io
   branch: main
-  # OAuth proxy (the sveltia-cms-auth Worker). No trailing slash.
   base_url: https://sveltia-cms-auth.rcrechydrologymactwo.workers.dev
 
-# Image uploads from the CMS are stored here and referenced from this path.
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
-# Cosmetic: links + logo shown inside the CMS.
 site_url: https://watershedhydrologylab.com
 display_url: https://watershedhydrologylab.com
 logo_url: /assets/img/whl_logo.png
 
 collections:
   # ---------------------------------------------------------------------------
-  #  NEWS — the most-used section. Editors add/edit short announcements.
+  #  HOME — the landing page (hero, research pillars, PI card, about text).
+  # ---------------------------------------------------------------------------
+  - name: home
+    label: "Home page"
+    description: "The landing page: hero tagline, research pillars, PI card, intro text."
+    files:
+      - name: about
+        label: "Home / About"
+        file: "_pages/about.md"
+        fields:
+          - { name: layout, widget: hidden, default: about }
+          - { name: title, widget: hidden, default: about }
+          - { name: permalink, widget: hidden, default: "/" }
+          - { name: subtitle, label: "Subtitle (HTML, under the lab name)", widget: text }
+          - name: hero
+            label: "Hero (landing banner)"
+            widget: object
+            fields:
+              - { name: logo, label: "Logo image", widget: image }
+              - { name: tagline, label: "Tagline", widget: text }
+              - name: pillars
+                label: "Research pillars (3 cards)"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: text, label: "Description", widget: text }
+                  - { name: href, label: "Links to", widget: string }
+          - name: profile
+            label: "PI photo & contact card"
+            widget: object
+            fields:
+              - { name: align, widget: hidden, default: right }
+              - { name: image, label: "PI photo", widget: image }
+              - { name: image_circular, label: "Round crop", widget: boolean, default: false }
+              - { name: more_info, label: "Contact card (HTML)", widget: text }
+          - { name: selected_papers, widget: hidden, default: true }
+          - { name: social, widget: hidden, default: true }
+          - name: announcements
+            widget: object
+            fields:
+              - { name: enabled, widget: hidden, default: true }
+              - { name: scrollable, widget: hidden, default: true }
+              - { name: limit, widget: hidden, default: 5 }
+          - name: latest_posts
+            widget: object
+            fields:
+              - { name: enabled, widget: hidden, default: false }
+              - { name: scrollable, widget: hidden, default: true }
+              - { name: limit, widget: hidden, default: 3 }
+          - { name: body, label: "“About the Lab” text", widget: markdown }
+
+  # ---------------------------------------------------------------------------
+  #  NEWS — most-used. Add/edit short announcements.
   # ---------------------------------------------------------------------------
   - name: news
     label: "News & Announcements"
@@ -50,7 +101,7 @@ collections:
       - { name: body, label: "Announcement text", widget: markdown }
 
   # ---------------------------------------------------------------------------
-  #  RESEARCH PROJECTS — the theme cards on the Research page.
+  #  RESEARCH PROJECTS — theme cards on the Research page.
   # ---------------------------------------------------------------------------
   - name: projects
     label: "Research Projects"
@@ -69,11 +120,43 @@ collections:
       - { name: body, label: "Full content", widget: markdown }
 
   # ---------------------------------------------------------------------------
+  #  TEAM / PEOPLE — reorder members, swap photos, edit roles. (Bios are in
+  #  separate files for now — see the "Team Bios" note; a refactor will fold
+  #  them in here.)
+  # ---------------------------------------------------------------------------
+  - name: team
+    label: "Team / People"
+    description: "Members of the lab. Drag to reorder; edit photo and role."
+    files:
+      - name: people
+        label: "People list"
+        file: "_pages/profiles.md"
+        fields:
+          - { name: layout, widget: hidden, default: profiles }
+          - { name: permalink, widget: hidden, default: "/people/" }
+          - { name: title, widget: hidden, default: people }
+          - { name: description, label: "SEO description", widget: text }
+          - { name: nav, widget: hidden, default: true }
+          - { name: nav_order, widget: hidden, default: 2 }
+          - name: profiles
+            label: "Members (drag to reorder)"
+            label_singular: "Member"
+            widget: list
+            summary: "{{fields.image}}"
+            fields:
+              - { name: align, label: "Photo side", widget: select, options: [left, right], default: right }
+              - { name: image, label: "Photo", widget: image }
+              - { name: more_info, label: "Role / details (HTML)", widget: text }
+              - { name: content, label: "Bio file (advanced — leave as is)", widget: hidden }
+              - { name: image_circular, widget: hidden, default: false }
+          - { name: body, label: "Alumni grid + “Join the lab” (HTML)", widget: markdown }
+
+  # ---------------------------------------------------------------------------
   #  PAGES — editable text of standalone pages. All structural front-matter
   #  fields are enumerated (hidden) so saving never drops them.
   # ---------------------------------------------------------------------------
   - name: pages
-    label: "Pages"
+    label: "Other Pages"
     description: "Text of standalone pages."
     files:
       - name: facilities
