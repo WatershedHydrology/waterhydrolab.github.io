@@ -1,0 +1,101 @@
+# =============================================================================
+#  Sveltia CMS — content manager for the Watershed Hydrology Lab website.
+#  Panel:  https://watershedhydrologylab.com/admin/
+#
+#  Sveltia is a drop-in, Decap-compatible CMS. When an editor clicks "Save",
+#  the change is committed to this GitHub repo (branch: main) and Cloudflare
+#  Pages rebuilds the live site automatically. Editors never touch code.
+#
+#  ⚠️ LOGIN WON'T WORK until these three one-time steps are done (see the
+#     chat walkthrough / CMS-SETUP notes):
+#       1. Create a GitHub OAuth App  -> gives a Client ID + Client Secret.
+#       2. Deploy the `sveltia-cms-auth` Cloudflare Worker with those secrets
+#          and ALLOWED_DOMAINS=watershedhydrologylab.com.
+#       3. Paste the Worker URL into `backend.base_url` below, commit, done.
+# =============================================================================
+
+backend:
+  name: github
+  repo: HugoMachadoRodrigues/waterhydrolab.github.io
+  branch: main
+  # OAuth proxy (the sveltia-cms-auth Worker). No trailing slash.
+  # Example: https://whl-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  base_url: https://REPLACE-WITH-YOUR-WORKER-URL
+
+# Image uploads from the CMS are stored here and referenced from this path.
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Cosmetic: links + logo shown inside the CMS.
+site_url: https://watershedhydrologylab.com
+display_url: https://watershedhydrologylab.com
+logo_url: /assets/img/whl_logo.png
+
+collections:
+  # ---------------------------------------------------------------------------
+  #  NEWS — the most-used section. Editors add/edit short announcements.
+  # ---------------------------------------------------------------------------
+  - name: news
+    label: "News & Announcements"
+    label_singular: "Announcement"
+    description: "Short updates shown on the homepage strip and the News page."
+    folder: "_news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date]
+    fields:
+      - { name: layout, label: Layout, widget: hidden, default: post }
+      - { name: date, label: "Date", widget: datetime }
+      - { name: inline, label: "Show as a short inline blurb", widget: boolean, default: true }
+      - { name: related_posts, label: "Show related posts", widget: boolean, default: false, required: false }
+      - { name: body, label: "Announcement text", widget: markdown }
+
+  # ---------------------------------------------------------------------------
+  #  RESEARCH PROJECTS — the theme cards on the Research page.
+  # ---------------------------------------------------------------------------
+  - name: projects
+    label: "Research Projects"
+    label_singular: "Project"
+    description: "Research-theme cards shown on the Research page."
+    folder: "_projects"
+    create: true
+    sortable_fields: [importance, title]
+    fields:
+      - { name: layout, label: Layout, widget: hidden, default: page }
+      - { name: title, label: "Title", widget: string }
+      - { name: description, label: "Card subtitle (short)", widget: text }
+      - { name: img, label: "Cover image", widget: image, required: false }
+      - { name: importance, label: "Order (1 = shown first)", widget: number, default: 1, value_type: int }
+      - { name: category, label: Category, widget: hidden, default: research }
+      - { name: body, label: "Full content", widget: markdown }
+
+  # ---------------------------------------------------------------------------
+  #  PAGES — editable text of standalone pages. All structural front-matter
+  #  fields are enumerated (hidden) so saving never drops them.
+  # ---------------------------------------------------------------------------
+  - name: pages
+    label: "Pages"
+    description: "Text of standalone pages."
+    files:
+      - name: facilities
+        label: "Facilities page"
+        file: "_pages/facilities.md"
+        fields:
+          - { name: layout, widget: hidden, default: page }
+          - { name: permalink, widget: hidden, default: "/facilities/" }
+          - { name: title, label: "Nav label", widget: string, default: facilities }
+          - { name: description, label: "SEO description", widget: text }
+          - { name: nav, widget: hidden, default: true }
+          - { name: nav_order, widget: hidden, default: 4 }
+          - { name: body, label: "Page content", widget: markdown }
+      - name: contact
+        label: "Contact page"
+        file: "_pages/contact.md"
+        fields:
+          - { name: layout, widget: hidden, default: page }
+          - { name: permalink, widget: hidden, default: "/contact/" }
+          - { name: title, label: "Nav label", widget: string, default: contact }
+          - { name: description, label: "SEO description", widget: text }
+          - { name: nav, widget: hidden, default: true }
+          - { name: nav_order, widget: hidden, default: 7 }
+          - { name: body, label: "Page content", widget: markdown }
