@@ -174,7 +174,7 @@ max_width: 930px
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: assets/img/prof_pic_color.png # Site-wide preview image (jekyll-imagemagick resizes for previews)
+og_image: assets/img/whl_logo.png # Site-wide social-share preview image (640x640 lab logo)
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -496,7 +496,7 @@ external_links:
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
 imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: false # DISABLED: Cloudflare Pages build env has no `convert` binary, so WebP variant generation fails (exit 127). With this false, al-folio serves the original JPG/PNG directly and emits no broken <source srcset> webp references. Re-enable only on a builder that has ImageMagick installed.
   widths:
     - 480
     - 800
