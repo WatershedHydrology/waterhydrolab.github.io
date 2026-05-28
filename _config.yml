@@ -74,10 +74,9 @@ keywords: watershed hydrology, water quality modeling, SWAT, DRAINMOD, BMPs, mac
 # Site language. ISO 639-1 two-letter code. en = English.
 lang: en
 
-# Favicon (the little icon in the browser tab). You can use:
-#   - an emoji like the one below
-#   - OR a path to a PNG/SVG file in /assets/img/ (e.g. `icon: favicon.png`)
-icon: 💧
+# Favicon (the little icon in the browser tab). al-folio treats a value
+# longer than 4 chars as a path under /assets/img/. We use the lab logo.
+icon: whl_logo.png
 
 # ----- Domain / URL -----
 # `url` is the canonical site address. Used in sitemap.xml, RSS feeds,
@@ -164,8 +163,9 @@ socials_in_search: true
 posts_in_search: true
 bib_search: true
 
-# Dimensions
-max_width: 930px
+# Dimensions — wider shell so content fills the page instead of a narrow
+# blog column. Prose paragraphs are constrained for readability in whl.css.
+max_width: 1200px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
