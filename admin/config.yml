@@ -19,8 +19,7 @@ backend:
   repo: HugoMachadoRodrigues/waterhydrolab.github.io
   branch: main
   # OAuth proxy (the sveltia-cms-auth Worker). No trailing slash.
-  # Example: https://whl-cms-auth.YOUR-SUBDOMAIN.workers.dev
-  base_url: https://REPLACE-WITH-YOUR-WORKER-URL
+  base_url: https://sveltia-cms-auth.rcrechydrologymactwo.workers.dev
 
 # Image uploads from the CMS are stored here and referenced from this path.
 media_folder: "assets/img/uploads"
