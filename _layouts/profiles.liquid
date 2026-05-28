@@ -1,0 +1,50 @@
+---
+layout: page
+---
+
+{% comment %}
+=============================================================================
+  LOCAL OVERRIDE of al_folio_core's _layouts/profiles.liquid.
+  Change vs upstream: render the page body ({{ content }}) AFTER the profiles
+  loop. Upstream only emits {{ content }} as a fallback inside a profile that
+  has no `content:` field, so any markdown written in the page body (our
+  alumni photo grid and the "Join the lab" CTA) was silently dropped. Marked
+  with "WHL:". Re-sync on al_folio_core upgrade.
+=============================================================================
+{% endcomment %}
+
+<div class="post">
+  <article>
+    {% if page.profiles %}
+      {% for profile in page.profiles %}
+        <hr>
+        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
+          {% if profile.image %}
+            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
+            {% if profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class alt=profile.image %}
+          {% endif %}
+          {% if profile.more_info %}
+            <div class="more-info">{{ profile.more_info }}</div>
+          {% endif %}
+        </div>
+
+        <div class="clearfix">
+          {% if profile.content %}
+            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
+            {{ profile_content | markdownify }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- WHL: page body (alumni photo grid + "Join the lab" CTA) -->
+    <div class="clearfix whl-people-body">
+      {{ content }}
+    </div>
+  </article>
+</div>
