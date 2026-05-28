@@ -476,6 +476,29 @@ h1, h2, h3, h4, h5, h6,
 }
 .whl-pillar:hover .whl-pillar-more { gap: 0.65rem; }
 
+/* ---- Alumni mini-cards (people page) ---- */
+.whl-alum { text-align: center; padding: 1.6rem 1.25rem; }
+.whl-alum-photo {
+  display: block;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.95rem;
+  border: 2px solid var(--whl-line-strong);
+  box-shadow: 0 10px 26px -10px rgb(0 0 0 / 50%);
+}
+.whl-alum-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.03rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+  color: var(--global-text-color);
+}
+.whl-alum-role { color: var(--global-text-color-light); font-size: 0.9rem; line-height: 1.35; }
+.whl-alum-dates { color: var(--global-text-color-light); font-size: 0.82rem; opacity: 0.85; margin-top: 0.2rem; }
+
 /* -----------------------------------------------------------------------------
    9. EMBEDDED MAP — large, like a banner (contact "Find us")
    ----------------------------------------------------------------------------- */

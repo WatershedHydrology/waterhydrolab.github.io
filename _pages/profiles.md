@@ -17,20 +17,9 @@
 #  TIP: the `align` field alternates left/right per entry, which produces
 #  the zig-zag layout. Keep alternating.
 #
-#  TEAM PHOTOS — DOWNLOAD FROM OLD LAB SITE
-#  ----------------------------------------
-#  The old site at ufrcrecwater.com hosts real headshots for every
-#  current and former member in a private S3 bucket (no public access,
-#  signed URLs only). To replace the SVG placeholders below:
-#    1. Open ufrcrecwater.com/team in a browser.
-#    2. Right-click → "Save image as…" for each member.
-#    3. Save into  assets/img/team/  using these filenames:
-#         saba_shaghaghi.jpg     gurjoban_tiwana.jpg
-#         namrata_ghimire.jpg    akhil_reddy.jpg
-#         bhavan_voram.jpg       armaanjot_singh.jpg
-#         seyed_mostafa.jpg      rohith_reddy.jpg
-#         maxwell_naah.jpg
-#    4. Replace ".svg" with ".jpg" on each `image:` line below.
+#  TEAM PHOTOS: real headshots live in assets/img/team/ as <name>.jpeg.
+#  Current members appear in the zig-zag list below; alumni are shown as a
+#  photo grid in the page body (after the profiles list).
 # =============================================================================
 layout: profiles
 permalink: /people/
@@ -52,7 +41,7 @@ profiles:
 
   # ---------- Graduate students ----------
   - align: left
-    image: team/saba_shaghaghi.svg
+    image: team/saba_shaghaghi.jpeg
     content: about_saba.md
     image_circular: false
     more_info: >
@@ -61,7 +50,7 @@ profiles:
       <p>Joined: Jun 2024</p>
 
   - align: right
-    image: team/gurjoban_tiwana.svg
+    image: team/gurjoban_tiwana.jpeg
     content: about_gurjoban.md
     image_circular: false
     more_info: >
@@ -70,7 +59,7 @@ profiles:
       <p>Joined: Jan 2025</p>
 
   - align: left
-    image: team/namrata_ghimire.svg
+    image: team/namrata_ghimire.jpeg
     content: about_namrata.md
     image_circular: false
     more_info: >
@@ -79,7 +68,7 @@ profiles:
       <p>Joined: May 2025</p>
 
   - align: right
-    image: team/armaanjot_singh.svg
+    image: team/armaanjot_singh.jpeg
     content: about_armaanjot.md
     image_circular: false
     more_info: >
@@ -89,7 +78,7 @@ profiles:
 
   # ---------- Research staff ----------
   - align: left
-    image: team/akhil_reddy.svg
+    image: team/akhil_reddy.jpeg
     content: about_akhil.md
     image_circular: false
     more_info: >
@@ -98,22 +87,13 @@ profiles:
       <p>Joined: May 2025</p>
 
   - align: right
-    image: team/bhavan_voram.svg
+    image: team/bhavan_voram.jpeg
     content: about_bhavan.md
     image_circular: false
     more_info: >
       <p><strong>Research Data Scientist (OPS)</strong></p>
       <p>Applied ML for env. & ag. systems</p>
       <p>Joined: May 2025</p>
-
-  # ---------- Alumni (kept as a single grouped entry) ----------
-  - align: left
-    image: team/alumni.svg
-    content: about_alumni.md
-    image_circular: false
-    more_info: >
-      <p><strong>Lab Alumni</strong></p>
-      <p>Former students and research staff</p>
 ---
 
 <div class="whl-callout" markdown="1">
@@ -129,4 +109,29 @@ and related fields.
   <a class="whl-btn" href="/projects/"><i class="fas fa-flask"></i> Research themes</a>
   <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> Publications</a>
   <a class="whl-btn whl-btn-ghost" href="/contact/"><i class="fas fa-paper-plane"></i> Contact</a>
+</div>
+
+## Lab Alumni
+
+We gratefully acknowledge former lab members who contributed to our research program and have moved on to new positions.
+
+<div class="whl-card-grid">
+  <div class="whl-card whl-alum">
+    <img class="whl-alum-photo" src="/assets/img/team/seyed_mostafa.jpeg" alt="Seyed Mostafa Biazar Seighalani" loading="lazy">
+    <div class="whl-alum-name">Seyed Mostafa Biazar Seighalani</div>
+    <div class="whl-alum-role">Former Ph.D. Student</div>
+    <div class="whl-alum-dates">Jan 2023 – Dec 2025</div>
+  </div>
+  <div class="whl-card whl-alum">
+    <img class="whl-alum-photo" src="/assets/img/team/rohith_reddy.jpeg" alt="Rohith Reddy Nedhunuri" loading="lazy">
+    <div class="whl-alum-name">Rohith Reddy Nedhunuri</div>
+    <div class="whl-alum-role">Former Research Data Scientist</div>
+    <div class="whl-alum-dates">Apr 2023 – May 2025</div>
+  </div>
+  <div class="whl-card whl-alum">
+    <img class="whl-alum-photo" src="/assets/img/team/maxwell_naah.jpeg" alt="Maxwell Naah" loading="lazy">
+    <div class="whl-alum-name">Maxwell Naah</div>
+    <div class="whl-alum-role">Former Research Assistant</div>
+    <div class="whl-alum-dates">Aug 2023 – Oct 2024</div>
+  </div>
 </div>
