@@ -154,10 +154,10 @@ wastewater, and soil samples via robotic sampling and spectrophotometry.
 ## Field Gallery
 
 <div class="whl-video-grid">
-  <video class="whl-video" autoplay loop muted playsinline preload="metadata" aria-label="Field site footage">
+  <video class="whl-video" autoplay loop muted playsinline controls controlslist="nodownload" preload="metadata" aria-label="Field site footage">
     <source src="/assets/video/video_1.mp4" type="video/mp4" />
   </video>
-  <video class="whl-video" autoplay loop muted playsinline preload="metadata" aria-label="Field site footage">
+  <video class="whl-video" autoplay loop muted playsinline controls controlslist="nodownload" preload="metadata" aria-label="Field site footage">
     <source src="/assets/video/video_2.mp4" type="video/mp4" />
   </video>
 </div>
