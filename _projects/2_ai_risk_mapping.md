@@ -35,13 +35,13 @@ Florida.
 
 ### Representative recent publications
 
-- *Artificial Intelligence in Hydrology: Advancements in Soil, Water
-  Resource Management, and Sustainable Development* — Sustainability (2025).
-- *Flood risk projection in Iran using CMIP6 models and frequency
-  analysis of precipitation* — Stochastic Environmental Research and Risk
+- _Artificial Intelligence in Hydrology: Advancements in Soil, Water
+  Resource Management, and Sustainable Development_ — Sustainability (2025).
+- _Flood risk projection in Iran using CMIP6 models and frequency
+  analysis of precipitation_ — Stochastic Environmental Research and Risk
   Assessment (2024).
-- *Projections of meteorological drought severity-duration variations
-  based on CMIP6* — Scientific Reports (2024).
+- _Projections of meteorological drought severity-duration variations
+  based on CMIP6_ — Scientific Reports (2024).
 
 <div class="whl-btn-row">
   <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20AI-Driven%20Environmental%20Risk%20Mapping"><i class="fas fa-handshake"></i> Collaborate on this research</a>

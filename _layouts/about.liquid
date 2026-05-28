@@ -1,27 +1,25 @@
 ---
 layout: default
 ---
-
 {% comment %}
-=============================================================================
-  ABOUT / HOME LAYOUT — local override of al_folio_core's about.liquid
-=============================================================================
-  This adds an impactful landing "hero" (logo + lab name + tagline + primary
-  CTAs + research pillars) above the standard about content. The hero only
-  renders when the page defines a `hero:` block in its front matter (i.e. the
-  homepage), so any other page using `layout: about` falls back to the plain
-  header.
+  =============================================================================
+    ABOUT / HOME LAYOUT — local override of al_folio_core's about.liquid
+  =============================================================================
+    This adds an impactful landing "hero" (logo + lab name + tagline + primary
+    CTAs + research pillars) above the standard about content. The hero only
+    renders when the page defines a `hero:` block in its front matter (i.e. the
+    homepage), so any other page using `layout: about` falls back to the plain
+    header.
 
-  Everything below the hero (profile card, page content, news, selected
-  publications, social icons) mirrors the upstream al-folio about layout so
-  no functionality is lost. Theme includes (figure.liquid, news.liquid,
-  selected_papers.liquid) and the {% social_links %} tag still come from the
-  al_folio_core gem.
-=============================================================================
+    Everything below the hero (profile card, page content, news, selected
+    publications, social icons) mirrors the upstream al-folio about layout so
+    no functionality is lost. Theme includes (figure.liquid, news.liquid,
+    selected_papers.liquid) and the {% social_links %} tag still come from the
+    al_folio_core gem.
+  =============================================================================
 {% endcomment %}
 
 <div class="post">
-
   {% if page.hero %}
     <!-- ===================== HERO ===================== -->
     <section class="whl-hero">
@@ -32,11 +30,12 @@ layout: default
             src="{{ page.hero.logo | relative_url }}"
             alt="{{ site.title }} logo"
             loading="eager"
-          />
+          >
         {% endif %}
 
         <h1 class="whl-hero-title">
-          {{ site.first_name }} <span class="whl-gradient-text">{{ site.middle_name }}</span> {{ site.last_name }}
+          {{ site.first_name }}
+          <span class="whl-gradient-text">{{ site.middle_name }}</span> {{ site.last_name }}
         </h1>
 
         {% if page.hero.tagline %}

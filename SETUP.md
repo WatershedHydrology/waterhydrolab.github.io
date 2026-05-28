@@ -18,8 +18,8 @@ Before doing anything else, delete these two items from this folder
 (use Finder/Explorer — they were created during scaffolding and can't be
 removed from inside the assistant's sandbox):
 
-- `git_leftover_DELETE_ME/`  ← old, partial `.git` folder
-- `TEST_DELETE_ME.txt`       ← empty test file
+- `git_leftover_DELETE_ME/` ← old, partial `.git` folder
+- `TEST_DELETE_ME.txt` ← empty test file
 
 Once those are gone, continue.
 
@@ -39,14 +39,14 @@ Enable two-factor authentication: <https://github.com/settings/security>.
 
 Create a new repository at <https://github.com/new>:
 
-| Field             | Value                          |
-|-------------------|--------------------------------|
-| Owner             | `waterhydrolab`                |
-| Repository name   | `waterhydrolab.github.io`      |
-| Visibility        | **Public**                     |
-| Initialize README | **No** (we already have one)   |
-| .gitignore        | None                           |
-| License           | None (we keep al-folio's MIT)  |
+| Field             | Value                         |
+| ----------------- | ----------------------------- |
+| Owner             | `waterhydrolab`               |
+| Repository name   | `waterhydrolab.github.io`     |
+| Visibility        | **Public**                    |
+| Initialize README | **No** (we already have one)  |
+| .gitignore        | None                          |
+| License           | None (we keep al-folio's MIT) |
 
 > **Why this repo name?** A repository named exactly
 > `<username>.github.io` is treated as the user's "personal site" by
@@ -107,8 +107,8 @@ Once the workflow succeeds, configure Pages:
 1. Go to
    <https://github.com/waterhydrolab/waterhydrolab.github.io/settings/pages>.
 2. Under **Build and deployment**:
-   - **Source:** *Deploy from a branch*
-   - **Branch:** `gh-pages`  /  `/ (root)`
+   - **Source:** _Deploy from a branch_
+   - **Branch:** `gh-pages` / `/ (root)`
 3. Click **Save**.
 
 GitHub will publish the site within ~1 minute. You can preview it at
@@ -129,18 +129,18 @@ zone:
 
 #### Apex domain → GitHub Pages IPs (A records)
 
-| Type | Host / Name | Value             | TTL  |
-|------|-------------|-------------------|------|
-| A    | @           | 185.199.108.153   | 3600 |
-| A    | @           | 185.199.109.153   | 3600 |
-| A    | @           | 185.199.110.153   | 3600 |
-| A    | @           | 185.199.111.153   | 3600 |
+| Type | Host / Name | Value           | TTL  |
+| ---- | ----------- | --------------- | ---- |
+| A    | @           | 185.199.108.153 | 3600 |
+| A    | @           | 185.199.109.153 | 3600 |
+| A    | @           | 185.199.110.153 | 3600 |
+| A    | @           | 185.199.111.153 | 3600 |
 
 #### `www` subdomain → CNAME
 
-| Type  | Host / Name | Value                          | TTL  |
-|-------|-------------|--------------------------------|------|
-| CNAME | www         | waterhydrolab.github.io        | 3600 |
+| Type  | Host / Name | Value                   | TTL  |
+| ----- | ----------- | ----------------------- | ---- |
+| CNAME | www         | waterhydrolab.github.io | 3600 |
 
 These records are from GitHub's official guide
 ([Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
@@ -154,8 +154,8 @@ Back at
 
 1. Under **Custom domain**, enter `watershedhydrologylab.com` and click
    **Save**.
-   *(The `CNAME` file in the repo already contains this value, so GitHub
-   will detect it automatically as soon as DNS resolves.)*
+   _(The `CNAME` file in the repo already contains this value, so GitHub
+   will detect it automatically as soon as DNS resolves.)_
 2. Wait for the green DNS-check banner.
 3. Tick **Enforce HTTPS** once it becomes available (a few minutes after
    the DNS check passes).
@@ -170,16 +170,16 @@ The site will now be live at
 The site already links to these. What follows is the one-time set-up
 that lives **outside** the website.
 
-| Service        | What to do                                                                                                                                          |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **X / Twitter** | Ensure `@WaterHydroLab` is current. Add a link back to `watershedhydrologylab.com` in the X bio and pinned tweet.                                  |
-| **LinkedIn**    | Create a LinkedIn **Company / Showcase page** for the lab if you want a separate presence from the PI's personal profile. Add the website link there. Update `linkedin_username` in `_data/socials.yml` once you have the slug. |
-| **GitHub**     | The org is `waterhydrolab`. Future code releases (models, scripts) can live as additional repos under this org and be linked from the site.        |
-| **Google Scholar** | Open Dr. Golmohammadi's Scholar profile, copy the value of the `user=` parameter in the URL, and confirm it matches the `scholar_userid: cpXxmlYAAAAJ` line in `_data/socials.yml`. If different, update the file. |
-| **ORCID**      | Confirmed: `0000-0001-5532-3892`. The ORCID profile should mention the lab website under "Websites".                                                |
-| **ResearchGate** | Confirmed slug: `Golmar-Golmohammadi`. Add `watershedhydrologylab.com` to the profile's "Introduction" section.                                  |
-| **Scopus**     | Find Dr. Golmohammadi's Scopus Author ID by searching <https://www.scopus.com/freelookup/form/author.uri>. Add the URL to `_data/socials.yml` once you have it. |
-| **PubMed**     | PubMed indexes authors by an `Author Search` URL. Not strictly necessary for hydrology, but you can add the link as a custom_social entry if desired. |
+| Service            | What to do                                                                                                                                                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **X / Twitter**    | Ensure `@WaterHydroLab` is current. Add a link back to `watershedhydrologylab.com` in the X bio and pinned tweet.                                                                                                               |
+| **LinkedIn**       | Create a LinkedIn **Company / Showcase page** for the lab if you want a separate presence from the PI's personal profile. Add the website link there. Update `linkedin_username` in `_data/socials.yml` once you have the slug. |
+| **GitHub**         | The org is `waterhydrolab`. Future code releases (models, scripts) can live as additional repos under this org and be linked from the site.                                                                                     |
+| **Google Scholar** | Open Dr. Golmohammadi's Scholar profile, copy the value of the `user=` parameter in the URL, and confirm it matches the `scholar_userid: cpXxmlYAAAAJ` line in `_data/socials.yml`. If different, update the file.              |
+| **ORCID**          | Confirmed: `0000-0001-5532-3892`. The ORCID profile should mention the lab website under "Websites".                                                                                                                            |
+| **ResearchGate**   | Confirmed slug: `Golmar-Golmohammadi`. Add `watershedhydrologylab.com` to the profile's "Introduction" section.                                                                                                                 |
+| **Scopus**         | Find Dr. Golmohammadi's Scopus Author ID by searching <https://www.scopus.com/freelookup/form/author.uri>. Add the URL to `_data/socials.yml` once you have it.                                                                 |
+| **PubMed**         | PubMed indexes authors by an `Author Search` URL. Not strictly necessary for hydrology, but you can add the link as a custom_social entry if desired.                                                                           |
 
 Connecting these profiles to the website is one-way (we link **out**
 from the site to them) **and** two-way only if you also paste the

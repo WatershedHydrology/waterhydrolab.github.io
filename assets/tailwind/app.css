@@ -29,10 +29,10 @@
   --color-muted: #9bb0cc;
 
   /* Accent palette */
-  --color-accent: #22d3ee;    /* cyan — water */
-  --color-accent-2: #3b82f6;  /* blue */
-  --color-accent-3: #10b981;  /* emerald — sustainability */
-  --color-accent-4: #8b5cf6;  /* violet — used in gradient stop */
+  --color-accent: #22d3ee; /* cyan — water */
+  --color-accent-2: #3b82f6; /* blue */
+  --color-accent-3: #10b981; /* emerald — sustainability */
+  --color-accent-4: #8b5cf6; /* violet — used in gradient stop */
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -83,8 +83,7 @@ html::before {
   background:
     radial-gradient(900px 600px at 10% -10%, rgb(34 211 238 / 18%), transparent 60%),
     radial-gradient(900px 600px at 90% 10%, rgb(139 92 246 / 15%), transparent 60%),
-    radial-gradient(800px 600px at 50% 100%, rgb(16 185 129 / 12%), transparent 60%),
-    var(--whl-bg);
+    radial-gradient(800px 600px at 50% 100%, rgb(16 185 129 / 12%), transparent 60%), var(--whl-bg);
 }
 
 html::after {
@@ -93,17 +92,22 @@ html::after {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgb(255 255 255 / 4%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 4%) 1px, transparent 1px);
+  background-image: linear-gradient(rgb(255 255 255 / 4%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 4%) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 80%);
 }
 
 /* Heading family — Fraunces serif for hierarchy, bold weight. */
-h1, h2, h3, h4, h5, h6,
-.al-h1, .al-h2, .al-h3 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.al-h1,
+.al-h2,
+.al-h3 {
   font-family: var(--font-serif);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -137,7 +141,9 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
 }
 
-.whl-btn-row.whl-btn-row-center { justify-content: center; }
+.whl-btn-row.whl-btn-row-center {
+  justify-content: center;
+}
 
 .whl-btn {
   display: inline-flex;
@@ -153,7 +159,11 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none !important;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -166,7 +176,9 @@ h1, h2, h3, h4, h5, h6,
   text-decoration: none !important;
 }
 
-.whl-btn:active { transform: translateY(0); }
+.whl-btn:active {
+  transform: translateY(0);
+}
 
 .whl-btn-primary {
   background: var(--whl-gradient);
@@ -192,7 +204,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .whl-btn i,
-.whl-btn svg { font-size: 1em; }
+.whl-btn svg {
+  font-size: 1em;
+}
 
 /* =============================================================================
    Surfaces — content cards used by the contact page and on the homepage to
@@ -209,7 +223,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .whl-card h3,
-.whl-card h4 { margin-top: 0; }
+.whl-card h4 {
+  margin-top: 0;
+}
 
 .whl-card-grid {
   display: grid;
@@ -226,7 +242,9 @@ h1, h2, h3, h4, h5, h6,
   margin: 1.25rem 0;
 }
 
-.whl-callout p:last-child { margin-bottom: 0; }
+.whl-callout p:last-child {
+  margin-bottom: 0;
+}
 
 /* =============================================================================
    EDITORIAL REFINEMENT LAYER
@@ -321,7 +339,10 @@ h1, h2, h3, h4, h5, h6,
 
 .whl-card {
   padding: 1.6rem 1.75rem;
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .whl-card:hover {
@@ -443,7 +464,9 @@ footer .container {
   color: var(--whl-muted);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .whl-hero-meta a:hover {
@@ -474,7 +497,10 @@ footer .container {
   text-decoration: none !important;
   color: var(--whl-text) !important;
   box-shadow: var(--whl-shadow);
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .whl-pillar:hover {

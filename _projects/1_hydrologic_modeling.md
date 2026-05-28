@@ -40,13 +40,13 @@ These models support:
 See the [publications page](/publications/) for the full list. Notable
 related works:
 
-- *Compilation simulation of surface water and groundwater resources using
-  the SWAT-MODFLOW model for a karstic basin in Iran* — Hydrogeology
+- _Compilation simulation of surface water and groundwater resources using
+  the SWAT-MODFLOW model for a karstic basin in Iran_ — Hydrogeology
   Journal (2023).
-- *Assessment of Impacts of Climate Change on Tile Discharge and Nitrogen
-  Yield Using the DRAINMOD Model* — Hydrology (2020).
-- *Designing a deep learning-based framework for the prediction of lake
-  surface closed curves* — Earth Science Informatics (2025).
+- _Assessment of Impacts of Climate Change on Tile Discharge and Nitrogen
+  Yield Using the DRAINMOD Model_ — Hydrology (2020).
+- _Designing a deep learning-based framework for the prediction of lake
+  surface closed curves_ — Earth Science Informatics (2025).
 
 <div class="whl-btn-row">
   <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20Hydrologic%20%26%20Water%20Quality%20Modeling"><i class="fas fa-handshake"></i> Collaborate on this research</a>

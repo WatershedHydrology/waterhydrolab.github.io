@@ -13,9 +13,9 @@
 #    - Re-write the body paragraphs to refresh the lab description.
 # =============================================================================
 
-layout: about                 # use the "about" layout — do not change
-title: about                  # the navbar label
-permalink: /                  # this page lives at the site root
+layout: about # use the "about" layout — do not change
+title: about # the navbar label
+permalink: / # this page lives at the site root
 
 # Subtitle appears in smaller text under the lab name on the homepage.
 # We highlight Dr. Golmohammadi and her UF/IFAS affiliations as links.
@@ -50,8 +50,8 @@ hero:
 # ----- Profile picture & contact card on the right side of the homepage -----
 profile:
   align: right
-  image: team/golmar_golmohammadi.jpg   # path is relative to /assets/img/
-  image_circular: false                 # set to true for a round crop
+  image: team/golmar_golmohammadi.jpg # path is relative to /assets/img/
+  image_circular: false # set to true for a round crop
   # `more_info` is rendered as HTML directly under the photo. We use it for
   # the lab's mailing address, phone, and email.
   more_info: >
@@ -71,8 +71,8 @@ social: true
 # News strip on the homepage. Add files to _news/ to populate it.
 announcements:
   enabled: true
-  scrollable: true   # add a vertical scrollbar after the first few items
-  limit: 5           # max items to show; leave blank to show all
+  scrollable: true # add a vertical scrollbar after the first few items
+  limit: 5 # max items to show; leave blank to show all
 
 # Latest blog posts. We don't run a blog right now, so disabled.
 latest_posts:

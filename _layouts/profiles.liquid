@@ -1,16 +1,15 @@
 ---
 layout: page
 ---
-
 {% comment %}
-=============================================================================
-  LOCAL OVERRIDE of al_folio_core's _layouts/profiles.liquid.
-  Change vs upstream: render the page body ({{ content }}) AFTER the profiles
-  loop. Upstream only emits {{ content }} as a fallback inside a profile that
-  has no `content:` field, so any markdown written in the page body (our
-  alumni photo grid and the "Join the lab" CTA) was silently dropped. Marked
-  with "WHL:". Re-sync on al_folio_core upgrade.
-=============================================================================
+  =============================================================================
+    LOCAL OVERRIDE of al_folio_core's _layouts/profiles.liquid.
+    Change vs upstream: render the page body ({{ content }}) AFTER the profiles
+    loop. Upstream only emits {{ content }} as a fallback inside a profile that
+    has no `content:` field, so any markdown written in the page body (our
+    alumni photo grid and the "Join the lab" CTA) was silently dropped. Marked
+    with "WHL:". Re-sync on al_folio_core upgrade.
+  =============================================================================
 {% endcomment %}
 
 <div class="post">
@@ -34,7 +33,10 @@ layout: page
         </div>
 
         <div class="clearfix">
-          {% if profile.content %}
+          {% comment %} WHL: bios are now inline in profiles.md (CMS-editable), not separate files {% endcomment %}
+          {% if profile.bio %}
+            {{ profile.bio | markdownify }}
+          {% elsif profile.content %}
             {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
             {{ profile_content | markdownify }}
           {% endif %}

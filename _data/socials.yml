@@ -22,9 +22,9 @@
 email: g.golmohammadi@ufl.edu
 
 # ----- Academic identifiers (PI: Dr. Golmar Golmohammadi) -----
-orcid_id: 0000-0001-5532-3892          # ORCID — https://orcid.org/0000-0001-5532-3892
-scholar_userid: cpXxmlYAAAAJ           # Google Scholar — VERIFY this ID with Dr. Golmohammadi before going live
-research_gate_profile: Golmar-Golmohammadi  # ResearchGate slug (jekyll-socials key MUST be `research_gate_profile` with underscore)
+orcid_id: 0000-0001-5532-3892 # ORCID — https://orcid.org/0000-0001-5532-3892
+scholar_userid: cpXxmlYAAAAJ # Google Scholar — VERIFY this ID with Dr. Golmohammadi before going live
+research_gate_profile: Golmar-Golmohammadi # ResearchGate slug (jekyll-socials key MUST be `research_gate_profile` with underscore)
 # scopus_id:                            # Scopus author ID (not yet known — add when found)
 # semanticscholar_id:                   # Semantic Scholar author ID
 # publons_id:                           # Publons / Web of Science
@@ -36,9 +36,9 @@ research_gate_profile: Golmar-Golmohammadi  # ResearchGate slug (jekyll-socials 
 # NOTE: the legacy ufrcrecwater.com site lists Instagram, Facebook, YouTube,
 # and a lab LinkedIn under the handle `ufrecwater` — those are NOT the lab's
 # current accounts. Do not link to them unless the PI confirms.
-x_username: WaterHydroLab              # X / Twitter — https://x.com/WaterHydroLab
-linkedin_username: golmar-golmohammadi-35791a17    # PI's LinkedIn slug only — jekyll-socials prepends `https://www.linkedin.com/in/`
-github_username: waterhydrolab         # GitHub organisation that owns this repository
+x_username: WaterHydroLab # X / Twitter — https://x.com/WaterHydroLab
+linkedin_username: golmar-golmohammadi-35791a17 # PI's LinkedIn slug only — jekyll-socials prepends `https://www.linkedin.com/in/`
+github_username: waterhydrolab # GitHub organisation that owns this repository
 # instagram_id:                        # add if the lab confirms an IG handle
 # facebook_id:                         # add if the lab confirms an FB page
 # youtube_id:                          # add if the lab confirms a YouTube channel

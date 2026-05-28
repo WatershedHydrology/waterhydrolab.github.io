@@ -1,14 +1,16 @@
-<!-- ===========================================================================
-  LOCAL OVERRIDE of al_folio_core's _includes/head.liquid.
-  Reason: al-folio v1.x ships its CSS prebuilt and the thin starter does not
-  recompile assets/tailwind/app.css, so our custom styles must be linked here.
-  This is a verbatim copy of the gem head.liquid with TWO additions, both
-  clearly marked with "WHL:" comments:
-    1. Inter + Fraunces web fonts (our heading/body typefaces).
-    2. A link to /assets/whl.css (our design system) AFTER main.css so it wins.
-  If you upgrade al_folio_core and the upstream head.liquid changes, re-sync
-  this file and re-apply the two WHL additions.
-=========================================================================== -->
+<!--
+  ===========================================================================
+    LOCAL OVERRIDE of al_folio_core's _includes/head.liquid.
+    Reason: al-folio v1.x ships its CSS prebuilt and the thin starter does not
+    recompile assets/tailwind/app.css, so our custom styles must be linked here.
+    This is a verbatim copy of the gem head.liquid with TWO additions, both
+    clearly marked with "WHL:" comments:
+      1. Inter + Fraunces web fonts (our heading/body typefaces).
+      2. A link to /assets/whl.css (our design system) AFTER main.css so it wins.
+    If you upgrade al_folio_core and the upstream head.liquid changes, re-sync
+    this file and re-apply the two WHL additions.
+  ===========================================================================
+-->
 
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
@@ -105,8 +107,10 @@
 {% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
 
-<!-- WHL: lab design system — MUST come after main.css so it wins. Lives
-     outside /assets/css/ so the purgecss step never strips it. -->
+<!--
+  WHL: lab design system — MUST come after main.css so it wins. Lives
+  outside /assets/css/ so the purgecss step never strips it.
+-->
 <link rel="stylesheet" href="{{ '/assets/whl.css' | relative_url | bust_file_cache }}">
 
 {% if page.layout == 'cv' and site.plugins contains 'al_folio_cv' and site.al_folio.features.cv.enabled != false %}

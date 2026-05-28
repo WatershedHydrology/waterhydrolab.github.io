@@ -101,7 +101,7 @@ you generally don't need to touch it.
    ---
    layout: post
    date: 2026-05-27 12:00:00-0400
-   inline: true              # set false if it needs its own full page
+   inline: true # set false if it needs its own full page
    related_posts: false
    ---
    ```
@@ -197,21 +197,21 @@ The following items were drawn from public sources or carried over from
 the old site. Please verify each one before the launch:
 
 - [ ] **Google Scholar profile ID** in `_data/socials.yml`
-  (`scholar_userid: cpXxmlYAAAAJ`). I picked the most-likely match;
-  please confirm.
+      (`scholar_userid: cpXxmlYAAAAJ`). I picked the most-likely match;
+      please confirm.
 - [ ] **Lab email** in `_data/socials.yml`. Default is
-  `g.golmohammadi@ufl.edu`. The old site used a separate Gmail
-  (`hydrologyrcrecflorida@gmail.com`) — decide which to use.
+      `g.golmohammadi@ufl.edu`. The old site used a separate Gmail
+      (`hydrologyrcrecflorida@gmail.com`) — decide which to use.
 - [ ] **Phone number on the homepage** (`_pages/about.md`). The current
-  value `(863) 374-7053` is from the SWES faculty page. The old site
-  showed a placeholder (`1-800-555-5555`).
+      value `(863) 374-7053` is from the SWES faculty page. The old site
+      showed a placeholder (`1-800-555-5555`).
 - [ ] **Team photos.** The supervisor's official UF/IFAS photo is
-  included; everyone else has a placeholder SVG with their initials.
-  Replace each `assets/img/team/<name>.svg` with a real JPG/PNG when
-  available.
+      included; everyone else has a placeholder SVG with their initials.
+      Replace each `assets/img/team/<name>.svg` with a real JPG/PNG when
+      available.
 - [ ] **Research images.** The three project cards use placeholder SVGs
-  (`assets/img/research_placeholder_*.svg`). Replace with real photos
-  from the field or with diagrams.
+      (`assets/img/research_placeholder_*.svg`). Replace with real photos
+      from the field or with diagrams.
 
 ---
 

@@ -1,9 +1,11 @@
-<!-- ===========================================================================
-  LOCAL OVERRIDE of al_folio_core's _includes/header.liquid.
-  Change vs upstream: the navbar brand always shows the LAB LOGO + NAME
-  (upstream hid the brand on the homepage and never showed a logo). Marked
-  with "WHL:" comments. Everything else mirrors upstream — re-sync on upgrade.
-=========================================================================== -->
+<!--
+  ===========================================================================
+    LOCAL OVERRIDE of al_folio_core's _includes/header.liquid.
+    Change vs upstream: the navbar brand always shows the LAB LOGO + NAME
+    (upstream hid the brand on the homepage and never showed a logo). Marked
+    with "WHL:" comments. Everything else mirrors upstream — re-sync on upgrade.
+  ===========================================================================
+-->
 
 <header>
   <!-- Nav Bar -->
@@ -11,7 +13,7 @@
     <div class="container">
       <!-- WHL: brand = logo + lab name, on every page -->
       <a class="navbar-brand title whl-brand" href="{{ '/' | relative_url }}">
-        <img class="whl-brand-logo" src="{{ '/assets/img/whl_logo.png' | relative_url }}" alt="{{ site.title }} logo" />
+        <img class="whl-brand-logo" src="{{ '/assets/img/whl_logo.png' | relative_url }}" alt="{{ site.title }} logo">
         <span class="whl-brand-name">{{- site.title -}}</span>
       </a>
       <!-- Navbar Toggle -->

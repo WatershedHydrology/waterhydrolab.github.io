@@ -104,8 +104,7 @@ html::before {
   background:
     radial-gradient(900px 620px at 8% -8%, rgb(196 107 65 / 16%), transparent 60%),
     radial-gradient(900px 620px at 92% 4%, rgb(58 122 110 / 14%), transparent 60%),
-    radial-gradient(820px 600px at 50% 104%, rgb(194 146 74 / 12%), transparent 60%),
-    var(--global-bg-color);
+    radial-gradient(820px 600px at 50% 104%, rgb(194 146 74 / 12%), transparent 60%), var(--global-bg-color);
 }
 
 html::after {
@@ -114,9 +113,7 @@ html::after {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgb(240 232 216 / 4%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(240 232 216 / 4%) 1px, transparent 1px);
+  background-image: linear-gradient(rgb(240 232 216 / 4%) 1px, transparent 1px), linear-gradient(90deg, rgb(240 232 216 / 4%) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at 50% 0%, #000 26%, transparent 78%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 26%, transparent 78%);
@@ -124,17 +121,24 @@ html::after {
 
 html[data-theme="light"] html::after,
 html:not([data-theme="dark"])::after {
-  background-image:
-    linear-gradient(rgb(43 38 32 / 4%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(43 38 32 / 4%) 1px, transparent 1px);
+  background-image: linear-gradient(rgb(43 38 32 / 4%) 1px, transparent 1px), linear-gradient(90deg, rgb(43 38 32 / 4%) 1px, transparent 1px);
 }
 
 /* -----------------------------------------------------------------------------
    3. TYPOGRAPHY — strong hierarchy. Headings = Fraunces serif, heavy, large.
    Body = Inter. This is the contrast that makes titles obviously titles.
    ----------------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6,
-.post h1, .post h2, .post h3, .post h4, .post-title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post-title {
   font-family: var(--font-serif) !important;
   color: var(--global-text-color);
   letter-spacing: -0.02em;
@@ -170,7 +174,9 @@ h1, h2, h3, h4, h5, h6,
   background: var(--whl-gradient);
 }
 
-.post h2 a { color: inherit; }
+.post h2 a {
+  color: inherit;
+}
 
 .post h3 {
   font-weight: 600;
@@ -194,10 +200,18 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.75;
 }
 
-.post p { margin-bottom: 1.25rem; }
-.post ul li, .post ol li { margin-bottom: 0.5rem; }
+.post p {
+  margin-bottom: 1.25rem;
+}
+.post ul li,
+.post ol li {
+  margin-bottom: 0.5rem;
+}
 
-.post strong { color: var(--global-text-color); font-weight: 700; }
+.post strong {
+  color: var(--global-text-color);
+  font-weight: 700;
+}
 
 /* Links in body get the terracotta theme color with a subtle underline */
 .post a:not(.whl-btn):not(.nav-link) {
@@ -276,8 +290,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Anchor-jump offset so headings aren't tucked under the sticky bar */
-.post h1, .post h2, .post h3, .post h4,
-.post-title, .whl-hero {
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post-title,
+.whl-hero {
   scroll-margin-top: 5.5rem;
 }
 
@@ -291,7 +309,9 @@ h1, h2, h3, h4, h5, h6,
   margin: 1.85rem 0;
   align-items: center;
 }
-.whl-btn-row-center { justify-content: center; }
+.whl-btn-row-center {
+  justify-content: center;
+}
 
 .whl-btn {
   display: inline-flex;
@@ -308,7 +328,11 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none !important;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
   cursor: pointer;
 }
 .whl-btn:hover,
@@ -328,8 +352,12 @@ h1, h2, h3, h4, h5, h6,
   filter: brightness(1.07);
   border-color: transparent;
 }
-.whl-btn-ghost { background: transparent; }
-.whl-btn-ghost:hover { background: var(--whl-gradient-soft); }
+.whl-btn-ghost {
+  background: transparent;
+}
+.whl-btn-ghost:hover {
+  background: var(--whl-gradient-soft);
+}
 
 /* -----------------------------------------------------------------------------
    7. CARDS, GRIDS, CALLOUTS
@@ -341,13 +369,19 @@ h1, h2, h3, h4, h5, h6,
   padding: 1.6rem 1.75rem;
   margin: 1rem 0;
   box-shadow: var(--whl-shadow);
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 .whl-card:hover {
   transform: translateY(-3px);
   border-color: rgb(196 107 65 / 45%);
 }
-.whl-card h3, .whl-card h4 { margin-top: 0; }
+.whl-card h3,
+.whl-card h4 {
+  margin-top: 0;
+}
 
 .whl-card-grid {
   display: grid;
@@ -364,7 +398,9 @@ h1, h2, h3, h4, h5, h6,
   padding: 1.3rem 1.6rem;
   margin: 1.9rem 0;
 }
-.whl-callout p:last-child { margin-bottom: 0; }
+.whl-callout p:last-child {
+  margin-bottom: 0;
+}
 
 /* -----------------------------------------------------------------------------
    8. HERO + RESEARCH PILLARS (homepage landing)
@@ -374,7 +410,10 @@ h1, h2, h3, h4, h5, h6,
   padding: 3rem 0 1rem;
   margin-bottom: 1.5rem;
 }
-.whl-hero-inner { max-width: 820px; margin: 0 auto; }
+.whl-hero-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
 
 .whl-hero-logo {
   display: block;
@@ -421,10 +460,17 @@ h1, h2, h3, h4, h5, h6,
   color: var(--global-text-color-light);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
-.whl-hero-meta a:hover { color: var(--whl-terracotta); border-bottom-color: var(--whl-terracotta); }
-.whl-hero-cta { justify-content: center; }
+.whl-hero-meta a:hover {
+  color: var(--whl-terracotta);
+  border-bottom-color: var(--whl-terracotta);
+}
+.whl-hero-cta {
+  justify-content: center;
+}
 
 .whl-pillars {
   display: grid;
@@ -444,11 +490,21 @@ h1, h2, h3, h4, h5, h6,
   text-decoration: none !important;
   color: var(--global-text-color) !important;
   box-shadow: var(--whl-shadow);
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
-.whl-pillar:nth-child(2) { border-top-color: var(--whl-petrol); }
-.whl-pillar:nth-child(3) { border-top-color: var(--whl-clay); }
-.whl-pillar:hover { transform: translateY(-5px); box-shadow: 0 30px 76px -28px rgb(0 0 0 / 65%); }
+.whl-pillar:nth-child(2) {
+  border-top-color: var(--whl-petrol);
+}
+.whl-pillar:nth-child(3) {
+  border-top-color: var(--whl-clay);
+}
+.whl-pillar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 76px -28px rgb(0 0 0 / 65%);
+}
 .whl-pillar h3 {
   font-family: var(--font-serif);
   margin: 0 0 0.7rem;
@@ -474,10 +530,15 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   gap: 0.45rem;
 }
-.whl-pillar:hover .whl-pillar-more { gap: 0.65rem; }
+.whl-pillar:hover .whl-pillar-more {
+  gap: 0.65rem;
+}
 
 /* ---- Alumni mini-cards (people page) ---- */
-.whl-alum { text-align: center; padding: 1.6rem 1.25rem; }
+.whl-alum {
+  text-align: center;
+  padding: 1.6rem 1.25rem;
+}
 .whl-alum-photo {
   display: block;
   width: 116px;
@@ -496,8 +557,17 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.3rem;
   color: var(--global-text-color);
 }
-.whl-alum-role { color: var(--global-text-color-light); font-size: 0.9rem; line-height: 1.35; }
-.whl-alum-dates { color: var(--global-text-color-light); font-size: 0.82rem; opacity: 0.85; margin-top: 0.2rem; }
+.whl-alum-role {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+.whl-alum-dates {
+  color: var(--global-text-color-light);
+  font-size: 0.82rem;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+}
 
 /* -----------------------------------------------------------------------------
    9. EMBEDDED MAP — large, like a banner (contact "Find us")
@@ -528,7 +598,9 @@ h1, h2, h3, h4, h5, h6,
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--whl-line-strong);
 }
-.publications ol.bibliography > li:last-child { border-bottom: 0; }
+.publications ol.bibliography > li:last-child {
+  border-bottom: 0;
+}
 
 /* year group headers in the publication list */
 .publications h2.bibliography,
@@ -546,8 +618,12 @@ h1, h2, h3, h4, h5, h6,
   border-radius: 0.5rem;
 }
 
-.publications .title { font-weight: 600; }
-.publications .author a.author-orcid { opacity: 0.8; }
+.publications .title {
+  font-weight: 600;
+}
+.publications .author a.author-orcid {
+  opacity: 0.8;
+}
 
 /* publication action buttons (DOI/HTML/PDF/Bib) — earthy outline */
 .publications .links a.btn,
@@ -568,18 +644,22 @@ h1, h2, h3, h4, h5, h6,
    ----------------------------------------------------------------------------- */
 .news .table td,
 .news .table th,
-table td, table th {
+table td,
+table th {
   border-top: 1px solid var(--whl-line-strong);
 }
 
-.post hr, hr {
+.post hr,
+hr {
   border: 0;
   height: 1px;
   background: var(--whl-line-strong);
   margin: 2.75rem 0;
 }
 
-footer .container { letter-spacing: 0.015em; }
+footer .container {
+  letter-spacing: 0.015em;
+}
 
 /* Profile photo framing on about/people */
 .profile img {

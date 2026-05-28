@@ -22,24 +22,24 @@ the PR is blocked before Cloudflare even tries.
    this repository.
 3. Configure the build:
 
-   | Field                       | Value                                                                                          |
-   |-----------------------------|------------------------------------------------------------------------------------------------|
-   | **Project name**            | `watershedhydrologylab`                                                                        |
-   | **Production branch**       | `main`                                                                                         |
-   | **Framework preset**        | `Jekyll` (or `None` — the build command below overrides it)                                    |
-   | **Build command**           | `pip install --upgrade nbconvert && bundle install && npm ci && JEKYLL_ENV=production bundle exec jekyll build && npx purgecss -c purgecss.config.js` |
-   | **Build output directory**  | `_site`                                                                                        |
-   | **Root directory**          | leave empty (the repo root **is** the project root)                                            |
-   | **Build system version**    | `2` (latest)                                                                                   |
+   | Field                      | Value                                                                                                                                                 |
+   | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **Project name**           | `watershedhydrologylab`                                                                                                                               |
+   | **Production branch**      | `main`                                                                                                                                                |
+   | **Framework preset**       | `Jekyll` (or `None` — the build command below overrides it)                                                                                           |
+   | **Build command**          | `pip install --upgrade nbconvert && bundle install && npm ci && JEKYLL_ENV=production bundle exec jekyll build && npx purgecss -c purgecss.config.js` |
+   | **Build output directory** | `_site`                                                                                                                                               |
+   | **Root directory**         | leave empty (the repo root **is** the project root)                                                                                                   |
+   | **Build system version**   | `2` (latest)                                                                                                                                          |
 
 4. Open **Settings → Environment variables → Production** and add:
 
-   | Variable          | Value     | Why                                          |
-   |-------------------|-----------|----------------------------------------------|
-   | `RUBY_VERSION`    | `3.3.5`   | Matches CI; the gems pin to this minor.       |
-   | `NODE_VERSION`    | `20.18.1` | LTS Node 20. Used by `npm ci` and purgecss.   |
-   | `PYTHON_VERSION`  | `3.13.1`  | Needed for `nbconvert` (jupyter notebooks).  |
-   | `JEKYLL_ENV`      | `production` | Triggers minifier + production CSS branch. |
+   | Variable         | Value        | Why                                         |
+   | ---------------- | ------------ | ------------------------------------------- |
+   | `RUBY_VERSION`   | `3.3.5`      | Matches CI; the gems pin to this minor.     |
+   | `NODE_VERSION`   | `20.18.1`    | LTS Node 20. Used by `npm ci` and purgecss. |
+   | `PYTHON_VERSION` | `3.13.1`     | Needed for `nbconvert` (jupyter notebooks). |
+   | `JEKYLL_ENV`     | `production` | Triggers minifier + production CSS branch.  |
 
    Cloudflare Pages also reads `.tool-versions` from the repo as a
    fallback. The env-var pins above are stronger and survive editing
@@ -90,15 +90,15 @@ domain we need Cloudflare to be the **authoritative DNS** for the zone.
 
 ## 3. What lives where (so you don't get confused)
 
-| Concern                | Owned by             |
-|------------------------|----------------------|
-| Source of truth        | GitHub repo (`main`) |
-| Build (Jekyll)         | Cloudflare Pages     |
-| CDN + SSL              | Cloudflare           |
-| DNS                    | Cloudflare (after § 2) |
-| Domain registration    | GoDaddy (only the registrar, no nameservers needed there once delegated) |
-| CI build-check         | GitHub Actions       |
-| Issue tracker          | GitHub               |
+| Concern             | Owned by                                                                 |
+| ------------------- | ------------------------------------------------------------------------ |
+| Source of truth     | GitHub repo (`main`)                                                     |
+| Build (Jekyll)      | Cloudflare Pages                                                         |
+| CDN + SSL           | Cloudflare                                                               |
+| DNS                 | Cloudflare (after § 2)                                                   |
+| Domain registration | GoDaddy (only the registrar, no nameservers needed there once delegated) |
+| CI build-check      | GitHub Actions                                                           |
+| Issue tracker       | GitHub                                                                   |
 
 ---
 

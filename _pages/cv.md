@@ -16,7 +16,7 @@ title: CV
 nav: false
 nav_order: 99
 # cv_pdf: /assets/pdf/Golmohammadi_CV.pdf
-cv_format: rendercv  # options: rendercv, jsonresume
+cv_format: rendercv # options: rendercv, jsonresume
 description: Curriculum Vitae of Dr. Golmar Golmohammadi.
 toc:
   sidebar: left
