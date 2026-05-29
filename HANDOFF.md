@@ -40,6 +40,16 @@ Cloudflare after the 60-day lock** (Phase 6).
 
 ## Phase 1 — GitHub: create the org and transfer the code
 
+> **You do not create a new repository.** You create an empty **organization**
+> (a container), then **transfer the existing repo into it** — same code, same
+> history, only the owner changes.
+>
+> **Who creates the org:** ideally the **PI** (whoever clicks *New organization*
+> becomes its Owner, so the lab is anchored to her institutional account). If she
+> prefers, the dev can create it and **immediately invite her as Owner** — a Free
+> org can have several Owners and isn't tied to whoever created it. Either way,
+> the end state must be: **PI = Owner** and **dev = Owner**.
+
 - [ ] **[PI]** GitHub → "**+**" (top-right) → **New organization** → **Free** plan → name `waterhydrolab`.
 - [ ] **[PI]** Org → **People → Invite member** → the dev's username → role **Owner** (so the dev keeps maintaining).
 - [ ] **[Dev]** Repo → **Settings → Danger Zone → Transfer** → new owner = `waterhydrolab` → confirm by typing the repo name.
