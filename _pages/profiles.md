@@ -54,10 +54,9 @@ profiles:
       **Affiliations:** UF/IFAS RCREC · Department of Soil, Water, and Ecosystem
       Sciences · Department of Agricultural and Biological Engineering · UF Water
       Institute.
-    more_info: >
-      <p><strong>Assistant Professor (PI)</strong></p>
-      <p>RCREC · SWES · ABE · Water Institute</p>
-      <p>Joined: Jan 2022</p>
+    role: "Assistant Professor (PI)"
+    focus: "RCREC · SWES · ABE · Water Institute"
+    joined: "Jan 2022"
 
   # ---------- Graduate students ----------
   - align: left
@@ -74,10 +73,9 @@ profiles:
       approaches to predict water quantity and quality. Her work evaluates Best
       Management Practices (BMPs) and develops decision-support tools to rank and
       prioritize effective nutrient-reduction strategies within watersheds.
-    more_info: >
-      <p><strong>Ph.D. Student</strong></p>
-      <p>SWAT+ · BMP evaluation · ML</p>
-      <p>Joined: Jun 2024</p>
+    role: "Ph.D. Student"
+    focus: "SWAT+ · BMP evaluation · ML"
+    joined: "Jun 2024"
 
   - align: right
     image: team/gurjoban_tiwana.jpeg
@@ -94,10 +92,9 @@ profiles:
       and irrigation on silage-corn yield and nitrate leaching in sandy
       Spodosols, integrating sensor-based monitoring to advance sustainable
       nutrient management and support environmentally responsible farming.
-    more_info: >
-      <p><strong>M.S. Student</strong></p>
-      <p>Nitrogen & irrigation in sandy Spodosols</p>
-      <p>Joined: Jan 2025</p>
+    role: "M.S. Student"
+    focus: "Nitrogen & irrigation in sandy Spodosols"
+    joined: "Jan 2025"
 
   - align: left
     image: team/namrata_ghimire.jpeg
@@ -114,10 +111,9 @@ profiles:
       UF-RCREC as a Biological Scientist II in August 2023 and began working with
       Dr. Golmohammadi in May 2025. Her PhD research applies AI and physically
       based models to water management and water-quality problems.
-    more_info: >
-      <p><strong>Biological Scientist II · Ph.D. Student</strong></p>
-      <p>AI + physical models for water quality</p>
-      <p>Joined: May 2025</p>
+    role: "Biological Scientist II · Ph.D. Student"
+    focus: "AI + physical models for water quality"
+    joined: "May 2025"
 
   - align: right
     image: team/armaanjot_singh.jpeg
@@ -132,10 +128,9 @@ profiles:
       from Punjab Agricultural University and is now an M.S. student in the Soil,
       Water, and Ecosystem Sciences program. His research focuses on the
       sustainable management of soil and water resources.
-    more_info: >
-      <p><strong>M.S. Student</strong></p>
-      <p>Sustainable soil & water management</p>
-      <p>Joined: Jan 2026</p>
+    role: "M.S. Student"
+    focus: "Sustainable soil & water management"
+    joined: "Jan 2026"
 
   # ---------- Research staff ----------
   - align: left
@@ -152,10 +147,9 @@ profiles:
       environment, and water data, while also building full-stack
       decision-support systems. He enjoys breaking ambiguous problems into
       achievable tasks and building meaningful collaborations.
-    more_info: >
-      <p><strong>Research Data Scientist (OPS)</strong></p>
-      <p>Data pipelines · AI/ML · decision-support systems</p>
-      <p>Joined: May 2025</p>
+    role: "Research Data Scientist (OPS)"
+    focus: "Data pipelines · AI/ML · decision-support systems"
+    joined: "May 2025"
 
   - align: right
     image: team/bhavan_voram.jpeg
@@ -169,10 +163,9 @@ profiles:
       Dec 2024). As a Data Scientist (OPS) in the Department of Soil, Water, and
       Ecosystem Sciences, his work focuses on data analysis and applied machine
       learning to support research in environmental and agricultural systems.
-    more_info: >
-      <p><strong>Research Data Scientist (OPS)</strong></p>
-      <p>Applied ML for env. & ag. systems</p>
-      <p>Joined: May 2025</p>
+    role: "Research Data Scientist (OPS)"
+    focus: "Applied ML for env. & ag. systems"
+    joined: "May 2025"
 
 # ----- "Join the lab" box + buttons under the team list (CMS-editable) -----
 join_callout: >

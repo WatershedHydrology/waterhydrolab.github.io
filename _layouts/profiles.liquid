@@ -27,8 +27,21 @@ layout: page
             {% endif %}
             {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class alt=profile.image %}
           {% endif %}
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
+          {%- comment -%}
+            WHL: the role / focus / joined line is now built from structured,
+            CMS-editable text fields (no HTML). `more_info` is kept only as a
+            legacy fallback in case an old HTML value is still present.
+          {%- endcomment -%}
+          {% if profile.more_info or profile.role or profile.focus or profile.joined %}
+            <div class="more-info">
+              {% if profile.more_info %}
+                {{ profile.more_info }}
+              {% else %}
+                {% if profile.role %}<p><strong>{{ profile.role }}</strong></p>{% endif %}
+                {% if profile.focus %}<p>{{ profile.focus }}</p>{% endif %}
+                {% if profile.joined %}<p>Joined: {{ profile.joined }}</p>{% endif %}
+              {% endif %}
+            </div>
           {% endif %}
         </div>
 
