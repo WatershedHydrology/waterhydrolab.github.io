@@ -191,7 +191,37 @@ through minification.
 
 ---
 
-## 7. Credit & license
+## 7. Versions & rollback (restore points)
+
+Stable states are marked as **Git tags / GitHub Releases** so you can always
+return to them. The first complete public site is **`v1.0`** ("Version 1.0").
+Browse them under **Releases** in the repo — each one includes a downloadable
+`.zip` snapshot of the whole site at that point.
+
+**Roll the live site back — fastest, for emergencies.** Cloudflare → _Workers &
+Pages → (the project) → Deployments_ → pick the known-good deployment →
+**Rollback to this deployment**. This changes only the published site; the next
+push redeploys whatever is on `main`.
+
+**Roll the source back — permanent, keeps full history:**
+
+```bash
+git revert --no-commit v1.0..HEAD     # undo everything since the tag…
+git commit -m "Roll back to Version 1.0"
+git push                              # …as a new commit (nothing is erased)
+```
+
+**Mark a new restore point** after a future milestone:
+
+```bash
+git tag -a v1.1 -m "Version 1.1 — what changed"
+git push origin v1.1
+gh release create v1.1 --title "Version 1.1" --notes "Summary of changes"
+```
+
+---
+
+## 8. Credit & license
 
 Built on the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme
 (MIT license; preserved in `LICENSE`). Site content (text, photos, lab branding)
