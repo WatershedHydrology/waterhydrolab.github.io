@@ -17,7 +17,7 @@
 
 backend:
   name: github
-  repo: HugoMachadoRodrigues/waterhydrolab.github.io
+  repo: WatershedHydrology/waterhydrolab.github.io
   branch: main
   base_url: https://sveltia-cms-auth.rcrechydrologymactwo.workers.dev
 

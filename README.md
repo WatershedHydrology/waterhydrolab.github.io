@@ -6,7 +6,7 @@ Dr. Golmar Golmohammadi.
 
 - **Live site:** <https://watershedhydrologylab.com>
 - **Content editor (CMS):** <https://watershedhydrologylab.com/admin/>
-- **Repository:** `HugoMachadoRodrigues/waterhydrolab.github.io` (branch `main`)
+- **Repository:** `WatershedHydrology/waterhydrolab.github.io` (branch `main`)
 - **Built with:** [Jekyll](https://jekyllrb.com/) + the
   [al-folio](https://github.com/alshedivat/al-folio) academic theme (v1 "thin
   starter"), a custom earth-tone design system (`assets/whl.css`), and

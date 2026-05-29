@@ -6,7 +6,7 @@ This site can be edited from a browser by non-technical staff through
 
 - **Editor panel:** <https://watershedhydrologylab.com/admin/>
 - **How it works:** the editor fills in forms; clicking **Save** commits the
-  change to the GitHub repo (`HugoMachadoRodrigues/waterhydrolab.github.io`,
+  change to the GitHub repo (`WatershedHydrology/waterhydrolab.github.io`,
   branch `main`); **Cloudflare Pages** then rebuilds and publishes the site
   automatically (usually within ~5 minutes). Editors never touch code.
 
@@ -79,7 +79,7 @@ In `admin/config.yml`:
 ```yaml
 backend:
   name: github
-  repo: HugoMachadoRodrigues/waterhydrolab.github.io
+  repo: WatershedHydrology/waterhydrolab.github.io
   branch: main
   base_url: https://sveltia-cms-auth.rcrechydrologymactwo.workers.dev
 ```
