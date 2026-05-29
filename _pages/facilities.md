@@ -221,7 +221,7 @@ wastewater, and soil samples via robotic sampling and spectrophotometry.
 ## Visit, Tour, or Partner With the Lab
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Lab%20tour%20%2F%20facilities%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Request a tour or data</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Lab%20tour%20%2F%20facilities%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Request a tour or data</a><!--/email_off-->
   <a class="whl-btn" href="https://rcrec-ona.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> RCREC website</a>
   <a class="whl-btn" href="https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Directions to RCREC</a>
   <a class="whl-btn" href="/projects/"><i class="fas fa-flask"></i> Research themes</a>

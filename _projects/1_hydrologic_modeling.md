@@ -49,7 +49,7 @@ related works:
   surface closed curves_ — Earth Science Informatics (2025).
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20Hydrologic%20%26%20Water%20Quality%20Modeling"><i class="fas fa-handshake"></i> Collaborate on this research</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20Hydrologic%20%26%20Water%20Quality%20Modeling"><i class="fas fa-handshake"></i> Collaborate on this research</a><!--/email_off-->
   <a class="whl-btn" href="/people/"><i class="fas fa-users"></i> Meet the team</a>
   <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> All publications</a>
   <a class="whl-btn" href="/facilities/"><i class="fas fa-microscope"></i> Field instrumentation</a>

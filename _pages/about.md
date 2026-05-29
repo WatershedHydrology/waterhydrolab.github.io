@@ -58,7 +58,7 @@ profile:
     <p><strong>UF/IFAS RCREC</strong></p>
     <p><a href="https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865" target="_blank" rel="noopener">3401 Experiment Station<br>Ona, FL 33865</a></p>
     <p>Phone: <a href="tel:+18633747053">(863) 374-7053</a></p>
-    <p>Email: <a href="mailto:g.golmohammadi@ufl.edu">g.golmohammadi@ufl.edu</a></p>
+    <p>Email: <!--email_off--><a href="mailto:g.golmohammadi@ufl.edu">g.golmohammadi@ufl.edu</a><!--/email_off--></p>
 
 # Show a "Selected publications" section below the bio. Papers marked
 # `selected={true}` in _bibliography/papers.bib appear here.

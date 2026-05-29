@@ -34,7 +34,7 @@ operations. Our Extension appointment is a 40% component of Dr.
 Golmohammadi's position.
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Extension%20%2F%20stakeholder%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Partner with the lab</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Extension%20%2F%20stakeholder%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Partner with the lab</a><!--/email_off-->
   <a class="whl-btn" href="/people/"><i class="fas fa-users"></i> Meet the team</a>
   <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> All publications</a>
   <a class="whl-btn" href="https://rcrec-ona.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> RCREC</a>

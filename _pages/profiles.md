@@ -184,7 +184,7 @@ and related fields.
 
 <div class="whl-btn-row">
   <a class="whl-btn whl-btn-primary" href="/contact/#join-the-lab"><i class="fas fa-user-graduate"></i> Join the lab</a>
-  <a class="whl-btn" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Email the PI</a>
+  <!--email_off--><a class="whl-btn" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Email the PI</a><!--/email_off-->
   <a class="whl-btn" href="/projects/"><i class="fas fa-flask"></i> Research themes</a>
   <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> Publications</a>
   <a class="whl-btn whl-btn-ghost" href="/contact/"><i class="fas fa-paper-plane"></i> Contact</a>

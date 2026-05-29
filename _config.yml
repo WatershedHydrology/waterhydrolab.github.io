@@ -377,6 +377,11 @@ sass:
 jekyll-minifier:
   compress_javascript: false # set to false since we are using terser as the js minifier
   exclude: ["robots.txt", "assets/js/search/*.js"]
+  # Keep Cloudflare's <!--email_off--> markers through minification so the
+  # CDN's Email Address Obfuscation leaves our mailto: links as native links
+  # (otherwise it rewrites them to /cdn-cgi/l/email-protection and they break).
+  preserve_patterns:
+    - '<!--\s*/?email_off\s*-->'
 
 # -----------------------------------------------------------------------------
 # Terser

@@ -8,6 +8,6 @@ research program and have moved on to new positions.
 - **Maxwell Naah** — Former Research Assistant (Aug 2023 – Oct 2024)
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Alumni%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Contact PI about alumni</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Alumni%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Contact PI about alumni</a><!--/email_off-->
   <a class="whl-btn whl-btn-ghost" href="/publications/"><i class="fas fa-book"></i> Alumni publications</a>
 </div>

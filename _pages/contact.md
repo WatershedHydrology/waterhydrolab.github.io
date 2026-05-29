@@ -33,12 +33,12 @@ section below before applying.
 Assistant Professor — Watershed Hydrology and Biogeochemistry
 UF/IFAS Range Cattle Research and Education Center (RCREC)
 
-**Email:** [g.golmohammadi@ufl.edu](mailto:g.golmohammadi@ufl.edu)
+**Email:** <!--email_off-->[g.golmohammadi@ufl.edu](mailto:g.golmohammadi@ufl.edu)<!--/email_off-->
 **Phone:** [(863) 374-7053](tel:+18633747053)
 **Mailing address:** 3401 Experiment Station, Ona, FL 33865
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu"><i class="fas fa-envelope"></i> Email Dr. Golmohammadi</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu"><i class="fas fa-envelope"></i> Email Dr. Golmohammadi</a><!--/email_off-->
   <a class="whl-btn" href="tel:+18633747053"><i class="fas fa-phone"></i> Call the lab</a>
   <a class="whl-btn" href="https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/" target="_blank" rel="noopener"><i class="fas fa-id-card"></i> UF/IFAS faculty page</a>
 </div>
@@ -129,7 +129,7 @@ When you write, include:
   technical report).
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-paper-plane"></i> Email a prospective-student inquiry</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-paper-plane"></i> Email a prospective-student inquiry</a><!--/email_off-->
   <a class="whl-btn" href="https://soils.ifas.ufl.edu/academics/" target="_blank" rel="noopener"><i class="fas fa-user-graduate"></i> SWES graduate admissions</a>
   <a class="whl-btn" href="https://abe.ufl.edu/graduate/" target="_blank" rel="noopener"><i class="fas fa-user-graduate"></i> ABE graduate admissions</a>
 </div>
@@ -142,6 +142,6 @@ description of the proposed project, your CV, and (where relevant) a
 sample of recent work.
 
 <div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Email a collaboration inquiry</a>
+  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Email a collaboration inquiry</a><!--/email_off-->
   <a class="whl-btn whl-btn-ghost" href="/projects/"><i class="fas fa-flask"></i> See current research themes</a>
 </div>
