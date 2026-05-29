@@ -160,7 +160,10 @@ al_folio:
 # covered the top of each page's heading; sticky keeps the bar in normal
 # flow (no overlap) while still pinning to the top on scroll.
 navbar_fixed: false
-footer_fixed: true
+# Sticky (not fixed) footer: it flows after the page content and pins to the
+# bottom on short pages — so the footer nav + copyright sit at the page end
+# instead of floating over the content.
+footer_fixed: false
 search_enabled: true
 socials_in_search: true
 posts_in_search: true
