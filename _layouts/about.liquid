@@ -107,6 +107,23 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
+    {% if page.about_photos and page.about_photos.size > 0 %}
+      <div class="whl-about-photos">
+        {% for p in page.about_photos %}
+          <figure class="whl-about-photo">
+            <img
+              src="{{ p.image | relative_url }}"
+              alt="{{ p.caption | default: 'Watershed Hydrology Lab' | escape }}"
+              loading="lazy"
+            >
+            {% if p.caption and p.caption != '' %}
+              <figcaption>{{ p.caption }}</figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2>

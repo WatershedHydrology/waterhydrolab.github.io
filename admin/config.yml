@@ -80,6 +80,16 @@ collections:
               - { name: enabled, widget: hidden, default: false }
               - { name: scrollable, widget: hidden, default: true }
               - { name: limit, widget: hidden, default: 3 }
+          - name: about_photos
+            label: "About photos (gallery under the About text)"
+            label_singular: "Photo"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.caption}}"
+            fields:
+              - { name: image, label: "Photo", widget: image }
+              - { name: caption, label: "Caption (optional)", widget: string, required: false }
           - { name: body, label: "“About the Lab” text", widget: markdown }
 
   # ---------------------------------------------------------------------------

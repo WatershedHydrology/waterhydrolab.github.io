@@ -79,6 +79,13 @@ latest_posts:
   enabled: false
   scrollable: true
   limit: 3
+
+# Photo gallery under the "About the Lab" text. Add as many photos as you like
+# in the CMS (Home -> "About photos") — each one is just a click-to-upload.
+about_photos:
+  - { image: assets/img/rcrec-building.jpg, caption: "RCREC — Ona, Florida" }
+  - { image: assets/img/instruments/weather-station.jpg, caption: "Field weather station" }
+  - { image: assets/img/instruments/lysimeter.jpg, caption: "Lysimeter installation" }
 ---
 
 ## About the Lab
