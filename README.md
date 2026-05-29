@@ -1,225 +1,198 @@
 # Watershed Hydrology Lab — Website
 
-Public-facing website for the **Watershed Hydrology Lab** at the
-University of Florida / IFAS Range Cattle Research and Education
-Center (RCREC), led by Dr. Golmar Golmohammadi.
+Public-facing website for the **Watershed Hydrology Lab** at the University of
+Florida / IFAS Range Cattle Research and Education Center (RCREC), led by
+Dr. Golmar Golmohammadi.
 
-- **Live URL:** [https://watershedhydrologylab.com](https://watershedhydrologylab.com)
-- **Repository:** [github.com/waterhydrolab](https://github.com/waterhydrolab)
-- **Theme:** [al-folio](https://github.com/alshedivat/al-folio) — a Jekyll
-  theme designed for academic groups.
-- **Hosting:** Cloudflare Pages (build runs on Cloudflare on every
-  push to `main`). See [`DEPLOY.md`](./DEPLOY.md) for the full pipeline.
-  GitHub Actions runs a parallel build as a CI safety-net only.
-
-This README explains what each part of the repository does and how to
-make common changes. **It is meant to be readable by someone who has
-never used Jekyll or GitHub before** — please skim it before editing
-anything.
-
-If you only want to know "how do I update X?", jump straight to
-[Common edits](#common-edits).
+- **Live site:** <https://watershedhydrologylab.com>
+- **Content editor (CMS):** <https://watershedhydrologylab.com/admin/>
+- **Repository:** `HugoMachadoRodrigues/waterhydrolab.github.io` (branch `main`)
+- **Built with:** [Jekyll](https://jekyllrb.com/) + the
+  [al-folio](https://github.com/alshedivat/al-folio) academic theme (v1 "thin
+  starter"), a custom earth-tone design system (`assets/whl.css`), and
+  [Sveltia CMS](https://github.com/sveltia/sveltia-cms) for browser editing.
+- **Hosting:** Cloudflare Pages — every push to `main` rebuilds and publishes
+  automatically (~5 min). GitHub Actions runs the same build as a CI safety-net.
 
 ---
 
-## 1. Repository layout
+## 1. Editing the site — two ways
+
+**A. Through the CMS (no code — for non-technical editors).**
+Go to **<https://watershedhydrologylab.com/admin/>**, sign in with a GitHub
+account that has write access, and fill in forms. Saving commits to `main` and
+the site rebuilds itself. The CMS can edit, with click-to-upload images:
+
+- **Home** — hero tagline, the three research pillars, the PI card, intro text.
+- **News & Announcements** — add posts with an optional **headline** + **photo**.
+- **Research Projects** — title, **cover/banner image**, description, order, body.
+- **Team / People** — members (drag to reorder, photo, role, bio) + alumni grid.
+- **Other Pages** — **Facilities** (instruments, lab equipment, Field Gallery —
+  each a list with photo/video uploads), **Contact** (PI card, map, affiliated
+  units, buttons), and the **News** / **Publications** page links.
+
+Full editor guide: **[`CMS-SETUP.md`](./CMS-SETUP.md)** (includes how to grant
+access and how to add a publication).
+
+> The CMS edits **content**. The visual **design** (fonts, colors, spacing,
+> layout) lives in the theme CSS (`assets/whl.css`) by design, so the site
+> stays consistent.
+
+**B. In code (for developers).** Edit the Markdown / YAML / Liquid files in this
+repo and push. See §3–§4 below.
+
+---
+
+## 2. Repository layout
 
 ```
 .
-├── _config.yml                ← Master site configuration (heavily commented).
-├── CNAME                      ← Custom domain (watershedhydrologylab.com).
+├── _config.yml                 ← Site configuration (heavily commented)
+├── CNAME                       ← Custom domain (watershedhydrologylab.com)
+├── CMS-SETUP.md                ← Sveltia CMS guide (editors + add-a-paper workflow)
+├── DEPLOY.md / SETUP.md        ← Hosting + DNS wire-up notes
 │
-├── _pages/                    ← Top-level pages (one Markdown file = one page).
-│   ├── about.md                  ← Homepage (/)
-│   ├── profiles.md               ← People page (/people/)
-│   ├── about_<name>.md           ← Bio content for each lab member
-│   ├── projects.md               ← Research index (/projects/)
-│   ├── publications.md           ← Publications list (/publications/)
-│   ├── facilities.md             ← Field & lab equipment (/facilities/)
-│   ├── news.md                   ← News archive (/news/)
-│   └── cv.md                     ← (Hidden — turn on in front matter when ready)
+├── admin/                      ← Sveltia CMS (the browser content editor)
+│   ├── index.html                 ← loads the CMS from its CDN
+│   └── config.yml                 ← defines exactly what editors can change
 │
-├── _projects/                 ← One file per research theme. Cards on /projects/.
-│   ├── 1_hydrologic_modeling.md
-│   ├── 2_ai_risk_mapping.md
-│   └── 3_decision_support.md
+├── _pages/                     ← Standalone pages (one file = one page)
+│   ├── about.md                   ← Homepage  /            (layout: about)
+│   ├── profiles.md                ← People    /people/     (layout: profiles)
+│   ├── projects.md                ← Research index /projects/
+│   ├── publications.md            ← Publications  /publications/
+│   ├── facilities.md              ← Facilities    /facilities/
+│   ├── contact.md                 ← Contact       /contact/
+│   ├── news.md                    ← News          /news/
+│   ├── cv.md  ·  404.md
 │
-├── _news/                     ← One file per news item. Most recent appears on homepage.
+├── _projects/                  ← One file per research theme (grid card + detail page)
+│   ├── 1_hydrologic_modeling.md ·  2_ai_risk_mapping.md ·  3_decision_support.md
+├── _news/                      ← One file per announcement (newest shown first)
+├── _bibliography/papers.bib    ← Publications (BibTeX). Its header has the
+│                                  step-by-step for adding a paper.
+├── _data/socials.yml           ← Social / academic-profile links
 │
-├── _bibliography/
-│   └── papers.bib             ← Publications in BibTeX. Edit to add/remove papers.
-│
-├── _data/
-│   └── socials.yml            ← Social/profile links (X, LinkedIn, ORCID, Scholar, …)
+├── _layouts/                   ← Local theme overrides
+│   ├── about.liquid               ← homepage: hero (logo + title + CTAs) + pillars
+│   ├── page.liquid                ← standard page; adds a cover-image hero and a
+│   │                                "Related publications" section when set
+│   └── profiles.liquid            ← people page
+├── _includes/                  ← Local includes
+│   ├── head.liquid                ← loads assets/whl.css + the web fonts
+│   ├── header.liquid              ← branded navbar (logo + lab name)
+│   └── whl_*.liquid               ← reusable content renderers (see §3)
 │
 ├── assets/
-│   ├── img/team/              ← Profile photos (one per member)
-│   ├── img/publications/      ← Publication thumbnails
-│   ├── img/research_*         ← Research-card images (placeholders for now)
-│   └── pdf/                   ← PDFs (CV, reports) you want to link to
+│   ├── whl.css                    ← THE custom design system (earth-tone theme)
+│   ├── img/team/                  ← member photos
+│   ├── img/instruments/           ← Facilities sensor / lab-equipment photos
+│   ├── img/affiliations/          ← affiliated-unit photos & logos (Contact)
+│   ├── img/publication_preview/publications/  ← paper thumbnails
+│   ├── img/research_*.jpeg        ← research-theme covers (cards + project hero + pillars)
+│   ├── img/uploads/               ← images uploaded through the CMS
+│   └── video/                     ← Field Gallery videos
 │
-├── .github/workflows/
-│   └── deploy.yml             ← GitHub Actions: builds and deploys on every push
-│
-├── Gemfile, Gemfile.lock      ← Ruby dependencies for local development
-├── package.json               ← Node dependencies (used by build for purgecss/Tailwind)
-└── docs/                      ← al-folio's own documentation (kept for reference)
+├── .github/workflows/          ← CI (deploy.yml = build safety-net) + checks
+├── Gemfile · Gemfile.lock       ← Ruby dependencies
+└── package.json                 ← Node dependencies (build tooling)
 ```
 
-Anything outside this list is part of the al-folio theme machinery —
-you generally don't need to touch it.
+Anything not listed is al-folio theme machinery you normally don't touch.
 
 ---
 
-## 2. Common edits
+## 3. How the site is put together (for developers)
 
-### Add a new lab member
+**Design system.** al-folio v1 ships its CSS pre-built from the `al_folio_core`
+gem and does **not** recompile `assets/tailwind/app.css`, so all custom styling
+lives in **`assets/whl.css`**, linked from the `_includes/head.liquid` override
+(and kept outside `/assets/css/` so the purgecss step never strips it). It
+overrides al-folio's `--global-*` variables for the matte earth-tone palette and
+defines the lab's components (`.whl-card`, `.whl-btn`, `.whl-hero`, `.whl-map`,
+`.whl-news`, etc.).
 
-1. Drop their photo in `assets/img/team/<firstname>_<lastname>.jpg`
-   (square, ~400 × 400 px).
-2. Create a bio file `_pages/about_<firstname>.md` — copy one of the
-   existing files as a template.
-3. Open `_pages/profiles.md` and add a new block to the `profiles:`
-   list. Alternate `align: left` and `align: right` as you go.
-4. Commit and push. The site will rebuild automatically.
+**Structured content via includes.** Instead of hand-written HTML in page
+bodies, repeating UI is driven by front-matter data rendered through reusable
+includes — this is what makes those parts editable in the CMS:
 
-### Add a new publication
+| Include                | Renders                                                                                   | Used by             |
+| ---------------------- | ----------------------------------------------------------------------------------------- | ------------------- |
+| `whl_buttons.liquid`   | a row of buttons from a list (mailto links are wrapped in Cloudflare `email_off` markers) | every page          |
+| `whl_card_grid.liquid` | instrument / lab-equipment cards with photo(s)                                            | Facilities          |
+| `whl_gallery.liquid`   | the Field Gallery (videos / photos / embeds)                                              | Facilities          |
+| `whl_map.liquid`       | a Google-Maps embed built from a plain address                                            | Facilities, Contact |
+| `whl_pi_card.liquid`   | the PI contact card                                                                       | Contact             |
+| `whl_find_us.liquid`   | the RCREC building card + one card per affiliated unit                                    | Contact             |
+| `whl_callout.liquid`   | a highlighted callout box (Markdown)                                                      | Contact, People     |
+| `whl_alumni.liquid`    | the alumni photo grid                                                                     | People              |
+| `whl_news.liquid`      | news as blocks (date + optional headline + photo + text); scrollable on the homepage      | Home, News          |
 
-1. Open `_bibliography/papers.bib`.
-2. Paste the BibTeX entry from the publisher. Use a unique citekey such
-   as `lastnameYEARkeyword`. The PI's name (`Golmohammadi`) is
-   automatically bolded in citations.
-3. Optionally add a thumbnail to `assets/img/publications/` and link it
-   with `preview = {publications/yourfile.jpg}` in the BibTeX entry.
-4. Mark a paper as featured on the homepage with `selected = {true}`.
+So, e.g., Facilities instruments live as an `instruments:` list in
+`_pages/facilities.md` front matter and are rendered by
+`{% include whl_card_grid.liquid items=page.instruments %}`.
 
-### Post a news item
-
-1. Create `_news/announcement_<NUM>_<slug>.md`. Use the existing files
-   as templates. Front matter:
-   ```yaml
-   ---
-   layout: post
-   date: 2026-05-27 12:00:00-0400
-   inline: true # set false if it needs its own full page
-   related_posts: false
-   ---
-   ```
-2. Below the second `---`, write the announcement in Markdown.
-
-### Add or rename a top-nav link
-
-1. Open the page in `_pages/`. In the YAML front matter, set
-   `nav: true` and choose a `nav_order` (lower = leftmost in the menu).
-2. The `title:` field controls the menu label.
-
-### Update social-media or academic-profile links
-
-Edit `_data/socials.yml`. Every key is explained inline.
-
-### Change the lab description on the homepage
-
-Open `_pages/about.md` and edit the Markdown below the front matter.
-
-### Change the domain
-
-1. Edit `_config.yml` — update the `url:` field.
-2. Replace the contents of `CNAME` with the new domain.
-3. Update DNS records at your registrar (see `SETUP.md` § 4).
+**Research projects** set `img:` (the cover/banner — also drives the detail-page
+hero) and `related_publications: true`; citing bib keys with
+`{% cite key %}` in the body renders full publication cards
+(thumbnail + DOI + link + citation) at the foot of the page.
 
 ---
 
-## 3. Building the site locally (optional)
+## 4. Common edits in code
 
-You only need this if you want to preview changes before pushing. If
-you push to GitHub, the live site is rebuilt automatically.
+Most of these are also doable in the CMS (§1) — this is the code path.
 
-### Requirements
+- **Lab member** — add their photo to `assets/img/team/`, then add a block to
+  the `profiles:` list in `_pages/profiles.md` (the bio is inline, in the `bio:`
+  field; alternate `align: left` / `right`).
+- **Publication** — see the step-by-step at the top of
+  `_bibliography/papers.bib`; the copy-paste BibTeX template is in
+  [`CMS-SETUP.md`](./CMS-SETUP.md) §5. Thumbnails go in
+  `assets/img/publication_preview/publications/` (`preview = {publications/<file>.jpg}`).
+- **News post** — add a file in `_news/` (`layout: post`, `date`, optional
+  `headline:` and `image:`, then the text). Newest appears first.
+- **Nav link** — in a page's front matter set `nav: true` and a `nav_order`
+  (`title:` is the menu label).
+- **Social / profile links** — `_data/socials.yml`.
+- **Domain** — update `url:` in `_config.yml`, the `CNAME` file, and DNS.
 
-- Ruby 3.3.x and Bundler
-- Node 20.x
-- ImageMagick (`brew install imagemagick` on macOS)
+---
 
-### One-time setup
+## 5. Building locally (optional)
+
+You only need this to preview before pushing. Requirements: Ruby + Bundler,
+Node, and the gems in the `Gemfile`.
 
 ```bash
 bundle install
 npm install
+bundle exec jekyll serve --livereload   # http://localhost:4000
 ```
 
-### Run the dev server
-
-```bash
-bundle exec jekyll serve --livereload
-```
-
-Open <http://localhost:4000> in your browser. Edits to Markdown files
-are picked up automatically; changes to `_config.yml` require a server
-restart.
-
-If you don't want to install Ruby/Node directly, the repo includes a
-`Dockerfile` and `docker-compose.yml`. Run `docker compose up` and the
-site will be served at <http://localhost:8080>.
+Markdown edits hot-reload; `_config.yml` changes need a server restart.
 
 ---
 
-## 4. Deployment (how the site goes live)
+## 6. Deployment
 
-Every push to the `main` branch triggers a **Cloudflare Pages** build,
-which:
+Every push to `main` triggers a **Cloudflare Pages** build: install toolchain →
+`bundle exec jekyll build` → purge unused CSS → publish `_site/` to the CDN
+behind `watershedhydrologylab.com`. The
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) workflow runs the
+same build on GitHub Actions as a safety-net (no deploy). One-time wire-up
+(build settings, env vars, DNS) is in [`DEPLOY.md`](./DEPLOY.md).
 
-1. Installs Ruby, Node, Python, and ImageMagick on a clean Cloudflare
-   build container (versions pinned in `.tool-versions` and in the
-   Pages project environment variables).
-2. Runs `bundle exec jekyll build` to generate the static site into
-   `_site/`.
-3. Purges unused CSS to keep the bundle small.
-4. Publishes `_site/` to Cloudflare's CDN, fronted by the domain
-   [watershedhydrologylab.com](https://watershedhydrologylab.com).
-
-Pull requests get their own preview URL automatically.
-
-The companion workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-runs the same build on GitHub Actions as a CI safety-net (no deploy
-step). If the build breaks there, the PR is blocked before Cloudflare
-even tries.
-
-See [`DEPLOY.md`](./DEPLOY.md) for the one-time wire-up between this
-repo and Cloudflare Pages (build settings, env vars, DNS delegation).
-[`SETUP.md`](./SETUP.md) describes the older GitHub-Pages-only flow and
-is kept for historical reference.
+**Email links:** Cloudflare's _Email Address Obfuscation_ (Scrape Shield) would
+rewrite `mailto:` links and break them, so every email is wrapped in
+`<!--email_off-->…<!--/email_off-->` markers (emitted by the button / PI-card
+includes), and `jekyll-minifier`'s `preserve_patterns` keeps those markers
+through minification.
 
 ---
 
-## 5. Things to confirm before going live
+## 7. Credit & license
 
-The following items were drawn from public sources or carried over from
-the old site. Please verify each one before the launch:
-
-- [ ] **Google Scholar profile ID** in `_data/socials.yml`
-      (`scholar_userid: cpXxmlYAAAAJ`). I picked the most-likely match;
-      please confirm.
-- [ ] **Lab email** in `_data/socials.yml`. Default is
-      `g.golmohammadi@ufl.edu`. The old site used a separate Gmail
-      (`hydrologyrcrecflorida@gmail.com`) — decide which to use.
-- [ ] **Phone number on the homepage** (`_pages/about.md`). The current
-      value `(863) 374-7053` is from the SWES faculty page. The old site
-      showed a placeholder (`1-800-555-5555`).
-- [ ] **Team photos.** The supervisor's official UF/IFAS photo is
-      included; everyone else has a placeholder SVG with their initials.
-      Replace each `assets/img/team/<name>.svg` with a real JPG/PNG when
-      available.
-- [ ] **Research images.** The three project cards use placeholder SVGs
-      (`assets/img/research_placeholder_*.svg`). Replace with real photos
-      from the field or with diagrams.
-
----
-
-## 6. Credit and licensing
-
-This site is built on top of the [al-folio](https://github.com/alshedivat/al-folio)
-Jekyll theme, distributed under the MIT license. The theme's copyright
-and license are preserved in `LICENSE`.
-
-Site content (text, photos, lab branding) is © Watershed Hydrology Lab
-unless otherwise noted.
+Built on the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme
+(MIT license; preserved in `LICENSE`). Site content (text, photos, lab branding)
+is © Watershed Hydrology Lab unless otherwise noted.
