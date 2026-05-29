@@ -1,0 +1,9 @@
+{%- comment -%}
+  Renders the full publication list from _bibliography/papers.bib.
+  The .publications wrapper is required by the theme's bibliography styling and
+  by the search filter (bib_search.liquid). Kept in an include so the page body
+  stays free of HTML — editors never see markup.
+{%- endcomment -%}
+<div class="publications">
+  {% bibliography %}
+</div>

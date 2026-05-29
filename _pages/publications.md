@@ -35,14 +35,8 @@ bottom_buttons:
 
 {% include whl_buttons.liquid items=page.top_buttons %}
 
-<!-- Bibsearch Feature -->
-
 {% include bib_search.liquid %}
 
-<div class="publications">
-
-{% bibliography %}
-
-</div>
+{% include whl_bibliography.liquid %}
 
 {% include whl_buttons.liquid items=page.bottom_buttons %}
