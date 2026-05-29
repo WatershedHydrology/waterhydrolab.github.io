@@ -3,14 +3,17 @@
 #  CONTACT  ( /contact/ )
 # =============================================================================
 #  Lab address, PI contact, social channels, and a "Join the Lab" section
-#  with instructions for prospective students. Listed in the navbar after
-#  News so visitors can find it from any page.
+#  with instructions for prospective students.
 #
-#  COMMON EDITS
-#  ------------
-#    - Update the address / phone block if the lab moves.
-#    - Update the prospective-student instructions when admission cycles change.
-#    - Replace the Google Maps embed `src` if the building location changes.
+#  EDITING IN THE CMS (Other Pages -> Contact):
+#    - "Find us — building & affiliations" is a STRUCTURED block. Edit the
+#      RCREC building photo + buttons, and add / edit / reorder the affiliated
+#      units (one card each: photo or logo, name, and link). Tick "Image is a
+#      logo" for a wordmark so it shows whole on a white tile.
+#    - Everything else (PI card, social links, Join the Lab, Postdoc) is in
+#      "Page content" below.
+#    - The "email_off" HTML-comment markers around email links keep Cloudflare
+#      from breaking the mailto: buttons — please leave them in place.
 # =============================================================================
 layout: page
 permalink: /contact/
@@ -18,6 +21,43 @@ title: contact
 description: How to reach the Watershed Hydrology Lab — Principal Investigator, lab address, and information for prospective students and collaborators.
 nav: true
 nav_order: 7
+
+# ----- Find us: RCREC building + affiliated units (structured; edited in CMS) -----
+find_us:
+  building:
+    name: "RCREC main building"
+    lines:
+      - "3401 Experiment Station"
+      - "Ona, FL 33865"
+    image: assets/img/rcrec-building.jpg
+    buttons:
+      - label: "Open in Google Maps"
+        icon: "fas fa-map-marker-alt"
+        url: "https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865"
+        ghost: false
+      - label: "RCREC website"
+        icon: "fas fa-external-link-alt"
+        url: "https://rcrec-ona.ifas.ufl.edu/"
+        ghost: true
+  affiliations:
+    - name: "Department of Soil, Water, and Ecosystem Sciences"
+      short: "SWES"
+      image: assets/img/affiliations/swes.jpg
+      is_logo: false
+      url: "https://soils.ifas.ufl.edu/"
+      icon: "fas fa-flask"
+    - name: "Department of Agricultural and Biological Engineering"
+      short: "ABE"
+      image: assets/img/affiliations/abe-frazier-rogers.jpg
+      is_logo: false
+      url: "https://abe.ufl.edu/"
+      icon: "fas fa-cogs"
+    - name: "UF Water Institute"
+      short: "Water Institute"
+      image: assets/img/affiliations/water-institute.png
+      is_logo: true
+      url: "https://waterinstitute.ufl.edu/"
+      icon: "fas fa-water"
 ---
 
 <div class="whl-callout" markdown="1">
@@ -55,41 +95,7 @@ UF/IFAS Range Cattle Research and Education Center (RCREC)
     allowfullscreen></iframe>
 </div>
 
-<div class="whl-card-grid" markdown="1">
-<div class="whl-card" markdown="1">
-<div class="whl-card-media cover">
-  <img src="/assets/img/rcrec-building.jpg" alt="RCREC main building — Range Cattle Research and Education Center, Ona, FL" loading="lazy" />
-</div>
-
-**RCREC main building**
-3401 Experiment Station
-Ona, FL 33865
-
-<div class="whl-btn-row">
-  <a class="whl-btn" href="https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Open in Google Maps</a>
-  <a class="whl-btn whl-btn-ghost" href="https://rcrec-ona.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> RCREC website</a>
-</div>
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media affil">
-  <img src="/assets/img/affiliations/swes.jpg" alt="UF Soil, Water, and Ecosystem Sciences — field research" loading="lazy" />
-  <img src="/assets/img/affiliations/abe-frazier-rogers.jpg" alt="UF Agricultural and Biological Engineering — Frazier Rogers Hall" loading="lazy" />
-  <img class="logo" src="/assets/img/affiliations/water-institute.png" alt="UF Water Institute" loading="lazy" />
-</div>
-
-**Affiliated units**
-Department of Soil, Water, and Ecosystem Sciences
-Department of Agricultural and Biological Engineering
-UF Water Institute
-
-<div class="whl-btn-row">
-  <a class="whl-btn whl-btn-ghost" href="https://soils.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> SWES</a>
-  <a class="whl-btn whl-btn-ghost" href="https://abe.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-cogs"></i> ABE</a>
-  <a class="whl-btn whl-btn-ghost" href="https://waterinstitute.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-water"></i> Water Institute</a>
-</div>
-</div>
-</div>
+{% include whl_find_us.liquid %}
 
 ### Follow the lab
 

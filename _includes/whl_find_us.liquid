@@ -1,0 +1,50 @@
+{%- comment -%}
+  whl_find_us.liquid — "Find us" visuals on the Contact page, built from
+  page.find_us. Renders the RCREC main-building card, then ONE card per
+  affiliated unit (photo + name + its own link) so each photo matches its
+  text and button. Set is_logo: true on a unit whose image is a logo/wordmark
+  (shown whole on a white tile) instead of a photo.
+{%- endcomment -%}
+{%- assign b = page.find_us.building -%}
+{%- if b -%}
+  <div class="whl-card">
+    {%- if b.image -%}
+      <div class="whl-card-media cover"><img src="{{ b.image | relative_url }}" alt="{{ b.name | strip_html | escape }}" loading="lazy"></div>
+    {%- endif -%}
+    <p>
+      <strong>{{ b.name | escape }}</strong>
+      {%- for line in b.lines -%}
+        <br>
+        {{ line | escape }}
+      {%- endfor -%}
+    </p>
+    {%- if b.buttons -%}
+      <div class="whl-btn-row">
+        {%- for btn in b.buttons -%}
+          <a class="whl-btn{% if btn.ghost %} whl-btn-ghost{% endif %}" href="{{ btn.url }}" target="_blank" rel="noopener"
+            ><i class="{{ btn.icon }}"></i> {{ btn.label | escape -}}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{%- if page.find_us.affiliations -%}
+  <div class="whl-card-grid whl-affil-grid">
+    {%- for a in page.find_us.affiliations -%}
+      <div class="whl-card whl-affil-card">
+        {%- if a.image -%}
+          <div class="whl-card-media {% if a.is_logo %}logo{% else %}cover{% endif %}">
+            <img src="{{ a.image | relative_url }}" alt="{{ a.name | strip_html | escape }}" loading="lazy">
+          </div>
+        {%- endif -%}
+        <p>
+          <strong>{{ a.name | escape }}</strong>
+        </p>
+        <div class="whl-btn-row">
+          <a class="whl-btn whl-btn-ghost" href="{{ a.url }}" target="_blank" rel="noopener"><i class="{{ a.icon }}"></i> {{ a.short | escape }}</a>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+{%- endif -%}

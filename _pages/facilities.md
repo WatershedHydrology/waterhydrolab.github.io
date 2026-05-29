@@ -4,12 +4,16 @@
 # =============================================================================
 #  Field-instrumentation network at RCREC and the DeLuca Preserve plus the
 #  RCREC Hydrology Lab equipment, shown as a map + instrument cards + a media
-#  gallery. Everything below the front matter is editable in the CMS
-#  (Other Pages -> Facilities), including inserting photos, maps, and videos:
-#    - Photo:  use the image button in the CMS editor (uploads to
-#              /assets/img/uploads/) — or write ![caption](/assets/img/uploads/file.jpg)
-#    - Map:    paste a Google Maps "embed" iframe inside a <div class="whl-map"> … </div>
-#    - Video:  paste a YouTube/Vimeo embed iframe inside a <div class="whl-embed"> … </div>
+#  gallery.
+#
+#  EDITING IN THE CMS (Other Pages -> Facilities):
+#    - "Instruments" and "Lab equipment" are STRUCTURED lists. Each item has a
+#      Name, a Meta line (site · years), a Description, and one or more Photos
+#      (click-to-upload). Add / remove / reorder items and swap photos there —
+#      no HTML needed. One photo = full-width; two or more = a thumbnail grid.
+#    - The intro text, the map, the Field Gallery videos, and the buttons live
+#      in "Page content" below. For a map/video, paste an <iframe>/<video>
+#      embed; for a photo there, use the image button.
 # =============================================================================
 layout: page
 permalink: /facilities/
@@ -17,6 +21,80 @@ title: facilities
 description: Field instrumentation and laboratory equipment supporting hydrologic and water-quality research at RCREC and the DeLuca Preserve.
 nav: true
 nav_order: 4
+
+# ----- Field Instrumentation (structured cards; edited in the CMS) -----
+instruments:
+  - name: "Hydrometric Station — SonTek acoustic Doppler flow meter"
+    meta: "RCREC & DeLuca Preserve · 2023–present"
+    description: "Continuously measures stream and open-channel discharge, velocity, water level, flow direction, temperature, and diagnostic quality metrics."
+    images:
+      - assets/img/instruments/sontek.jpg
+      - assets/img/instruments/sontek-2.jpg
+      - assets/img/instruments/sontek-3.jpg
+      - assets/img/instruments/sontek-4.jpg
+  - name: "Weather Station"
+    meta: "RCREC · 2024–present"
+    description: "Air temperature, humidity, rainfall, wind, and solar radiation, logged for real-time remote monitoring."
+    images:
+      - assets/img/instruments/weather-station.jpg
+  - name: "Lysimeter"
+    meta: "RCREC · 2024–present"
+    description: "Tracks water movement through the soil profile and collects percolated water to quantify subsurface drainage and solute (e.g., nitrate) leaching."
+    images:
+      - assets/img/instruments/lysimeter.jpg
+  - name: "Zentra ZL6 Data Logger"
+    meta: "RCREC · 2024–present"
+    description: "Records data from TEROS-series and EC-5 sensors and transmits to the ZENTRA Cloud."
+    images:
+      - assets/img/instruments/zentra-zl6.jpg
+      - assets/img/instruments/zentra-zl6-2.jpg
+  - name: "Groundwater Wells — Rugged TROLL sensors"
+    meta: "RCREC (5 wells) & DeLuca Preserve (3 wells) · 2023–present"
+    description: "Continuous logging of groundwater level and temperature."
+    images:
+      - assets/img/instruments/rugged-troll.jpg
+      - assets/img/instruments/rugged-troll-2.jpg
+  - name: "Aqua TROLL Sonde"
+    meta: "RCREC · 2023–present"
+    description: "Multi-parameter water-quality sonde: level, temperature, pH, dissolved oxygen, electrical conductivity, and turbidity."
+    images:
+      - assets/img/instruments/aqua-troll.jpg
+  - name: "VuLink Data Logger"
+    meta: "DeLuca Preserve · 2024–present"
+    description: "Automated data logging and wireless transmission for groundwater-level sensors."
+    images:
+      - assets/img/instruments/vulink.jpg
+  - name: "TEROS 12 — Soil-Moisture Sensor"
+    meta: "RCREC · 2024–present"
+    description: "Capacitance-based volumetric water content, temperature, and electrical conductivity."
+    images:
+      - assets/img/instruments/teros-12.jpg
+  - name: "TEROS 54 — Soil-Moisture Profile Probe"
+    meta: "RCREC · 2024–present"
+    description: "Multi-depth soil water potential and temperature."
+    images:
+      - assets/img/instruments/teros-54.jpg
+  - name: "Onset ECH₂O EC-5 — Soil-Moisture Sensor"
+    meta: "RCREC · 2025–present"
+    description: "Volumetric water content via capacitance-based dielectric measurement."
+    images:
+      - assets/img/instruments/ec-5.jpg
+
+# ----- Laboratory Equipment (structured cards; edited in the CMS) -----
+lab_equipment:
+  - name: "Benchtop Multiparameter Meter"
+    meta: "RCREC Hydrology Lab · 2026–present"
+    description: "Measures pH, electrical conductivity, and temperature in water and soil samples."
+    images:
+      - assets/img/instruments/benchtop-meter.jpg
+      - assets/img/instruments/benchtop-meter-2.jpg
+  - name: "AQ300 Discrete Analyzer"
+    meta: "RCREC Hydrology Lab · 2026–present"
+    description: "Automated nutrient and chemical analysis (nitrate, ammonia, phosphate) of water, wastewater, and soil samples via robotic sampling and spectrophotometry."
+    images:
+      - assets/img/instruments/aq300.jpg
+      - assets/img/instruments/aq300-2.jpg
+      - assets/img/instruments/aq300-3.jpg
 ---
 
 A comprehensive suite of field instruments is deployed across research sites at
@@ -42,170 +120,11 @@ forage samples.
 
 ## Field Instrumentation
 
-<div class="whl-card-grid" markdown="1">
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n4">
-  <img src="/assets/img/instruments/sontek.jpg" alt="SonTek acoustic Doppler flow meter" loading="lazy" />
-  <img src="/assets/img/instruments/sontek-2.jpg" alt="SonTek flow meter — deployment view" loading="lazy" />
-  <img src="/assets/img/instruments/sontek-3.jpg" alt="SonTek flow meter — sensor detail" loading="lazy" />
-  <img src="/assets/img/instruments/sontek-4.jpg" alt="SonTek flow meter — field installation" loading="lazy" />
-</div>
-
-**Hydrometric Station — SonTek acoustic Doppler flow meter**
-_RCREC & DeLuca Preserve · 2023–present_
-
-Continuously measures stream and open-channel discharge, velocity, water level,
-flow direction, temperature, and diagnostic quality metrics.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/weather-station.jpg" alt="Weather station at RCREC" loading="lazy" />
-</div>
-
-**Weather Station**
-_RCREC · 2024–present_
-
-Air temperature, humidity, rainfall, wind, and solar radiation, logged for
-real-time remote monitoring.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/lysimeter.jpg" alt="Lysimeter installation at RCREC" loading="lazy" />
-</div>
-
-**Lysimeter**
-_RCREC · 2024–present_
-
-Tracks water movement through the soil profile and collects percolated water to
-quantify subsurface drainage and solute (e.g., nitrate) leaching.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n2">
-  <img src="/assets/img/instruments/zentra-zl6.jpg" alt="Zentra ZL6 data logger" loading="lazy" />
-  <img src="/assets/img/instruments/zentra-zl6-2.jpg" alt="Zentra ZL6 data logger — field deployment" loading="lazy" />
-</div>
-
-**Zentra ZL6 Data Logger**
-_RCREC · 2024–present_
-
-Records data from TEROS-series and EC-5 sensors and transmits to the ZENTRA
-Cloud.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n2">
-  <img src="/assets/img/instruments/rugged-troll.jpg" alt="Rugged TROLL groundwater sensor" loading="lazy" />
-  <img src="/assets/img/instruments/rugged-troll-2.jpg" alt="Rugged TROLL groundwater well installation" loading="lazy" />
-</div>
-
-**Groundwater Wells — Rugged TROLL sensors**
-_RCREC (5 wells) & DeLuca Preserve (3 wells) · 2023–present_
-
-Continuous logging of groundwater level and temperature.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/aqua-troll.jpg" alt="Aqua TROLL multi-parameter water-quality sonde" loading="lazy" />
-</div>
-
-**Aqua TROLL Sonde**
-_RCREC · 2023–present_
-
-Multi-parameter water-quality sonde: level, temperature, pH, dissolved oxygen,
-electrical conductivity, and turbidity.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/vulink.jpg" alt="VuLink telemetry data logger at the DeLuca Preserve" loading="lazy" />
-</div>
-
-**VuLink Data Logger**
-_DeLuca Preserve · 2024–present_
-
-Automated data logging and wireless transmission for groundwater-level sensors.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/teros-12.jpg" alt="TEROS 12 soil-moisture sensor" loading="lazy" />
-</div>
-
-**TEROS 12 — Soil-Moisture Sensor**
-_RCREC · 2024–present_
-
-Capacitance-based volumetric water content, temperature, and electrical
-conductivity.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/teros-54.jpg" alt="TEROS 54 soil-moisture profile probe" loading="lazy" />
-</div>
-
-**TEROS 54 — Soil-Moisture Profile Probe**
-_RCREC · 2024–present_
-
-Multi-depth soil water potential and temperature.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n1">
-  <img src="/assets/img/instruments/ec-5.jpg" alt="Onset ECH₂O EC-5 soil-moisture sensor" loading="lazy" />
-</div>
-
-**Onset ECH₂O EC-5 — Soil-Moisture Sensor**
-_RCREC · 2025–present_
-
-Volumetric water content via capacitance-based dielectric measurement.
-
-</div>
-</div>
+{% include whl_card_grid.liquid items=page.instruments %}
 
 ## Laboratory Equipment
 
-<div class="whl-card-grid" markdown="1">
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n2">
-  <img src="/assets/img/instruments/benchtop-meter.jpg" alt="Benchtop multiparameter meter" loading="lazy" />
-  <img src="/assets/img/instruments/benchtop-meter-2.jpg" alt="Benchtop multiparameter meter — probes and display" loading="lazy" />
-</div>
-
-**Benchtop Multiparameter Meter**
-_RCREC Hydrology Lab · 2026–present_
-
-Measures pH, electrical conductivity, and temperature in water and soil samples.
-
-</div>
-
-<div class="whl-card" markdown="1">
-<div class="whl-card-media n3">
-  <img src="/assets/img/instruments/aq300.jpg" alt="AQ300 discrete analyzer" loading="lazy" />
-  <img src="/assets/img/instruments/aq300-2.jpg" alt="AQ300 discrete analyzer — robotic sampler" loading="lazy" />
-  <img src="/assets/img/instruments/aq300-3.jpg" alt="AQ300 discrete analyzer — reagent tray" loading="lazy" />
-</div>
-
-**AQ300 Discrete Analyzer**
-_RCREC Hydrology Lab · 2026–present_
-
-Automated nutrient and chemical analysis (nitrate, ammonia, phosphate) of water,
-wastewater, and soil samples via robotic sampling and spectrophotometry.
-
-</div>
-</div>
+{% include whl_card_grid.liquid items=page.lab_equipment %}
 
 ## Field Gallery
 

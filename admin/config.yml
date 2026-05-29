@@ -114,7 +114,7 @@ collections:
       - { name: layout, label: Layout, widget: hidden, default: page }
       - { name: title, label: "Title", widget: string }
       - { name: description, label: "Card subtitle (short)", widget: text }
-      - { name: img, label: "Cover image", widget: image, required: false }
+      - { name: img, label: "Cover / banner image", widget: image, required: false }
       - { name: importance, label: "Order (1 = shown first)", widget: number, default: 1, value_type: int }
       - { name: category, label: Category, widget: hidden, default: research }
       - { name: body, label: "Full content", widget: markdown }
@@ -169,7 +169,37 @@ collections:
           - { name: description, label: "SEO description", widget: text }
           - { name: nav, widget: hidden, default: true }
           - { name: nav_order, widget: hidden, default: 4 }
-          - { name: body, label: "Page content", widget: markdown }
+          - name: instruments
+            label: "Field instruments"
+            label_singular: "Instrument"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: meta, label: "Site · years (e.g. RCREC · 2024–present)", widget: string, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+              - name: images
+                label: "Photo(s) — first shows large; add more for a thumbnail grid"
+                widget: list
+                required: false
+                field: { label: "Image", name: image, widget: image }
+          - name: lab_equipment
+            label: "Laboratory equipment"
+            label_singular: "Equipment"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: meta, label: "Site · years", widget: string, required: false }
+              - { name: description, label: "Description", widget: text, required: false }
+              - name: images
+                label: "Photo(s)"
+                widget: list
+                required: false
+                field: { label: "Image", name: image, widget: image }
+          - { name: body, label: "Page content (intro, map, Field Gallery, buttons)", widget: markdown }
       - name: contact
         label: "Contact page"
         file: "_pages/contact.md"
@@ -180,4 +210,40 @@ collections:
           - { name: description, label: "SEO description", widget: text }
           - { name: nav, widget: hidden, default: true }
           - { name: nav_order, widget: hidden, default: 7 }
-          - { name: body, label: "Page content", widget: markdown }
+          - name: find_us
+            label: "Find us — building & affiliated units"
+            widget: object
+            fields:
+              - name: building
+                label: "RCREC building"
+                widget: object
+                fields:
+                  - { name: name, label: "Name", widget: string }
+                  - name: lines
+                    label: "Address lines"
+                    widget: list
+                    field: { label: "Line", name: line, widget: string }
+                  - { name: image, label: "Building photo", widget: image, required: false }
+                  - name: buttons
+                    label: "Buttons"
+                    widget: list
+                    required: false
+                    fields:
+                      - { name: label, label: "Label", widget: string }
+                      - { name: icon, label: "Icon (FontAwesome class)", widget: string, default: "fas fa-link" }
+                      - { name: url, label: "URL", widget: string }
+                      - { name: ghost, label: "Outline style", widget: boolean, default: false }
+              - name: affiliations
+                label: "Affiliated units (one card each)"
+                label_singular: "Affiliated unit"
+                widget: list
+                collapsed: true
+                summary: "{{fields.short}}"
+                fields:
+                  - { name: name, label: "Full name", widget: string }
+                  - { name: short, label: "Button label", widget: string }
+                  - { name: image, label: "Photo or logo", widget: image, required: false }
+                  - { name: is_logo, label: "Image is a logo/wordmark (show whole, on white)", widget: boolean, default: false }
+                  - { name: url, label: "Link URL", widget: string }
+                  - { name: icon, label: "Button icon (FontAwesome class)", widget: string, default: "fas fa-link" }
+          - { name: body, label: "Page content (PI card, social, Join the Lab, Postdoc)", widget: markdown }

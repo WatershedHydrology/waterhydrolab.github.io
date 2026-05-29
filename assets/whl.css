@@ -433,21 +433,21 @@ h6,
   height: 210px;
   object-fit: cover;
 }
-/* Affiliated-unit strip: official photos + a wordmark, stacked full-width so
-   the wide UF wordmark stays legible. White tiles keep wordmarks readable in
-   both themes; photos fill with `cover`, the wordmark stays `contain`. */
-.whl-card-media.affil {
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-}
-.whl-card-media.affil img {
-  height: 104px;
-  object-fit: cover;
-}
-.whl-card-media.affil img.logo {
+/* Logo / wordmark tile: show the whole mark on a white tile so it stays
+   legible in both light and dark themes (used for affiliated-unit logos). */
+.whl-card-media.logo img {
   object-fit: contain;
   background: #fff;
-  padding: 0.7rem 1rem;
+  padding: 0.9rem 1.1rem;
+}
+/* Affiliated-unit cards — one card per unit (photo or logo + name + link),
+   laid out in the standard .whl-card-grid. Uniform, slightly shorter media so
+   the row of cards lines up regardless of photo vs. wordmark. */
+.whl-affil-card .whl-card-media img {
+  height: 150px;
+}
+.whl-affil-card p {
+  margin-bottom: 0.9rem;
 }
 
 .whl-callout {

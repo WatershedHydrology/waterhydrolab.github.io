@@ -1,0 +1,32 @@
+{%- comment -%}
+  whl_card_grid.liquid — renders a list of instrument / equipment items as a
+  .whl-card grid. Output matches the markup of the old hand-written cards, so
+  the theme CSS (assets/whl.css) styles them identically. Each item:
+    { name, meta, description, images: [ image paths ] }
+  The number of images sets the media layout (n1 / n2 / n3 / n4).
+  Usage:  {% include whl_card_grid.liquid items=page.instruments %}
+{%- endcomment -%}
+<div class="whl-card-grid">
+  {%- for it in include.items -%}
+    {%- assign n = it.images | size -%}
+    <div class="whl-card">
+      {%- if n > 0 -%}
+        <div class="whl-card-media n{{ n }}">
+          {%- for img in it.images -%}
+            <img src="{{ img | relative_url }}" alt="{{ it.name | strip_html | escape }}" loading="lazy">
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      <p>
+        <strong>{{ it.name | escape }}</strong>
+        {%- if it.meta -%}
+          <br>
+          <em>{{ it.meta | escape }}</em>
+        {%- endif -%}
+      </p>
+      {%- if it.description %}
+        <p>{{ it.description | escape }}</p>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
