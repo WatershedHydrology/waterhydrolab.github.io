@@ -104,10 +104,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields: [date]
     fields:
-      - { name: layout, label: Layout, widget: hidden, default: post }
+      # Hidden technical fields (kept so saving never drops them).
+      - { name: layout, widget: hidden, default: post }
+      - { name: inline, widget: hidden, default: true }
+      - { name: related_posts, widget: hidden, default: false }
+      # Fields the editor sees, in order:
       - { name: date, label: "Date", widget: datetime }
-      - { name: inline, label: "Show as a short inline blurb", widget: boolean, default: true }
-      - { name: related_posts, label: "Show related posts", widget: boolean, default: false, required: false }
       - { name: headline, label: "Headline (optional)", widget: string, required: false }
       - { name: image, label: "Photo (optional — shown beside the text)", widget: image, required: false }
       - { name: body, label: "Announcement text", widget: markdown }
