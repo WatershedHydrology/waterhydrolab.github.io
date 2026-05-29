@@ -98,6 +98,8 @@ collections:
       - { name: date, label: "Date", widget: datetime }
       - { name: inline, label: "Show as a short inline blurb", widget: boolean, default: true }
       - { name: related_posts, label: "Show related posts", widget: boolean, default: false, required: false }
+      - { name: title, label: "Headline (optional)", widget: string, required: false }
+      - { name: image, label: "Photo (optional — shown beside the text)", widget: image, required: false }
       - { name: body, label: "Announcement text", widget: markdown }
 
   # ---------------------------------------------------------------------------

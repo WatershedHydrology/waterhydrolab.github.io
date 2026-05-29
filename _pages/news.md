@@ -31,6 +31,6 @@ footer_buttons:
   - { label: "Contact the lab", url: "/contact/", icon: "fas fa-paper-plane", style: "ghost" }
 ---
 
-{% include news.liquid %}
+{% include whl_news.liquid %}
 
 {% include whl_buttons.liquid items=page.footer_buttons %}

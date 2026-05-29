@@ -24,33 +24,37 @@ layout: default
     <!-- ===================== HERO ===================== -->
     <section class="whl-hero">
       <div class="whl-hero-inner">
-        {% if page.hero.logo %}
-          <img
-            class="whl-hero-logo"
-            src="{{ page.hero.logo | relative_url }}"
-            alt="{{ site.title }} logo"
-            loading="eager"
-          >
-        {% endif %}
+        <div class="whl-hero-head">
+          {% if page.hero.logo %}
+            <img
+              class="whl-hero-logo"
+              src="{{ page.hero.logo | relative_url }}"
+              alt="{{ site.title }} logo"
+              loading="eager"
+            >
+          {% endif %}
+          <div class="whl-hero-headtext">
+            <h1 class="whl-hero-title">
+              {{ site.first_name }}
+              <span class="whl-gradient-text">{{ site.middle_name }}</span>
+              {{ site.last_name }}
+            </h1>
 
-        <h1 class="whl-hero-title">
-          {{ site.first_name }}
-          <span class="whl-gradient-text">{{ site.middle_name }}</span> {{ site.last_name }}
-        </h1>
+            {% if page.hero.tagline %}
+              <p class="whl-hero-tagline">{{ page.hero.tagline }}</p>
+            {% endif %}
 
-        {% if page.hero.tagline %}
-          <p class="whl-hero-tagline">{{ page.hero.tagline }}</p>
-        {% endif %}
+            {% if page.subtitle %}
+              <p class="whl-hero-meta">{{ page.subtitle }}</p>
+            {% endif %}
 
-        {% if page.subtitle %}
-          <p class="whl-hero-meta">{{ page.subtitle }}</p>
-        {% endif %}
-
-        <div class="whl-btn-row whl-btn-row-center whl-hero-cta">
-          <a class="whl-btn whl-btn-primary" href="{{ '/projects/' | relative_url }}"><i class="fas fa-flask"></i> Explore Our Research</a>
-          <a class="whl-btn" href="{{ '/people/' | relative_url }}"><i class="fas fa-users"></i> Meet the Team</a>
-          <a class="whl-btn" href="{{ '/publications/' | relative_url }}"><i class="fas fa-book"></i> Publications</a>
-          <a class="whl-btn" href="{{ '/contact/' | relative_url }}"><i class="fas fa-paper-plane"></i> Contact</a>
+            <div class="whl-btn-row whl-hero-cta">
+              <a class="whl-btn whl-btn-primary" href="{{ '/projects/' | relative_url }}"><i class="fas fa-flask"></i> Explore Our Research</a>
+              <a class="whl-btn" href="{{ '/people/' | relative_url }}"><i class="fas fa-users"></i> Meet the Team</a>
+              <a class="whl-btn" href="{{ '/publications/' | relative_url }}"><i class="fas fa-book"></i> Publications</a>
+              <a class="whl-btn" href="{{ '/contact/' | relative_url }}"><i class="fas fa-paper-plane"></i> Contact</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -98,7 +102,7 @@ layout: default
       <h2>
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
       </h2>
-      {% include news.liquid limit=true %}
+      {% include whl_news.liquid scroll=true %}
     {% endif %}
 
     <!-- Selected papers -->

@@ -1,0 +1,32 @@
+{%- comment -%}
+  whl_news.liquid — lab news as blocks (a small blog). Each _news item has a
+  date, an optional image (uploaded in the CMS), an optional title, and body
+  text. Newest first. Pass scroll=true on the homepage to wrap the items in a
+  fixed-height, scrollable panel; on /news/ (no scroll) every item is listed.
+  Usage:  {% include whl_news.liquid scroll=true %}
+{%- endcomment -%}
+{%- if site.news and site.news != empty -%}
+  {%- assign news = site.news | sort: 'date' | reverse -%}
+  {%- assign extra = '' -%}
+  {%- if include.scroll -%}{%- assign extra = ' whl-news-scroll' -%}{%- endif -%}
+  <div class="whl-news{{ extra }}">
+    {%- for item in news -%}
+      <article class="whl-news-item{% unless item.image and item.image != "" %} whl-news-noimg{% endunless %}">
+        {%- if item.image and item.image != '' -%}
+          <div class="whl-news-thumb">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Lab news' | escape }}" loading="lazy">
+          </div>
+        {%- endif -%}
+        <div class="whl-news-body">
+          <time class="whl-news-date">{{ item.date | date: '%b %d, %Y' }}</time>
+          {%- if item.title and item.title != '' -%}
+            <div class="whl-news-title">{{ item.title }}</div>
+          {%- endif -%}
+          <div class="whl-news-text">{{ item.content }}</div>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+{%- else -%}
+  <p>No news yet.</p>
+{%- endif -%}

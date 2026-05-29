@@ -466,13 +466,23 @@ h6,
    8. HERO + RESEARCH PILLARS (homepage landing)
    ----------------------------------------------------------------------------- */
 .whl-hero {
-  text-align: center;
+  text-align: left;
   padding: 3rem 0 1rem;
   margin-bottom: 1.5rem;
 }
 .whl-hero-inner {
-  max-width: 820px;
+  max-width: 1080px;
   margin: 0 auto;
+}
+/* Large logo on the left, heading text spread across the rest of the width. */
+.whl-hero-head {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+.whl-hero-headtext {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 /* Project / page cover HERO — the page's `img` becomes a banner with the
@@ -523,9 +533,10 @@ h6,
 
 .whl-hero-logo {
   display: block;
-  width: clamp(120px, 13vw, 168px);
+  width: clamp(160px, 19vw, 260px);
   height: auto;
-  margin: 0 auto 1.6rem;
+  flex-shrink: 0;
+  margin: 0;
   border-radius: 50%;
   box-shadow: 0 18px 48px -16px rgb(0 0 0 / 55%);
 }
@@ -551,16 +562,16 @@ h6,
   font-size: clamp(1.1rem, 0.98rem + 0.6vw, 1.4rem);
   line-height: 1.6;
   color: var(--global-text-color);
-  margin: 0 auto 1.1rem;
-  max-width: 720px;
+  margin: 0 0 1.1rem;
+  max-width: 62ch;
 }
 
 .whl-hero-meta {
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--global-text-color-light);
-  margin: 0 auto 1.8rem;
-  max-width: 660px;
+  margin: 0 0 1.8rem;
+  max-width: 66ch;
 }
 .whl-hero-meta a {
   color: var(--global-text-color-light);
@@ -575,7 +586,30 @@ h6,
   border-bottom-color: var(--whl-terracotta);
 }
 .whl-hero-cta {
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+/* Stack the hero (logo on top, centered) on narrow screens. */
+@media (max-width: 760px) {
+  .whl-hero {
+    text-align: center;
+  }
+  .whl-hero-head {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .whl-hero-logo {
+    margin: 0 auto;
+    width: clamp(140px, 42vw, 190px);
+  }
+  .whl-hero-tagline,
+  .whl-hero-meta {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .whl-hero-cta {
+    justify-content: center;
+  }
 }
 
 .whl-pillars {
@@ -753,6 +787,94 @@ h6,
 table td,
 table th {
   border-top: 1px solid var(--whl-line-strong);
+}
+
+/* News as blocks (a small blog): each item is a card with an optional image.
+   On the homepage the list lives in a fixed-height, scrollable panel. */
+.whl-news {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1.4rem 0 2rem;
+}
+.whl-news-scroll {
+  max-height: 30rem;
+  overflow-y: auto;
+  gap: 0.9rem;
+  padding: 0.9rem;
+  border: 1px solid var(--whl-line-strong);
+  border-radius: 0.9rem;
+  background: var(--global-bg-color);
+  box-shadow: inset 0 0 24px -18px rgb(0 0 0 / 60%);
+}
+.whl-news-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--whl-line);
+  border-radius: 0.8rem;
+  box-shadow: var(--whl-shadow);
+}
+.whl-news-thumb {
+  flex: 0 0 auto;
+  width: 140px;
+  height: 96px;
+  border-radius: 0.55rem;
+  overflow: hidden;
+  background: var(--global-bg-color);
+}
+.whl-news-thumb img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  display: block;
+}
+.whl-news-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.whl-news-date {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--whl-terracotta);
+  margin-bottom: 0.25rem;
+}
+.whl-news-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.whl-news-text {
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+.whl-news-text p:last-child {
+  margin-bottom: 0;
+}
+/* custom scrollbar for the homepage panel */
+.whl-news-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.whl-news-scroll::-webkit-scrollbar-thumb {
+  background: var(--whl-line-strong);
+  border-radius: 8px;
+}
+@media (max-width: 540px) {
+  .whl-news-item {
+    flex-direction: column;
+  }
+  .whl-news-thumb {
+    width: 100%;
+    height: 168px;
+  }
 }
 
 .post hr,
