@@ -1,0 +1,23 @@
+{%- comment -%}
+  whl_alumni.liquid — the Lab Alumni photo grid, built from page.alumni so
+  editors add/remove people with fields (no HTML). Each item:
+    { name, role, dates, image }
+{%- endcomment -%}
+{%- if page.alumni and page.alumni.size > 0 -%}
+  <div class="whl-card-grid">
+    {%- for a in page.alumni -%}
+      <div class="whl-card whl-alum">
+        {%- if a.image and a.image != '' -%}
+          <img class="whl-alum-photo" src="{{ a.image | relative_url }}" alt="{{ a.name | strip_html | escape }}" loading="lazy">
+        {%- endif -%}
+        <div class="whl-alum-name">{{ a.name | escape }}</div>
+        {%- if a.role and a.role != '' -%}
+          <div class="whl-alum-role">{{ a.role | escape }}</div>
+        {%- endif -%}
+        {%- if a.dates and a.dates != '' -%}
+          <div class="whl-alum-dates">{{ a.dates | escape }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+{%- endif -%}

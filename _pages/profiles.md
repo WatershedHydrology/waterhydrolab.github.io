@@ -173,44 +173,46 @@ profiles:
       <p><strong>Research Data Scientist (OPS)</strong></p>
       <p>Applied ML for env. & ag. systems</p>
       <p>Joined: May 2025</p>
+
+# ----- "Join the lab" box + buttons under the team list (CMS-editable) -----
+join_callout: >
+  **Interested in joining the lab?** We welcome inquiries from prospective
+  M.S., Ph.D., and postdoctoral researchers with backgrounds in hydrology,
+  soil and water sciences, agricultural engineering, environmental science,
+  and related fields.
+join_buttons:
+  - { label: "Join the lab", url: "/contact/#join-the-lab", icon: "fas fa-user-graduate", style: "primary" }
+  - {
+      label: "Email the PI",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab",
+      icon: "fas fa-envelope",
+    }
+  - { label: "Research themes", url: "/projects/", icon: "fas fa-flask" }
+  - { label: "Publications", url: "/publications/", icon: "fas fa-book" }
+  - { label: "Contact", url: "/contact/", icon: "fas fa-paper-plane", style: "ghost" }
+
+# ----- Lab alumni (photo grid; add / edit / reorder in the CMS) -----
+alumni:
+  - name: "Seyed Mostafa Biazar Seighalani"
+    role: "Former Ph.D. Student"
+    dates: "Jan 2023 – Dec 2025"
+    image: assets/img/team/seyed_mostafa.jpeg
+  - name: "Rohith Reddy Nedhunuri"
+    role: "Former Research Data Scientist"
+    dates: "Apr 2023 – May 2025"
+    image: assets/img/team/rohith_reddy.jpeg
+  - name: "Maxwell Naah"
+    role: "Former Research Assistant"
+    dates: "Aug 2023 – Oct 2024"
+    image: assets/img/team/maxwell_naah.jpeg
 ---
 
-<div class="whl-callout" markdown="1">
-**Interested in joining the lab?** We welcome inquiries from prospective
-M.S., Ph.D., and postdoctoral researchers with backgrounds in hydrology,
-soil and water sciences, agricultural engineering, environmental science,
-and related fields.
-</div>
+{% include whl_callout.liquid text=page.join_callout %}
 
-<div class="whl-btn-row">
-  <a class="whl-btn whl-btn-primary" href="/contact/#join-the-lab"><i class="fas fa-user-graduate"></i> Join the lab</a>
-  <!--email_off--><a class="whl-btn" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Email the PI</a><!--/email_off-->
-  <a class="whl-btn" href="/projects/"><i class="fas fa-flask"></i> Research themes</a>
-  <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> Publications</a>
-  <a class="whl-btn whl-btn-ghost" href="/contact/"><i class="fas fa-paper-plane"></i> Contact</a>
-</div>
+{% include whl_buttons.liquid items=page.join_buttons %}
 
 ## Lab Alumni
 
 We gratefully acknowledge former lab members who contributed to our research program and have moved on to new positions.
 
-<div class="whl-card-grid">
-  <div class="whl-card whl-alum">
-    <img class="whl-alum-photo" src="/assets/img/team/seyed_mostafa.jpeg" alt="Seyed Mostafa Biazar Seighalani" loading="lazy">
-    <div class="whl-alum-name">Seyed Mostafa Biazar Seighalani</div>
-    <div class="whl-alum-role">Former Ph.D. Student</div>
-    <div class="whl-alum-dates">Jan 2023 – Dec 2025</div>
-  </div>
-  <div class="whl-card whl-alum">
-    <img class="whl-alum-photo" src="/assets/img/team/rohith_reddy.jpeg" alt="Rohith Reddy Nedhunuri" loading="lazy">
-    <div class="whl-alum-name">Rohith Reddy Nedhunuri</div>
-    <div class="whl-alum-role">Former Research Data Scientist</div>
-    <div class="whl-alum-dates">Apr 2023 – May 2025</div>
-  </div>
-  <div class="whl-card whl-alum">
-    <img class="whl-alum-photo" src="/assets/img/team/maxwell_naah.jpeg" alt="Maxwell Naah" loading="lazy">
-    <div class="whl-alum-name">Maxwell Naah</div>
-    <div class="whl-alum-role">Former Research Assistant</div>
-    <div class="whl-alum-dates">Aug 2023 – Oct 2024</div>
-  </div>
-</div>
+{% include whl_alumni.liquid %}

@@ -1,0 +1,28 @@
+{%- comment -%}
+  whl_buttons.liquid — a .whl-btn-row built from a list of buttons, so editors
+  never touch anchor HTML. Each button: { label, url, icon?, style? }
+    style: "primary" | "ghost" | "" (plain)
+  External (https://) links open in a new tab; mailto links are wrapped in
+  Cloudflare email-off markers (emitted from the variables below, split so the
+  code formatter can't rewrite them) so the addresses are not obfuscated.
+  tel: and internal (/page/) links open in place.
+  Usage: {% include whl_buttons.liquid items=page.visit_buttons %}
+{%- endcomment -%}
+{%- assign eo_open = '<!--email' | append: '_off-->' -%}
+{%- assign eo_close = '<!--/email' | append: '_off-->' -%}
+{%- if include.items and include.items.size > 0 -%}
+  <div class="whl-btn-row">
+    {%- for b in include.items -%}
+      {%- capture cls -%}whl-btn{% if b.style and b.style != "" %} whl-btn-{{ b.style }}{% endif %}{%- endcapture -%}
+      {%- capture inner %}{% if b.icon and b.icon != "" %}<i class="{{ b.icon }}"></i> {% endif %}{{ b.label | escape }}{%- endcapture -%}
+      {%- if b.url contains 'mailto:' -%}
+        {{ eo_open -}}
+        <a class="{{ cls }}" href="{{ b.url }}">{{ inner }}</a>{{ eo_close }}
+      {%- elsif b.url contains '://' -%}
+        <a class="{{ cls }}" href="{{ b.url }}" target="_blank" rel="noopener">{{ inner }}</a>
+      {%- else -%}
+        <a class="{{ cls }}" href="{{ b.url }}">{{ inner }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

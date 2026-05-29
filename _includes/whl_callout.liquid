@@ -1,0 +1,8 @@
+{%- comment -%}
+  whl_callout.liquid — a highlighted .whl-callout box. `text` is Markdown, so
+  editors write plain text (bold with **…**) with no <div>. Usage:
+    {% include whl_callout.liquid text=page.intro_callout %}
+{%- endcomment -%}
+{%- if include.text and include.text != '' -%}
+  <div class="whl-callout">{{ include.text | markdownify }}</div>
+{%- endif -%}

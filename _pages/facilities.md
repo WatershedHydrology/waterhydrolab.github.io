@@ -13,8 +13,9 @@
 #      is a list where each item is a photo OR a video (click-to-upload), or a
 #      pasted YouTube/Vimeo embed. Add / remove / reorder items there — no HTML.
 #      One photo = full-width; two or more = a thumbnail grid.
-#    - Only the intro text, the map, and the buttons live in "Page content"
-#      below. For the map, paste a Google Maps <iframe>.
+#    - "Map" is just an address (the embed is built for you) and "Visit /
+#      Tour buttons" is a button list. Only the intro paragraph and the
+#      section headings stay in "Page content".
 # =============================================================================
 layout: page
 permalink: /facilities/
@@ -101,6 +102,28 @@ lab_equipment:
 gallery:
   - file: /assets/video/video_1.mp4
   - file: /assets/video/video_2.mp4
+
+# ----- Map (just type an address; the embed is built for you) -----
+map:
+  address: "3401 Experiment Station, Ona, FL 33865"
+  zoom: 13
+
+# ----- Buttons under "Visit, Tour, or Partner" (edited in the CMS, no HTML) -----
+visit_buttons:
+  - {
+      label: "Request a tour or data",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Lab%20tour%20%2F%20facilities%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab",
+      icon: "fas fa-envelope",
+      style: "primary",
+    }
+  - { label: "RCREC website", url: "https://rcrec-ona.ifas.ufl.edu/", icon: "fas fa-external-link-alt" }
+  - {
+      label: "Directions to RCREC",
+      url: "https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865",
+      icon: "fas fa-map-marker-alt",
+    }
+  - { label: "Research themes", url: "/projects/", icon: "fas fa-flask" }
+  - { label: "Contact", url: "/contact/", icon: "fas fa-paper-plane", style: "ghost" }
 ---
 
 A comprehensive suite of field instruments is deployed across research sites at
@@ -115,14 +138,7 @@ forage samples.
 
 ## Where We Work
 
-<div class="whl-map">
-  <iframe
-    title="Map of RCREC field sites — 3401 Experiment Station, Ona, FL"
-    src="https://maps.google.com/maps?q=3401%20Experiment%20Station%2C%20Ona%2C%20FL%2033865&z=13&output=embed"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen></iframe>
-</div>
+{% include whl_map.liquid map=page.map %}
 
 ## Field Instrumentation
 
@@ -138,10 +154,4 @@ forage samples.
 
 ## Visit, Tour, or Partner With the Lab
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Lab%20tour%20%2F%20facilities%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-envelope"></i> Request a tour or data</a><!--/email_off-->
-  <a class="whl-btn" href="https://rcrec-ona.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> RCREC website</a>
-  <a class="whl-btn" href="https://www.google.com/maps/search/?api=1&query=3401+Experiment+Station+Ona+FL+33865" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Directions to RCREC</a>
-  <a class="whl-btn" href="/projects/"><i class="fas fa-flask"></i> Research themes</a>
-  <a class="whl-btn whl-btn-ghost" href="/contact/"><i class="fas fa-paper-plane"></i> Contact</a>
-</div>
+{% include whl_buttons.liquid items=page.visit_buttons %}

@@ -1,0 +1,18 @@
+{%- comment -%}
+  whl_map.liquid — a framed Google Maps embed built from a plain address, so
+  editors type an address instead of pasting an <iframe>. Usage:
+    {% include whl_map.liquid map=page.map %}
+  map: { address, zoom (optional, default 14) }
+{%- endcomment -%}
+{%- if include.map and include.map.address and include.map.address != '' -%}
+  {%- assign z = include.map.zoom | default: 14 -%}
+  <div class="whl-map">
+    <iframe
+      title="Map of {{ include.map.address | escape }}"
+      src="https://maps.google.com/maps?q={{ include.map.address | url_encode }}&z={{ z }}&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+  </div>
+{%- endif -%}

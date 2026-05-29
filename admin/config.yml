@@ -117,6 +117,18 @@ collections:
       - { name: img, label: "Cover / banner image", widget: image, required: false }
       - { name: importance, label: "Order (1 = shown first)", widget: number, default: 1, value_type: int }
       - { name: category, label: Category, widget: hidden, default: research }
+      - name: buttons
+        label: "Buttons (foot of the page)"
+        label_singular: "Button"
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.label}}"
+        fields:
+          - { name: label, label: "Label", widget: string }
+          - { name: url, label: "Link (https://…, mailto:…, tel:…, or /page/)", widget: string }
+          - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+          - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
       - { name: body, label: "Full content", widget: markdown }
 
   # ---------------------------------------------------------------------------
@@ -149,7 +161,32 @@ collections:
               - { name: more_info, label: "Role / details (HTML)", widget: text }
               - { name: bio, label: "Bio", widget: markdown }
               - { name: image_circular, widget: hidden, default: false }
-          - { name: body, label: "Alumni grid + “Join the lab” (HTML)", widget: markdown }
+          - { name: join_callout, label: "“Join the lab” box (highlighted, Markdown)", widget: text, required: false }
+          - name: join_buttons
+            label: "“Join the lab” buttons"
+            label_singular: "Button"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link (https://…, mailto:…, or /page/)", widget: string }
+              - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+              - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - name: alumni
+            label: "Lab alumni (photo grid)"
+            label_singular: "Alum"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: role, label: "Role", widget: string, required: false }
+              - { name: dates, label: "Dates", widget: string, required: false }
+              - { name: image, label: "Photo", widget: image, required: false }
+          - { name: body, label: "Page content (Lab Alumni heading & intro text)", widget: markdown }
 
   # ---------------------------------------------------------------------------
   #  PAGES — editable text of standalone pages. All structural front-matter
@@ -210,7 +247,25 @@ collections:
               - { name: file, label: "Photo or video file", widget: file, required: false }
               - { name: caption, label: "Caption (optional)", widget: string, required: false }
               - { name: embed, label: "…or paste a YouTube/Vimeo embed (instead of a file)", widget: text, required: false }
-          - { name: body, label: "Page content (intro, map, buttons)", widget: markdown }
+          - name: map
+            label: "Map (just type an address)"
+            widget: object
+            fields:
+              - { name: address, label: "Address", widget: string }
+              - { name: zoom, label: "Zoom (1-20)", widget: number, default: 14, value_type: int, required: false }
+          - name: visit_buttons
+            label: "Visit / Tour / Partner buttons"
+            label_singular: "Button"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link (https://…, mailto:…, tel:…, or /page/)", widget: string }
+              - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+              - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - { name: body, label: "Page content (intro & section text)", widget: markdown }
       - name: contact
         label: "Contact page"
         file: "_pages/contact.md"
@@ -221,6 +276,36 @@ collections:
           - { name: description, label: "SEO description", widget: text }
           - { name: nav, widget: hidden, default: true }
           - { name: nav_order, widget: hidden, default: 7 }
+          - { name: intro_callout, label: "Intro callout (highlighted welcome box, Markdown)", widget: text, required: false }
+          - name: pi
+            label: "Principal Investigator card"
+            widget: object
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: role, label: "Role", widget: string, required: false }
+              - { name: affiliation, label: "Affiliation", widget: string, required: false }
+              - { name: email, label: "Email", widget: string, required: false }
+              - { name: phone, label: "Phone (display, e.g. (863) 374-7053)", widget: string, required: false }
+              - { name: phone_tel, label: "Phone (dial, e.g. +18633747053)", widget: string, required: false }
+              - { name: address, label: "Mailing address", widget: string, required: false }
+              - name: buttons
+                label: "Buttons"
+                label_singular: "Button"
+                widget: list
+                required: false
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: url, label: "Link (https://…, mailto:…, tel:…, or /page/)", widget: string }
+                  - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+                  - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - name: map
+            label: "Map (just type an address)"
+            widget: object
+            fields:
+              - { name: address, label: "Address", widget: string }
+              - { name: zoom, label: "Zoom (1-20)", widget: number, default: 15, value_type: int, required: false }
           - name: find_us
             label: "Find us — building & affiliated units"
             widget: object
@@ -257,4 +342,40 @@ collections:
                   - { name: is_logo, label: "Image is a logo/wordmark (show whole, on white)", widget: boolean, default: false }
                   - { name: url, label: "Link URL", widget: string }
                   - { name: icon, label: "Button icon (FontAwesome class)", widget: string, default: "fas fa-link" }
-          - { name: body, label: "Page content (PI card, social, Join the Lab, Postdoc)", widget: markdown }
+          - name: follow_links
+            label: "Follow the lab — links"
+            label_singular: "Link"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link", widget: string }
+              - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+              - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - name: join_buttons
+            label: "Join the Lab — buttons"
+            label_singular: "Button"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link (https://…, mailto:…, or /page/)", widget: string }
+              - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+              - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - name: postdoc_buttons
+            label: "Postdoc & collaborator — buttons"
+            label_singular: "Button"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: url, label: "Link (https://…, mailto:…, or /page/)", widget: string }
+              - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+              - { name: style, label: "Style: primary, ghost, or blank", widget: string, required: false }
+          - { name: body, label: "Page content (Join the Lab & Postdoc text only)", widget: markdown }

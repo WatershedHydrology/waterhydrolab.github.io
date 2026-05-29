@@ -12,6 +12,19 @@ description: Process-based modeling of flow, storage, and nutrient dynamics at f
 img: assets/img/research_hydrology.jpeg
 importance: 1
 category: research
+
+# ----- Buttons at the foot of the page (edited in the CMS, no HTML) -----
+buttons:
+  - {
+      label: "Collaborate on this research",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20Hydrologic%20%26%20Water%20Quality%20Modeling",
+      icon: "fas fa-handshake",
+      style: "primary",
+    }
+  - { label: "Meet the team", url: "/people/", icon: "fas fa-users" }
+  - { label: "All publications", url: "/publications/", icon: "fas fa-book" }
+  - { label: "Field instrumentation", url: "/facilities/", icon: "fas fa-microscope" }
+  - { label: "All research themes", url: "/projects/", icon: "fas fa-arrow-left", style: "ghost" }
 ---
 
 We develop and apply physically-based hydrologic and water-quality models
@@ -48,10 +61,4 @@ related works:
 - _Designing a deep learning-based framework for the prediction of lake
   surface closed curves_ — Earth Science Informatics (2025).
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20Hydrologic%20%26%20Water%20Quality%20Modeling"><i class="fas fa-handshake"></i> Collaborate on this research</a><!--/email_off-->
-  <a class="whl-btn" href="/people/"><i class="fas fa-users"></i> Meet the team</a>
-  <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> All publications</a>
-  <a class="whl-btn" href="/facilities/"><i class="fas fa-microscope"></i> Field instrumentation</a>
-  <a class="whl-btn whl-btn-ghost" href="/projects/"><i class="fas fa-arrow-left"></i> All research themes</a>
-</div>
+{% include whl_buttons.liquid items=page.buttons %}

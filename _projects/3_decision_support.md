@@ -9,6 +9,19 @@ description: Models, tools, and stakeholder engagement to support sustainable ma
 img: assets/img/research_decision_support.jpeg
 importance: 3
 category: research
+
+# ----- Buttons at the foot of the page (edited in the CMS, no HTML) -----
+buttons:
+  - {
+      label: "Partner with the lab",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Extension%20%2F%20stakeholder%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab",
+      icon: "fas fa-handshake",
+      style: "primary",
+    }
+  - { label: "Meet the team", url: "/people/", icon: "fas fa-users" }
+  - { label: "All publications", url: "/publications/", icon: "fas fa-book" }
+  - { label: "RCREC", url: "https://rcrec-ona.ifas.ufl.edu/", icon: "fas fa-external-link-alt" }
+  - { label: "All research themes", url: "/projects/", icon: "fas fa-arrow-left", style: "ghost" }
 ---
 
 We develop data-driven modeling frameworks and decision-support tools
@@ -33,10 +46,4 @@ to make sure the tools support practical decision-making in real-world
 operations. Our Extension appointment is a 40% component of Dr.
 Golmohammadi's position.
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Extension%20%2F%20stakeholder%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Partner with the lab</a><!--/email_off-->
-  <a class="whl-btn" href="/people/"><i class="fas fa-users"></i> Meet the team</a>
-  <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> All publications</a>
-  <a class="whl-btn" href="https://rcrec-ona.ifas.ufl.edu/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> RCREC</a>
-  <a class="whl-btn whl-btn-ghost" href="/projects/"><i class="fas fa-arrow-left"></i> All research themes</a>
-</div>
+{% include whl_buttons.liquid items=page.buttons %}

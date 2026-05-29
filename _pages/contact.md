@@ -2,18 +2,17 @@
 # =============================================================================
 #  CONTACT  ( /contact/ )
 # =============================================================================
-#  Lab address, PI contact, social channels, and a "Join the Lab" section
-#  with instructions for prospective students.
-#
-#  EDITING IN THE CMS (Other Pages -> Contact):
-#    - "Find us — building & affiliations" is a STRUCTURED block. Edit the
-#      RCREC building photo + buttons, and add / edit / reorder the affiliated
-#      units (one card each: photo or logo, name, and link). Tick "Image is a
-#      logo" for a wordmark so it shows whole on a white tile.
-#    - Everything else (PI card, social links, Join the Lab, Postdoc) is in
-#      "Page content" below.
-#    - The "email_off" HTML-comment markers around email links keep Cloudflare
-#      from breaking the mailto: buttons — please leave them in place.
+#  Almost everything on this page is now STRUCTURED, so it can be edited in the
+#  CMS (Other Pages -> Contact) with plain fields — no HTML:
+#    - "Intro callout"            : the highlighted welcome box (Markdown).
+#    - "Principal Investigator"   : name, role, email, phone, address, buttons.
+#    - "Map"                       : just an address (the embed is built for you).
+#    - "Find us — building & ..."  : RCREC building + affiliated units (cards).
+#    - "Follow the lab links"      : the social/profile buttons.
+#    - "Join / Postdoc buttons"    : the call-to-action buttons.
+#  Only the two prose paragraphs ("Join the Lab", "Postdoc") stay in "Page
+#  content". The "email_off" markers that protect mailto links are added
+#  automatically by the buttons/PI-card templates.
 # =============================================================================
 layout: page
 permalink: /contact/
@@ -21,6 +20,31 @@ title: contact
 description: How to reach the Watershed Hydrology Lab — Principal Investigator, lab address, and information for prospective students and collaborators.
 nav: true
 nav_order: 7
+
+# ----- Highlighted welcome box (Markdown) -----
+intro_callout: >
+  **Prospective students, collaborators, and visitors are welcome.** The
+  fastest way to reach us is by email — please read the **Join the Lab**
+  section below before applying.
+
+# ----- Principal Investigator card -----
+pi:
+  name: "Dr. Golmar Golmohammadi"
+  role: "Assistant Professor — Watershed Hydrology and Biogeochemistry"
+  affiliation: "UF/IFAS Range Cattle Research and Education Center (RCREC)"
+  email: "g.golmohammadi@ufl.edu"
+  phone: "(863) 374-7053"
+  phone_tel: "+18633747053"
+  address: "3401 Experiment Station, Ona, FL 33865"
+  buttons:
+    - { label: "Email Dr. Golmohammadi", url: "mailto:g.golmohammadi@ufl.edu", icon: "fas fa-envelope", style: "primary" }
+    - { label: "Call the lab", url: "tel:+18633747053", icon: "fas fa-phone" }
+    - { label: "UF/IFAS faculty page", url: "https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/", icon: "fas fa-id-card" }
+
+# ----- Map (just type an address; the embed is built for you) -----
+map:
+  address: "3401 Experiment Station, Ona, FL 33865"
+  zoom: 15
 
 # ----- Find us: RCREC building + affiliated units (structured; edited in CMS) -----
 find_us:
@@ -58,56 +82,54 @@ find_us:
       is_logo: true
       url: "https://waterinstitute.ufl.edu/"
       icon: "fas fa-water"
+
+# ----- "Follow the lab" links -----
+follow_links:
+  - { label: "@WaterHydroLab", url: "https://x.com/WaterHydroLab", icon: "fab fa-x-twitter" }
+  - { label: "GitHub", url: "https://github.com/waterhydrolab", icon: "fab fa-github" }
+  - { label: "LinkedIn", url: "https://www.linkedin.com/in/golmar-golmohammadi-35791a17/", icon: "fab fa-linkedin" }
+  - { label: "ORCID", url: "https://orcid.org/0000-0001-5532-3892", icon: "fab fa-orcid" }
+  - { label: "Google Scholar", url: "https://scholar.google.com/citations?user=cpXxmlYAAAAJ", icon: "fas fa-graduation-cap" }
+  - { label: "ResearchGate", url: "https://www.researchgate.net/profile/Golmar-Golmohammadi", icon: "fab fa-researchgate" }
+  - { label: "RSS", url: "/feed.xml", icon: "fas fa-rss", style: "ghost" }
+
+# ----- "Join the Lab" buttons -----
+join_buttons:
+  - {
+      label: "Email a prospective-student inquiry",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab",
+      icon: "fas fa-paper-plane",
+      style: "primary",
+    }
+  - { label: "SWES graduate admissions", url: "https://soils.ifas.ufl.edu/academics/", icon: "fas fa-user-graduate" }
+  - { label: "ABE graduate admissions", url: "https://abe.ufl.edu/graduate/", icon: "fas fa-user-graduate" }
+
+# ----- "Postdoc & collaborator" buttons -----
+postdoc_buttons:
+  - {
+      label: "Email a collaboration inquiry",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab",
+      icon: "fas fa-handshake",
+      style: "primary",
+    }
+  - { label: "See current research themes", url: "/projects/", icon: "fas fa-flask", style: "ghost" }
 ---
 
-<div class="whl-callout" markdown="1">
-**Prospective students, collaborators, and visitors are welcome.** The
-fastest way to reach us is by email — please read the **Join the Lab**
-section below before applying.
-</div>
+{% include whl_callout.liquid text=page.intro_callout %}
 
 ### Principal Investigator
 
-<div class="whl-card" markdown="1">
-**Dr. Golmar Golmohammadi**
-Assistant Professor — Watershed Hydrology and Biogeochemistry
-UF/IFAS Range Cattle Research and Education Center (RCREC)
-
-**Email:** <!--email_off-->[g.golmohammadi@ufl.edu](mailto:g.golmohammadi@ufl.edu)<!--/email_off-->
-**Phone:** [(863) 374-7053](tel:+18633747053)
-**Mailing address:** 3401 Experiment Station, Ona, FL 33865
-
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu"><i class="fas fa-envelope"></i> Email Dr. Golmohammadi</a><!--/email_off-->
-  <a class="whl-btn" href="tel:+18633747053"><i class="fas fa-phone"></i> Call the lab</a>
-  <a class="whl-btn" href="https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/" target="_blank" rel="noopener"><i class="fas fa-id-card"></i> UF/IFAS faculty page</a>
-</div>
-</div>
+{% include whl_pi_card.liquid %}
 
 ### Find us
 
-<div class="whl-map">
-  <iframe
-    title="Map to the Watershed Hydrology Lab — RCREC, 3401 Experiment Station, Ona, FL 33865"
-    src="https://maps.google.com/maps?q=3401%20Experiment%20Station%2C%20Ona%2C%20FL%2033865&z=15&output=embed"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen></iframe>
-</div>
+{% include whl_map.liquid map=page.map %}
 
 {% include whl_find_us.liquid %}
 
 ### Follow the lab
 
-<div class="whl-btn-row">
-  <a class="whl-btn" href="https://x.com/WaterHydroLab" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> @WaterHydroLab</a>
-  <a class="whl-btn" href="https://github.com/waterhydrolab" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-  <a class="whl-btn" href="https://www.linkedin.com/in/golmar-golmohammadi-35791a17/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
-  <a class="whl-btn" href="https://orcid.org/0000-0001-5532-3892" target="_blank" rel="noopener"><i class="fab fa-orcid"></i> ORCID</a>
-  <a class="whl-btn" href="https://scholar.google.com/citations?user=cpXxmlYAAAAJ" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-  <a class="whl-btn" href="https://www.researchgate.net/profile/Golmar-Golmohammadi" target="_blank" rel="noopener"><i class="fab fa-researchgate"></i> ResearchGate</a>
-  <a class="whl-btn whl-btn-ghost" href="/feed.xml"><i class="fas fa-rss"></i> RSS</a>
-</div>
+{% include whl_buttons.liquid items=page.follow_links %}
 
 ### Join the Lab
 
@@ -134,11 +156,7 @@ When you write, include:
 - Optional: a writing sample (thesis chapter, conference paper, or
   technical report).
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Prospective%20student%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-paper-plane"></i> Email a prospective-student inquiry</a><!--/email_off-->
-  <a class="whl-btn" href="https://soils.ifas.ufl.edu/academics/" target="_blank" rel="noopener"><i class="fas fa-user-graduate"></i> SWES graduate admissions</a>
-  <a class="whl-btn" href="https://abe.ufl.edu/graduate/" target="_blank" rel="noopener"><i class="fas fa-user-graduate"></i> ABE graduate admissions</a>
-</div>
+{% include whl_buttons.liquid items=page.join_buttons %}
 
 ### Postdoc & collaborator inquiries
 
@@ -147,7 +165,4 @@ also welcome. Please email Dr. Golmohammadi directly with a brief
 description of the proposed project, your CV, and (where relevant) a
 sample of recent work.
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20inquiry%20%E2%80%94%20Watershed%20Hydrology%20Lab"><i class="fas fa-handshake"></i> Email a collaboration inquiry</a><!--/email_off-->
-  <a class="whl-btn whl-btn-ghost" href="/projects/"><i class="fas fa-flask"></i> See current research themes</a>
-</div>
+{% include whl_buttons.liquid items=page.postdoc_buttons %}

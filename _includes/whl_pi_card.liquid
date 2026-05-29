@@ -1,0 +1,39 @@
+{%- comment -%}
+  whl_pi_card.liquid — the Principal-Investigator contact card on Contact,
+  built from page.pi so editors fill in fields (no HTML). The email is wrapped
+  in Cloudflare email-off markers (from the variables below, split so the code
+  formatter can't rewrite them) so the address is not obfuscated. page.pi:
+    { name, role, affiliation, email, phone, phone_tel, address, buttons[] }
+{%- endcomment -%}
+{%- assign eo_open = '<!--email' | append: '_off-->' -%}
+{%- assign eo_close = '<!--/email' | append: '_off-->' -%}
+{%- assign pi = page.pi -%}
+{%- if pi -%}
+  <div class="whl-card">
+    <p>
+      <strong>{{ pi.name | escape }}</strong>
+      {%- if pi.role and pi.role != '' -%}
+        <br>
+        {{ pi.role | escape -}}
+      {%- endif -%}
+      {%- if pi.affiliation and pi.affiliation != '' -%}
+        <br>
+        {{ pi.affiliation | escape -}}
+      {%- endif %}
+    </p>
+    <p>
+      {% if pi.email and pi.email != '' -%}
+        <strong>Email:</strong> {{ eo_open -}}
+        <a href="mailto:{{ pi.email }}">{{ pi.email }}</a>{{ eo_close -}}
+        <br>
+      {% endif -%}
+      {%- if pi.phone and pi.phone != '' -%}
+        <strong>Phone:</strong> <a href="tel:{{ pi.phone_tel | default: pi.phone }}">{{ pi.phone | escape }}</a><br>
+      {% endif -%}
+      {%- if pi.address and pi.address != '' -%}
+        <strong>Mailing address:</strong> {{ pi.address | escape -}}
+      {%- endif %}
+    </p>
+    {% include whl_buttons.liquid items=pi.buttons %}
+  </div>
+{%- endif -%}

@@ -8,6 +8,19 @@ description: Geospatial machine-learning frameworks for flood, drought, and grou
 img: assets/img/research_ai.jpeg
 importance: 2
 category: research
+
+# ----- Buttons at the foot of the page (edited in the CMS, no HTML) -----
+buttons:
+  - {
+      label: "Collaborate on this research",
+      url: "mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20AI-Driven%20Environmental%20Risk%20Mapping",
+      icon: "fas fa-handshake",
+      style: "primary",
+    }
+  - { label: "Meet the team", url: "/people/", icon: "fas fa-users" }
+  - { label: "All publications", url: "/publications/", icon: "fas fa-book" }
+  - { label: "Lab GitHub", url: "https://github.com/waterhydrolab", icon: "fab fa-github" }
+  - { label: "All research themes", url: "/projects/", icon: "fas fa-arrow-left", style: "ghost" }
 ---
 
 We develop AI-driven geospatial frameworks to assess environmental risks
@@ -43,10 +56,4 @@ Florida.
 - _Projections of meteorological drought severity-duration variations
   based on CMIP6_ — Scientific Reports (2024).
 
-<div class="whl-btn-row">
-  <!--email_off--><a class="whl-btn whl-btn-primary" href="mailto:g.golmohammadi@ufl.edu?subject=Collaboration%20%E2%80%94%20AI-Driven%20Environmental%20Risk%20Mapping"><i class="fas fa-handshake"></i> Collaborate on this research</a><!--/email_off-->
-  <a class="whl-btn" href="/people/"><i class="fas fa-users"></i> Meet the team</a>
-  <a class="whl-btn" href="/publications/"><i class="fas fa-book"></i> All publications</a>
-  <a class="whl-btn" href="https://github.com/waterhydrolab" target="_blank" rel="noopener"><i class="fab fa-github"></i> Lab GitHub</a>
-  <a class="whl-btn whl-btn-ghost" href="/projects/"><i class="fas fa-arrow-left"></i> All research themes</a>
-</div>
+{% include whl_buttons.liquid items=page.buttons %}
