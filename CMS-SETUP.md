@@ -124,7 +124,57 @@ Open <https://watershedhydrologylab.com/admin/> and pick a collection:
 ## 5. Not in the CMS (edited in code)
 
 - **Publications** (`_bibliography/papers.bib`) — BibTeX is not a CMS-friendly
-  format. Add papers by editing `papers.bib` (or ask a developer).
+  format, so papers are added in code. The top of `papers.bib` has the full
+  step-by-step; the copy-paste **entry template** is shown below. In short:
+  1. Get the BibTeX (publisher "Cite/Export", or paste the DOI into
+     <https://www.doi2bib.org/>).
+  2. Give it a citekey `lastnameYEARkeyword`; fill the template's `doi`, `html`
+     (full-text URL), and optional `abstract`.
+  3. Optional thumbnail: drop a JPG in
+     `assets/img/publication_preview/publications/` and set
+     `preview = {publications/<file>.jpg}`.
+  4. Paste it under the right year in `papers.bib`, commit & push.
+  5. To feature it on a Research project, add a `cite` tag for its citekey in
+     that project's body (the projects already do this) — it renders as a full
+     card (thumbnail + DOI + link + citation) at the foot of the page.
+
+  **Copy-paste entry template** — fill it in and paste under the right year in
+  `papers.bib`. Only `title`, `author`, `journal`, `year`, `doi`, and `html`
+  are really needed; the rest are optional niceties.
+
+  ```bibtex
+  @article{lastname2026keyword,
+    title       = {{Full Article Title — double braces keep the capitalization}},
+    author      = {Lastname, F. M. and Golmohammadi, Golmar and Coauthor, A. B.},
+    journal     = {Journal Name},
+    year        = {2026},
+    month       = {January},
+    volume      = {0},
+    number      = {0},
+    pages       = {1--10},
+    doi         = {10.xxxx/xxxxxx},
+    html        = {https://publisher.com/full-text-url},
+    preview     = {publications/your-thumbnail.jpg},
+    abstract    = {One-paragraph summary shown on the paper's detail page.},
+    selected    = {true},
+    bibtex_show = {true},
+    altmetric   = {true},
+    dimensions  = {true}
+  }
+  ```
+
+  - `title` — keep the **double braces** `{{ }}` so the journal's capitalization
+    is preserved.
+  - `author` — `Last, First M. and Last2, First2 and …`. Dr. **Golmohammadi,
+    Golmar** is bolded automatically wherever she appears.
+  - `doi` — the bare DOI (e.g. `10.3390/su17052250`), not a URL.
+  - `html` — the publisher's full-text page URL.
+  - `preview` — drop a ~600×400 JPG in
+    `assets/img/publication_preview/publications/`, then reference it as
+    `publications/<file>.jpg`.
+  - `selected = {true}` — also lists the paper in the homepage "Selected" strip.
+  - Drop `altmetric`/`dimensions` if the paper has no DOI.
+
 - **Design / theme** (`assets/whl.css`, layouts in `_layouts/`, header/footer in
   `_includes/`) — changed by a developer to keep the look consistent.
 

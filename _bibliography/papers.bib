@@ -5,23 +5,42 @@
 #  This file is rendered into /publications/ by the jekyll-scholar plugin.
 #  Entries are grouped by year (descending) in _config.yml.
 #
-#  HOW TO ADD A PAPER
-#  ------------------
-#    1. Get the BibTeX entry from the publisher (most journals provide it).
-#    2. Paste it below. Use a unique citekey such as `lastnameYEARkeyword`.
-#    3. al-folio supports a few EXTRA fields beyond standard BibTeX:
-#         abstract     - shown on the Details page
-#         bibtex_show  - if `{true}` adds a BibTeX dropdown on the page
-#         doi          - linked DOI button
-#         html         - URL to the publisher's article landing page
-#         pdf          - URL or filename (in /assets/pdf/) of the PDF
-#         preview      - thumbnail image (in /assets/img/publications/)
-#         selected     - if `{true}`, paper appears in homepage "Selected" list
-#         altmetric    - if `{true}`, show Altmetric badge (auto-fetched via DOI)
-#         dimensions   - if `{true}`, show Dimensions citation count badge
-#         google_scholar_id - paper-specific Scholar ID (for citation badge)
-#    4. The PI's name (Golmohammadi, Golmar G.) is bolded automatically — see
-#       the `scholar.last_name` setting in _config.yml.
+#  HOW TO ADD A NEW PAPER  (step by step)
+#  --------------------------------------
+#    1. Get the BibTeX. Most journals have a "Cite / Export" button; or paste
+#       the DOI into https://www.doi2bib.org/ to generate it.
+#    2. Give it a unique citekey: lastnameYEARkeyword
+#       (e.g. golmohammadi2026sensors). This is what you cite on project pages.
+#    3. (Optional) Thumbnail: drop a small JPG (~600x400, the graphical
+#       abstract or first page works well) into
+#         assets/img/publication_preview/publications/
+#       and point to it with:  preview = {publications/your-file.jpg}
+#    4. Copy the TEMPLATE below, remove the leading "# ", fill it in, and paste
+#       it under the matching year heading further down this file.
+#    5. (Optional) Show it on a Research project page: in that project's body
+#       add a cite tag for the citekey (see _projects/*.md — they already use
+#       it). The paper then appears as a full card at the foot of that page.
+#    6. Save / commit & push. Cloudflare rebuilds (~5 min) and the paper shows
+#       on /publications/ (and on any project that cites it).
+#
+#  al-folio EXTRA fields (beyond standard BibTeX):
+#    abstract     - paragraph shown on the paper's detail page
+#    bibtex_show  - {true} adds a "Bib" dropdown button
+#    doi          - DOI only, e.g. 10.3390/su17052250  (renders a DOI button)
+#    html         - the publisher's full-text URL (renders an "HTML" button)
+#    pdf          - a filename in /assets/pdf/ (or a full URL)
+#    preview      - thumbnail; the value is relative to
+#                   assets/img/publication_preview/  (so use publications/<file>)
+#    selected     - {true} also lists it in the homepage "Selected" section
+#    altmetric    - {true} shows an Altmetric badge (needs doi)
+#    dimensions   - {true} shows a Dimensions citation badge (needs doi)
+#  The PI's name (Golmohammadi, Golmar) is bolded automatically.
+#
+#  A ready-to-fill, copy-paste entry TEMPLATE lives in CMS-SETUP.md (section 5,
+#  "Publications") — copy it from there. (The template can't be shown literally
+#  here: a "@" inside this comment would be read as a real entry and break the
+#  build.) A minimal entry needs: a citekey, title, author, journal, year, doi,
+#  and html; add preview for a thumbnail.
 # =============================================================================
 ---
 
