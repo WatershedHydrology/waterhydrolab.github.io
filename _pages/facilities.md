@@ -44,6 +44,13 @@ forage samples.
 
 <div class="whl-card-grid" markdown="1">
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n4">
+  <img src="/assets/img/instruments/sontek.jpg" alt="SonTek acoustic Doppler flow meter" loading="lazy" />
+  <img src="/assets/img/instruments/sontek-2.jpg" alt="SonTek flow meter — deployment view" loading="lazy" />
+  <img src="/assets/img/instruments/sontek-3.jpg" alt="SonTek flow meter — sensor detail" loading="lazy" />
+  <img src="/assets/img/instruments/sontek-4.jpg" alt="SonTek flow meter — field installation" loading="lazy" />
+</div>
+
 **Hydrometric Station — SonTek acoustic Doppler flow meter**
 _RCREC & DeLuca Preserve · 2023–present_
 
@@ -53,6 +60,10 @@ flow direction, temperature, and diagnostic quality metrics.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/weather-station.jpg" alt="Weather station at RCREC" loading="lazy" />
+</div>
+
 **Weather Station**
 _RCREC · 2024–present_
 
@@ -62,6 +73,10 @@ real-time remote monitoring.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/lysimeter.jpg" alt="Lysimeter installation at RCREC" loading="lazy" />
+</div>
+
 **Lysimeter**
 _RCREC · 2024–present_
 
@@ -71,6 +86,11 @@ quantify subsurface drainage and solute (e.g., nitrate) leaching.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n2">
+  <img src="/assets/img/instruments/zentra-zl6.jpg" alt="Zentra ZL6 data logger" loading="lazy" />
+  <img src="/assets/img/instruments/zentra-zl6-2.jpg" alt="Zentra ZL6 data logger — field deployment" loading="lazy" />
+</div>
+
 **Zentra ZL6 Data Logger**
 _RCREC · 2024–present_
 
@@ -80,6 +100,11 @@ Cloud.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n2">
+  <img src="/assets/img/instruments/rugged-troll.jpg" alt="Rugged TROLL groundwater sensor" loading="lazy" />
+  <img src="/assets/img/instruments/rugged-troll-2.jpg" alt="Rugged TROLL groundwater well installation" loading="lazy" />
+</div>
+
 **Groundwater Wells — Rugged TROLL sensors**
 _RCREC (5 wells) & DeLuca Preserve (3 wells) · 2023–present_
 
@@ -88,6 +113,10 @@ Continuous logging of groundwater level and temperature.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/aqua-troll.jpg" alt="Aqua TROLL multi-parameter water-quality sonde" loading="lazy" />
+</div>
+
 **Aqua TROLL Sonde**
 _RCREC · 2023–present_
 
@@ -97,6 +126,10 @@ electrical conductivity, and turbidity.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/vulink.jpg" alt="VuLink telemetry data logger at the DeLuca Preserve" loading="lazy" />
+</div>
+
 **VuLink Data Logger**
 _DeLuca Preserve · 2024–present_
 
@@ -105,6 +138,10 @@ Automated data logging and wireless transmission for groundwater-level sensors.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/teros-12.jpg" alt="TEROS 12 soil-moisture sensor" loading="lazy" />
+</div>
+
 **TEROS 12 — Soil-Moisture Sensor**
 _RCREC · 2024–present_
 
@@ -114,6 +151,10 @@ conductivity.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/teros-54.jpg" alt="TEROS 54 soil-moisture profile probe" loading="lazy" />
+</div>
+
 **TEROS 54 — Soil-Moisture Profile Probe**
 _RCREC · 2024–present_
 
@@ -122,6 +163,10 @@ Multi-depth soil water potential and temperature.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n1">
+  <img src="/assets/img/instruments/ec-5.jpg" alt="Onset ECH₂O EC-5 soil-moisture sensor" loading="lazy" />
+</div>
+
 **Onset ECH₂O EC-5 — Soil-Moisture Sensor**
 _RCREC · 2025–present_
 
@@ -134,6 +179,11 @@ Volumetric water content via capacitance-based dielectric measurement.
 
 <div class="whl-card-grid" markdown="1">
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n2">
+  <img src="/assets/img/instruments/benchtop-meter.jpg" alt="Benchtop multiparameter meter" loading="lazy" />
+  <img src="/assets/img/instruments/benchtop-meter-2.jpg" alt="Benchtop multiparameter meter — probes and display" loading="lazy" />
+</div>
+
 **Benchtop Multiparameter Meter**
 _RCREC Hydrology Lab · 2026–present_
 
@@ -142,6 +192,12 @@ Measures pH, electrical conductivity, and temperature in water and soil samples.
 </div>
 
 <div class="whl-card" markdown="1">
+<div class="whl-card-media n3">
+  <img src="/assets/img/instruments/aq300.jpg" alt="AQ300 discrete analyzer" loading="lazy" />
+  <img src="/assets/img/instruments/aq300-2.jpg" alt="AQ300 discrete analyzer — robotic sampler" loading="lazy" />
+  <img src="/assets/img/instruments/aq300-3.jpg" alt="AQ300 discrete analyzer — reagent tray" loading="lazy" />
+</div>
+
 **AQ300 Discrete Analyzer**
 _RCREC Hydrology Lab · 2026–present_
 

@@ -390,6 +390,44 @@ h6,
   margin: 2rem 0;
 }
 
+/* Sensor / equipment imagery inside a card.
+   Photos are mostly portrait, so `contain` keeps the whole instrument
+   visible. Single image = one full-width frame; 2+ images = a thumbnail
+   grid. Add .n2 / .n3 / .n4 to the media wrapper to match the image count. */
+.whl-card-media {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin: -1.6rem -1.75rem 1.4rem; /* bleed out across the card padding */
+  padding: 0.6rem;
+  background: var(--whl-gradient-soft);
+  border-bottom: 1px solid var(--whl-line);
+  border-radius: 0.9rem 0.9rem 0 0; /* match the card's top corners */
+}
+.whl-card-media img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  margin: 0;
+  object-fit: contain;
+  background: var(--global-card-bg-color);
+  border-radius: 0.5rem;
+}
+.whl-card-media.n2,
+.whl-card-media.n3,
+.whl-card-media.n4 {
+  grid-template-columns: 1fr 1fr;
+}
+.whl-card-media.n2 img,
+.whl-card-media.n3 img,
+.whl-card-media.n4 img {
+  height: 150px;
+}
+.whl-card-media.n3 img:first-child {
+  grid-column: 1 / -1; /* first of three spans the full width */
+  height: 185px;
+}
+
 .whl-callout {
   background: var(--whl-gradient-soft);
   border: 1px solid rgb(196 107 65 / 30%);
