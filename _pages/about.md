@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Led by [Dr. Golmar Golmohammadi](https://soils.ifas.ufl.edu/people/faculty/golmar-golmohammadi/), Assistant Professor of Watershed Hydrology and Biogeochemistry · [UF/IFAS Range Cattle Research and Education Center](https://rcrec-ona.ifas.ufl.edu/) · [Department of Soil, Water, and Ecosystem Sciences](https://soils.ifas.ufl.edu/)
+subtitle: '[UF/IFAS Range Cattle Research and Education Center](https://rcrec-ona.ifas.ufl.edu/) · [Department of Soil, Water, and Ecosystem Sciences](https://soils.ifas.ufl.edu/)'
 hero:
   logo: /assets/img/uploads/Test.png
   tagline: Advancing the science of water across agricultural landscapes, rangelands, and watersheds — uniting physically based modeling, artificial intelligence, and a dense field-observation network to safeguard water quantity and quality under a changing climate.
