@@ -60,5 +60,5 @@ We combine physically based hydrologic and water-quality models (SWAT+,
 MODFLOW, DRAINMOD), machine-learning and deep-learning approaches,
 geospatial analysis with Earth-observation data, and an extensive
 field-instrumentation network at RCREC and the DeLuca Preserve — working at
-the intersection of **watershed science, artificial intelligence, and
-agricultural sustainability**.
+the intersection of \*\*watershed science, artificial intelligence, and
+agricultural sustainability\*\*.
