@@ -1183,11 +1183,17 @@ img.whl-video {
   font-size: clamp(2.7rem, 6vw, 5.4rem);
   line-height: 1;
   letter-spacing: -0.025em;
-  color: #fff;
+  color: #fff !important; /* beat al-folio's .post h1 dark color so it reads on the photo */
   margin: 0.1rem 0 1.1rem;
-  text-shadow: 0 6px 40px rgb(0 0 0 / 45%);
-  text-transform: none;
+  text-shadow: 0 2px 10px rgb(7 15 34 / 60%), 0 8px 44px rgb(0 0 0 / 50%);
+  text-transform: none !important;
 }
+.whl-hero2-title .whl-gradient-text {
+  filter: drop-shadow(0 2px 10px rgb(7 15 34 / 55%)); /* keep the blue word legible */
+}
+/* Section headings in sentence case (override the global capitalize rule) */
+.whl-sec-h,
+.whl-hero2-title { text-transform: none !important; }
 .whl-hero2-tag {
   font-size: clamp(1.1rem, 1.6vw, 1.45rem);
   color: #d6e4f6;
