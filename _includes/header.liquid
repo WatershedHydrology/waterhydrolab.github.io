@@ -11,10 +11,10 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      <!-- WHL: brand = logo + lab name, on every page -->
+      <!-- WHL V2: brand = the full logo lockup (wordmark + droplet), on every page -->
       <a class="navbar-brand title whl-brand" href="{{ '/' | relative_url }}">
-        <img class="whl-brand-logo" src="{{ '/assets/img/whl_logo.png' | relative_url }}" alt="{{ site.title }} logo">
-        <span class="whl-brand-name">{{- site.title -}}</span>
+        <img class="whl-brand-logo" src="{{ '/assets/img/whl_logo_v2.png' | relative_url }}" alt="{{ site.title }} logo">
+        <span class="whl-brand-name sr-only">{{- site.title -}}</span>
       </a>
       <!-- Navbar Toggle -->
       <button

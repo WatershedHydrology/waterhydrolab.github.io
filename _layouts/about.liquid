@@ -3,149 +3,198 @@ layout: default
 ---
 {% comment %}
   =============================================================================
-    ABOUT / HOME LAYOUT — local override of al_folio_core's about.liquid
+    ABOUT / HOME LAYOUT — V2 (local override of al_folio_core's about.liquid)
   =============================================================================
-    This adds an impactful landing "hero" (logo + lab name + tagline + primary
-    CTAs + research pillars) above the standard about content. The hero only
-    renders when the page defines a `hero:` block in its front matter (i.e. the
-    homepage), so any other page using `layout: about` falls back to the plain
-    header.
-
-    Everything below the hero (profile card, page content, news, selected
-    publications, social icons) mirrors the upstream al-folio about layout so
-    no functionality is lost. Theme includes (figure.liquid, news.liquid,
-    selected_papers.liquid) and the {% social_links %} tag still come from the
-    al_folio_core gem.
+    Cinematic photo hero, "Carriers" channel cards, research image cards,
+    a "From the field" media gallery, and a team strip — then the standard
+    About text, news, selected publications and social block. All driven by
+    front matter (CMS-editable). Re-sync structure on al_folio_core upgrade.
   =============================================================================
 {% endcomment %}
 
-<div class="post">
+<div class="post whl-home">
   {% if page.hero %}
-    <!-- ===================== HERO ===================== -->
-    <section class="whl-hero">
-      <div class="whl-hero-inner">
-        <div class="whl-hero-head">
-          {% if page.hero.logo %}
-            <img
-              class="whl-hero-logo"
-              src="{{ page.hero.logo | relative_url }}"
-              alt="{{ site.title }} logo"
-              loading="eager"
-            >
-          {% endif %}
-          <div class="whl-hero-headtext">
-            <h1 class="whl-hero-title">
-              {{ site.first_name }}
-              <span class="whl-gradient-text">{{ site.middle_name }}</span>
-              {{ site.last_name }}
-            </h1>
-
-            {% if page.hero.tagline %}
-              <p class="whl-hero-tagline">{{ page.hero.tagline }}</p>
-            {% endif %}
-
-            {% if page.subtitle %}
-              {%- comment -%} WHL: subtitle is Markdown (CMS rich-text); render inline (drop the wrapping <p>) so it sits in the meta line. {%- endcomment -%}
-              <p class="whl-hero-meta">{{ page.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
-            {% endif %}
-
-            <div class="whl-btn-row whl-hero-cta">
-              <a class="whl-btn whl-btn-primary" href="{{ '/projects/' | relative_url }}"><i class="fas fa-flask"></i> Explore Our Research</a>
-              <a class="whl-btn" href="{{ '/people/' | relative_url }}"><i class="fas fa-users"></i> Meet the Team</a>
-              <a class="whl-btn" href="{{ '/publications/' | relative_url }}"><i class="fas fa-book"></i> Publications</a>
-              <a class="whl-btn" href="{{ '/contact/' | relative_url }}"><i class="fas fa-paper-plane"></i> Contact</a>
-            </div>
-          </div>
+    <!-- ===================== HERO (photo + overlay) ===================== -->
+    <header
+      class="whl-hero2"
+      {% if page.hero.image %}style="--whl-hero2-img: url('{{ page.hero.image | relative_url }}');"{% endif %}
+    >
+      <div class="whl-hero2-ov"></div>
+      <div class="whl-hero2-in">
+        <span class="whl-hero2-eyebrow">
+          <i class="fas fa-droplet"></i>
+          {{ page.hero.eyebrow | default: 'UF/IFAS · Range Cattle REC · Ona, Florida' }}
+        </span>
+        <h1 class="whl-hero2-title">
+          {{ site.first_name }}
+          <span class="whl-gradient-text">{{ site.middle_name }}</span>
+          {{ site.last_name }}
+        </h1>
+        {% if page.hero.tagline %}
+          <p class="whl-hero2-tag">{{ page.hero.tagline }}</p>
+        {% endif %}
+        {% if page.subtitle %}
+          <p class="whl-hero2-meta">{{ page.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {% endif %}
+        <div class="whl-btn-row whl-hero2-cta">
+          <a class="whl-btn whl-btn-primary" href="{{ '/projects/' | relative_url }}"><i class="fas fa-flask"></i> Explore Our Research</a>
+          <a class="whl-btn whl-btn-ghost" href="{{ '/people/' | relative_url }}"><i class="fas fa-users"></i> Meet the Team</a>
         </div>
       </div>
+    </header>
 
-      {% if page.hero.pillars %}
-        <div class="whl-pillars">
-          {% for pillar in page.hero.pillars %}
-            {%- comment -%}
-              Reuse the cover image of the Research project this pillar links to,
-              so the thumbnail always matches that project's card.
-            {%- endcomment -%}
-            {% assign linked_project = site.projects | where: 'url', pillar.href | first %}
-            <a class="whl-pillar" href="{{ pillar.href | relative_url }}">
-              {% if linked_project and linked_project.img %}
-                <span class="whl-pillar-thumb">
-                  <img src="{{ linked_project.img | relative_url }}" alt="" loading="lazy">
-                </span>
+    <!-- ===================== CARRIERS — channel cards ===================== -->
+    {% if page.carriers and page.carriers.size > 0 %}
+      {%- assign eo_open = '<!--email' | append: '_off-->' -%}
+      {%- assign eo_close = '<!--/email' | append: '_off-->' -%}
+      <section class="whl-carriers">
+        <div class="whl-carriers-grid">
+          {% for c in page.carriers %}
+            <div class="whl-carrier-card">
+              {% if c.image %}
+                <div class="whl-carrier-ph"><img src="{{ c.image | relative_url }}" alt="" loading="lazy"></div>
               {% endif %}
-              <h3>{{ pillar.title }}</h3>
-              <p>{{ pillar.text }}</p>
-              <span class="whl-pillar-more">Learn more <i class="fas fa-arrow-right"></i></span>
-            </a>
+              <div class="whl-carrier-bd">
+                <h3>{{ c.title }}</h3>
+                {% if c.text and c.text != '' %}<p>{{ c.text }}</p>{% endif %}
+                {% if c.buttons and c.buttons.size > 0 %}
+                  <div class="whl-carrier-btns">
+                    {% for b in c.buttons %}
+                      {%- assign is_mail = false -%}
+                      {%- if b.url contains 'mailto:' -%}{%- assign is_mail = true -%}{%- endif -%}
+                      {%- assign is_ext = false -%}
+                      {%- if b.url contains '://' -%}{%- assign is_ext = true -%}{%- endif -%}
+                      {% if is_mail %}{{ eo_open }}{% endif %}<a class="whl-cbtn {% if b.style == 'primary' %}pri{% else %}out{% endif %}" href="{{ b.url }}"{% if is_ext %} target="_blank" rel="noopener"{% endif %}>{% if b.icon %}<i class="{{ b.icon }}"></i> {% endif %}{{ b.label }}</a>{% if is_mail %}{{ eo_close }}{% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
           {% endfor %}
         </div>
-      {% endif %}
-    </section>
+      </section>
+    {% endif %}
+
+    <!-- ===================== RESEARCH themes (image cards) ===================== -->
+    {% if page.hero.pillars and page.hero.pillars.size > 0 %}
+      <section class="whl-section">
+        <div class="whl-section-in">
+          <span class="whl-kicker">Our Research</span>
+          <h2 class="whl-sec-h">{{ page.research_heading | default: 'Three questions driving the lab' }}</h2>
+          {% if page.research_lead %}<p class="whl-lead">{{ page.research_lead }}</p>{% endif %}
+          <div class="whl-rule"></div>
+          <div class="whl-rgrid">
+            {% for pillar in page.hero.pillars %}
+              {% assign proj = site.projects | where: 'url', pillar.href | first %}
+              <a class="whl-rcard" href="{{ pillar.href | relative_url }}">
+                {% if proj and proj.img %}
+                  <div class="whl-rcard-ph"><img src="{{ proj.img | relative_url }}" alt="" loading="lazy"></div>
+                {% endif %}
+                <div class="whl-rcard-bd">
+                  <span class="whl-rcard-tag">Theme 0{{ forloop.index }}</span>
+                  <h3>{{ pillar.title }}</h3>
+                  <p>{{ pillar.text }}</p>
+                  <span class="whl-rcard-more">Explore the research →</span>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    <!-- ===================== FROM THE FIELD — media gallery ===================== -->
+    {% if page.field_gallery and page.field_gallery.size > 0 %}
+      {%- assign vids = 'mp4,webm,mov,m4v,ogv' | split: ',' -%}
+      <section class="whl-field">
+        <div class="whl-field-in">
+          <span class="whl-kicker">From the field</span>
+          <h2 class="whl-sec-h">{{ page.field_heading | default: 'Where the data comes from' }}</h2>
+          {% if page.field_lead %}<p class="whl-lead">{{ page.field_lead }}</p>{% endif %}
+          <div class="whl-fieldgal">
+            {% for item in page.field_gallery %}
+              {%- assign ext = item.file | split: '.' | last | downcase -%}
+              <figure class="whl-fg-item {{ item.size }}">
+                {% if vids contains ext %}
+                  <video src="{{ item.file | relative_url }}" autoplay muted loop playsinline preload="metadata"></video>
+                  <span class="whl-fg-badge"><i class="fas fa-video"></i></span>
+                {% else %}
+                  <img src="{{ item.file | relative_url }}" alt="{{ item.caption | default: 'Field photo' | escape }}" loading="lazy">
+                {% endif %}
+                {% if item.caption and item.caption != '' %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+              </figure>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
   {% else %}
     <header class="post-header">
       <h1 class="post-title">{{ site.title }}</h1>
-      <p class="desc">{{ page.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      <p class="desc">{{ page.subtitle }}</p>
     </header>
   {% endif %}
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-          {% endif %}
-          {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class alt=page.profile.image cache_bust=true %}
-        {% endif %}
-        {%- comment -%}
-          WHL: the contact card is now built from structured, CMS-editable
-          fields (page.profile.contact) — no HTML. `more_info` is kept only as a
-          legacy fallback in case an old HTML value is still present.
-        {%- endcomment -%}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% elsif page.profile.contact %}
-          {% include whl_home_contact.liquid %}
-        {% endif %}
+  <article class="whl-home-article">
+    <!-- About the Lab text -->
+    {% if content != '' %}
+      <section class="whl-section"><div class="whl-section-in clearfix">{{ content }}</div></section>
+    {% endif %}
+
+    {% if page.about_photos and page.about_photos.size > 0 %}
+      <div class="whl-section-in">
+        <div class="whl-about-photos">
+          {% for p in page.about_photos %}
+            <figure class="whl-about-photo">
+              <img src="{{ p.image | relative_url }}" alt="{{ p.caption | default: 'Watershed Hydrology Lab' | escape }}" loading="lazy">
+              {% if p.caption and p.caption != '' %}<figcaption>{{ p.caption }}</figcaption>{% endif %}
+            </figure>
+          {% endfor %}
+        </div>
       </div>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
-
-    {% if page.about_photos and page.about_photos.size > 0 %}
-      <div class="whl-about-photos">
-        {% for p in page.about_photos %}
-          <figure class="whl-about-photo">
-            <img
-              src="{{ p.image | relative_url }}"
-              alt="{{ p.caption | default: 'Watershed Hydrology Lab' | escape }}"
-              loading="lazy"
-            >
-            {% if p.caption and p.caption != '' %}
-              <figcaption>{{ p.caption }}</figcaption>
-            {% endif %}
-          </figure>
-        {% endfor %}
-      </div>
+    <!-- TEAM strip (pulled from the People page) -->
+    {% assign ppl = site.pages | where: 'url', '/people/' | first %}
+    {% if ppl.profiles and ppl.profiles.size > 0 %}
+      <section class="whl-team2">
+        <div class="whl-team2-in">
+          <span class="whl-kicker">The Team</span>
+          <h2 class="whl-sec-h">Researchers behind the work</h2>
+          <div class="whl-rule"></div>
+          <div class="whl-team2-row">
+            {% for m in ppl.profiles %}
+              {%- assign nm = m.bio | split: '**' -%}
+              <a class="whl-member" href="{{ '/people/' | relative_url }}">
+                {% if m.image %}<img src="{{ m.image | prepend: 'assets/img/' | relative_url }}" alt="" loading="lazy">{% endif %}
+                <div class="whl-member-nm">{{ nm[1] | strip }}</div>
+                {% if m.role %}<div class="whl-member-rl">{{ m.role }}</div>{% endif %}
+              </a>
+            {% endfor %}
+          </div>
+          <a class="whl-btn whl-btn-primary" href="{{ '/people/' | relative_url }}"><i class="fas fa-users"></i> Meet the full team</a>
+        </div>
+      </section>
     {% endif %}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include whl_news.liquid scroll=true %}
+      <section class="whl-section"><div class="whl-section-in">
+        <span class="whl-kicker">Latest</span>
+        <h2 class="whl-sec-h"><a href="{{ '/news/' | relative_url }}" style="color: inherit">News &amp; announcements</a></h2>
+        <div class="whl-rule"></div>
+        {% include whl_news.liquid scroll=true %}
+      </div></section>
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
+      <section class="whl-section"><div class="whl-section-in">
+        <span class="whl-kicker">Publications</span>
+        <h2 class="whl-sec-h"><a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected publications</a></h2>
+        <div class="whl-rule"></div>
+        {% include selected_papers.liquid %}
+      </div></section>
     {% endif %}
 
     <!-- Social -->

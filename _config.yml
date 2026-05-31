@@ -76,7 +76,7 @@ lang: en
 
 # Favicon (the little icon in the browser tab). al-folio treats a value
 # longer than 4 chars as a path under /assets/img/. We use the lab logo.
-icon: whl_logo.png
+icon: whl_drop.png
 
 # ----- Domain / URL -----
 # `url` is the canonical site address. Used in sitemap.xml, RSS feeds,
@@ -180,7 +180,7 @@ max_width: 1200px
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: https://watershedhydrologylab.com/assets/img/whl_logo.png # Social-share preview (640x640 lab logo). MUST be an absolute URL — metadata.liquid emits og_image verbatim with no site.url prefix, and OG/Twitter scrapers reject relative paths.
+og_image: https://watershedhydrologylab.com/assets/img/og-card.png # Social-share preview (1200x630 V2 logo card). MUST be an absolute URL — metadata.liquid emits og_image verbatim with no site.url prefix, and OG/Twitter scrapers reject relative paths.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

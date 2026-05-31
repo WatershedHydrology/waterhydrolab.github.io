@@ -42,23 +42,61 @@ collections:
         file: "_pages/about.md"
         fields:
           - { name: layout, widget: hidden, default: about }
-          - { name: title, widget: hidden, default: about }
+          - { name: title, widget: hidden, default: home }
           - { name: permalink, widget: hidden, default: "/" }
           - { name: subtitle, label: "Hero subtitle — the line under the lab name (use the link button to add links)", widget: markdown }
           - name: hero
             label: "Hero (landing banner)"
             widget: object
             fields:
-              - { name: logo, label: "Logo image", widget: image }
+              - { name: image, label: "Hero background photo (full-width banner)", widget: image, required: false }
+              - { name: eyebrow, label: "Eyebrow (small line above the title)", widget: string, required: false }
               - { name: tagline, label: "Tagline", widget: text }
               - name: pillars
-                label: "Research pillars (3 cards)"
+                label: "Research themes (3 cards)"
                 widget: list
                 summary: "{{fields.title}}"
                 fields:
                   - { name: title, label: "Title", widget: string }
                   - { name: text, label: "Description", widget: text }
-                  - { name: href, label: "Links to", widget: string }
+                  - { name: href, label: "Links to (project URL)", widget: string }
+          - { name: research_heading, label: "Research section heading", widget: string, required: false }
+          - { name: research_lead, label: "Research section intro", widget: text, required: false }
+          - { name: field_heading, label: "'From the field' heading", widget: string, required: false }
+          - { name: field_lead, label: "'From the field' intro", widget: text, required: false }
+          - name: carriers
+            label: "Carriers — hero channel cards (photo + buttons)"
+            label_singular: "Card"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: image, label: "Card photo", widget: image, required: false }
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Short text", widget: string, required: false }
+              - name: buttons
+                label: "Buttons (access / share / communication)"
+                label_singular: "Button"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: url, label: "Link (https://…, mailto:…, or /page/)", widget: string }
+                  - { name: icon, label: "Icon (FontAwesome class, optional)", widget: string, required: false }
+                  - { name: style, label: "Style: primary or blank", widget: string, required: false }
+          - name: field_gallery
+            label: "From the field — photos & videos gallery"
+            label_singular: "Item"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.caption}}"
+            fields:
+              - { name: file, label: "Photo or video file", widget: file }
+              - { name: caption, label: "Caption", widget: string, required: false }
+              - { name: size, label: "Size: big, wide, or blank (normal)", widget: string, required: false }
           - name: profile
             label: "PI photo & contact card"
             widget: object

@@ -1,11 +1,12 @@
 ---
 layout: about
-title: about
+title: home
 permalink: /
 subtitle: '[UF/IFAS Range Cattle Research and Education Center](https://rcrec-ona.ifas.ufl.edu/) · [Department of Soil, Water, and Ecosystem Sciences](https://soils.ifas.ufl.edu/)'
 hero:
-  logo: /assets/img/uploads/new_logo.png
-  tagline: Advancing the science of water across agricultural landscapes, rangelands, and watersheds — uniting physically based modeling, artificial intelligence, and a dense field-observation network to safeguard water quantity and quality under a changing climate.
+  image: assets/img/media/field-watershed.jpg
+  eyebrow: "UF/IFAS · Range Cattle REC · Ona, Florida"
+  tagline: Advancing the science of water across agricultural landscapes, rangelands and watersheds.
   pillars:
     - title: Hydrologic &amp; Water-Quality Modeling
       text: Field-to-watershed simulation of flow, storage, and nutrient transport with SWAT+, MODFLOW, and DRAINMOD.
@@ -16,6 +17,37 @@ hero:
     - title: Data-Driven Decision Support
       text: Models, sensor networks, and stakeholder input to evaluate Best Management Practices for sustainable agriculture.
       href: /projects/3_decision_support/
+research_heading: Three questions driving the lab
+research_lead: From physically based watershed models to explainable AI and decision-support tools — how water moves, where the risks are, and how to manage them sustainably.
+field_heading: Where the data comes from
+field_lead: An instrumented network across RCREC and the DeLuca Preserve — drones, weather stations, lysimeters and water-quality sensors capturing real watershed processes.
+carriers:
+  - image: assets/img/research_hydrology.jpeg
+    title: Latest research
+    text: Publications, models & open data.
+    buttons:
+      - { label: Publications, url: /publications/, icon: "fas fa-book", style: primary }
+      - { label: Share, url: "mailto:?subject=Watershed%20Hydrology%20Lab", icon: "fas fa-share-nodes" }
+  - image: assets/img/media/symposium.jpg
+    title: Connect with the lab
+    text: Follow our channels.
+    buttons:
+      - { label: "@WaterHydroLab", url: "https://x.com/WaterHydroLab", icon: "fab fa-x-twitter", style: primary }
+      - { label: GitHub, url: "https://github.com/waterhydrolab", icon: "fab fa-github" }
+  - image: assets/img/media/field-monitoring.jpg
+    title: Get in touch
+    text: Reach the team & quick access.
+    buttons:
+      - { label: Email, url: "mailto:g.golmohammadi@ufl.edu", icon: "fas fa-envelope", style: primary }
+      - { label: Downloads, url: /downloads/, icon: "fas fa-qrcode" }
+field_gallery:
+  - { file: assets/img/media/field-watershed.jpg, caption: "Watershed & wetland monitoring", size: big }
+  - { file: assets/video/drone1.mp4, caption: "UAV aerial survey", size: wide }
+  - { file: assets/img/media/field-sensors.jpg, caption: "Sensor installation" }
+  - { file: assets/img/media/field-drone.jpg, caption: "Field deployment" }
+  - { file: assets/img/media/field-team.jpg, caption: "Field campaign" }
+  - { file: assets/img/media/field-corn.jpg, caption: "Silage-corn trials" }
+  - { file: assets/img/media/field-monitoring.jpg, caption: "In-situ monitoring" }
 profile:
   align: right
   image: /assets/img/uploads/Screenshot 2023-03-31 134020.png

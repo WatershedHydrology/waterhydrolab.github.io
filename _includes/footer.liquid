@@ -1,60 +1,56 @@
 {%- comment -%}
-  Local override of al_folio_core's footer.liquid.
-  Adds a slim, delicate footer navigation bar (the same links as the main
-  navbar, in the same gradient palette) on every page EXCEPT the homepage,
-  above the copyright bar. The copyright bar itself is unchanged from upstream.
-  Re-sync with the gem on upgrade.
+  V2 footer — local override of al_folio_core's footer.liquid.
+  Multi-column: brand + social, an "Explore" nav column, and a "Carriers"
+  column of sharing / communication links, above the copyright bar.
+  Email links are wrapped in Cloudflare email_off markers (split vars so the
+  formatter can't rewrite them). Re-sync with the gem on upgrade.
 {%- endcomment -%}
-{% capture footer_contents %}
-  &copy; Copyright {{ site.time | date: '%Y' }}
-  {{ site.first_name }}
-  {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.footer_text }}
-  {% if site.impressum_path %}
-    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-  {% endif %}
-  {% if site.last_updated %}
-    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
-  {% endif %}
-{% endcapture %}
+{%- assign eo_open = '<!--email' | append: '_off-->' -%}
+{%- assign eo_close = '<!--/email' | append: '_off-->' -%}
 
-{%- comment -%} WHL: slim footer navigation, shown on every page except home {%- endcomment -%}
-{% capture whl_footer_nav %}
-  {% if page.url != '/' %}
-    {% for p in site.pages %}{% if p.permalink == '/' %}{% assign whl_home_title = p.title %}{% endif %}{% endfor %}
-    <nav class="whl-foot-nav" aria-label="Footer navigation">
-      <div class="whl-foot-nav-inner">
-        <a class="whl-foot-link" href="{{ '/' | relative_url }}">{{ whl_home_title }}</a>
-        {% assign whl_sorted = site.pages | sort: 'nav_order' %}
-        {% for p in whl_sorted %}
-          {% if p.nav and p.autogen == null and p.dropdown != true %}
-            <a class="whl-foot-link {% if page.url == p.url %}active{% endif %}" href="{{ p.url | relative_url }}">{{ p.title }}</a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </nav>
-  {% endif %}
-{% endcapture %}
-
-{% if site.footer_fixed %}
-  {{ whl_footer_nav }}
-  <footer class="fixed-bottom" role="contentinfo">
-    <div class="container mt-0">
-      {{ footer_contents }}
-    </div>
-  </footer>
-{% else %}
-  <footer class="sticky-bottom mt-5" role="contentinfo">
-    {% if site.newsletter.enabled %}
-      {% if site.plugins contains 'al_newsletter' %}
-        {% include plugins/al_newsletter_form_center.liquid %}
-      {% else %}
-        {% include newsletter.liquid %}
-      {% endif %}
+<footer class="whl-foot2 {% if site.footer_fixed %}fixed-bottom{% else %}sticky-bottom mt-5{% endif %}" role="contentinfo">
+  {% if site.newsletter.enabled and site.footer_fixed != true %}
+    {% if site.plugins contains 'al_newsletter' %}
+      {% include plugins/al_newsletter_form_center.liquid %}
+    {% else %}
+      {% include newsletter.liquid %}
     {% endif %}
-    {{ whl_footer_nav }}
-    <div class="container">
-      {{ footer_contents }}
+  {% endif %}
+
+  <div class="whl-foot2-grid">
+    <div class="whl-foot2-brand">
+      <img src="{{ '/assets/img/whl_logo_v2.png' | relative_url }}" alt="{{ site.title }} logo">
+      <p>Advancing the science of water across agricultural landscapes, rangelands and watersheds. UF/IFAS RCREC · Ona, Florida.</p>
+      <div class="whl-foot2-social">{% social_links %}</div>
     </div>
-  </footer>
-{% endif %}
+
+    <div class="whl-foot2-col">
+      <h4>Explore</h4>
+      {% for p in site.pages %}{% if p.permalink == '/' %}{% assign whl_home_title = p.title %}{% endif %}{% endfor %}
+      <a href="{{ '/' | relative_url }}">{{ whl_home_title | default: 'Home' }}</a>
+      {% assign whl_sorted = site.pages | sort: 'nav_order' %}
+      {% for p in whl_sorted %}
+        {% if p.nav and p.autogen == null and p.dropdown != true %}
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="whl-foot2-col">
+      <h4>Carriers</h4>
+      <a href="https://x.com/WaterHydroLab" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> @WaterHydroLab</a>
+      <a href="https://github.com/waterhydrolab" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> waterhydrolab</a>
+      {{ eo_open }}<a href="mailto:g.golmohammadi@ufl.edu"><i class="fa-solid fa-envelope"></i> Email the lab</a>{{ eo_close }}
+      <a href="{{ '/downloads/' | relative_url }}"><i class="fa-solid fa-qrcode"></i> Downloads &amp; QR</a>
+      <a href="{{ '/feed.xml' | relative_url }}"><i class="fa-solid fa-rss"></i> News feed (RSS)</a>
+    </div>
+  </div>
+
+  <div class="whl-foot2-bottom">
+    <small>
+      &copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. {{ site.footer_text }}
+      {% if site.last_updated %}Last updated {{ 'now' | date: '%B %d, %Y' }}.{% endif %}
+    </small>
+    <a href="{{ site.url }}">{{ site.url | remove: 'https://' | remove: 'http://' }}</a>
+  </div>
+</footer>
