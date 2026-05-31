@@ -1,11 +1,12 @@
 {%- comment -%}
-  Renders the lab's QR codes & share cards as download cards.
-  File paths come from _data/downloads.yml (editable in Sveltia CMS →
-  "Downloads & QR codes"); the labels/blurbs describe fixed brand assets, so
-  they live here. The HTML5 `download` attribute makes each button SAVE the
-  file instead of just opening it.
+  Renders the lab's QR codes & share cards as download cards (V2 — blue QR with
+  the water-droplet mark). File paths come from _data/downloads.yml (editable in
+  Sveltia CMS → "Downloads & QR codes"); the blurbs describe fixed brand assets
+  so they live here. The HTML5 `download` attribute saves the file. A version
+  query (?v=2) busts the browser/CDN cache so the refreshed V2 art shows.
 {%- endcomment -%}
 {% assign d = site.data.downloads %}
+{% assign v = '?v=2' %}
 
 <p class="whl-dl-intro">
   Click <strong>Download</strong> to save a file. Every QR points to
@@ -16,32 +17,32 @@
 <h2 id="qr-codes">QR codes</h2>
 <div class="whl-card-grid">
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.qr_primary | relative_url }}" alt="Gradient QR code with the lab logo" loading="lazy"></div>
-    <h3>Gradient + logo</h3>
-    <p>The everyday QR — red→petrol gradient with the lab logo in the middle. Great for slides, flyers and email.</p>
+    <div class="whl-dl-media"><img src="{{ d.qr_primary | relative_url }}{{ v }}" alt="Blue QR code with the water-droplet mark" loading="lazy"></div>
+    <h3>Gradient + droplet</h3>
+    <p>The everyday QR — blue gradient with the lab’s water droplet in the middle. Great for slides, flyers and email.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.qr_primary | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_primary | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.qr_primary | relative_url }}{{ v }}" download="watershed-hydrology-qr.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_primary | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.qr_dark | relative_url }}" alt="Solid dark QR code with the lab logo" loading="lazy"></div>
-    <h3>Solid dark + logo</h3>
-    <p>Single-colour dark QR with logo. Best on light paper or anywhere you need one ink colour.</p>
+    <div class="whl-dl-media"><img src="{{ d.qr_dark | relative_url }}{{ v }}" alt="Solid navy QR code with the water-droplet mark" loading="lazy"></div>
+    <h3>Solid navy + droplet</h3>
+    <p>Single-colour navy QR with the droplet. Best on light paper or anywhere you need one ink colour.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.qr_dark | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_dark | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.qr_dark | relative_url }}{{ v }}" download="watershed-hydrology-qr-navy.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_dark | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.qr_hires | relative_url }}" alt="High-resolution gradient QR code" loading="lazy"></div>
+    <div class="whl-dl-media"><img src="{{ d.qr_hires | relative_url }}{{ v }}" alt="High-resolution blue QR code" loading="lazy"></div>
     <h3>High-resolution (300&nbsp;dpi)</h3>
-    <p>Same gradient QR at print resolution. Use when printing larger than a business card.</p>
+    <p>Same blue QR at print resolution. Use when printing larger than a business card.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.qr_hires | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_hires | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.qr_hires | relative_url }}{{ v }}" download="watershed-hydrology-qr-hires.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_hires | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 
@@ -50,8 +51,8 @@
     <h3>Print PDF</h3>
     <p>Vector-quality PDF. Hand this to a print shop for posters or banners.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.qr_pdf | relative_url }}" download><i class="fas fa-download"></i> Download PDF</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_pdf | relative_url }}" target="_blank" rel="noopener">Open</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.qr_pdf | relative_url }}{{ v }}" download="watershed-hydrology-qr.pdf"><i class="fas fa-download"></i> Download PDF</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.qr_pdf | relative_url }}{{ v }}" target="_blank" rel="noopener">Open</a>
     </div>
   </article>
 </div>
@@ -59,32 +60,32 @@
 <h2 id="share-cards">Ready-to-share cards</h2>
 <div class="whl-card-grid">
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.card_landscape | relative_url }}" alt="Landscape share card with QR and lab name" loading="lazy"></div>
+    <div class="whl-dl-media"><img src="{{ d.card_landscape | relative_url }}{{ v }}" alt="Landscape share card with QR and the lab logo" loading="lazy"></div>
     <h3>Landscape card</h3>
-    <p>Wide card with the QR + lab name. Drop into a slide or an email signature.</p>
+    <p>Wide navy card with the QR + the new logo. Drop into a slide or an email signature.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.card_landscape | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.card_landscape | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.card_landscape | relative_url }}{{ v }}" download="watershed-hydrology-card.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.card_landscape | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.card_badge | relative_url }}" alt="Portrait badge card" loading="lazy"></div>
+    <div class="whl-dl-media"><img src="{{ d.card_badge | relative_url }}{{ v }}" alt="Portrait badge card" loading="lazy"></div>
     <h3>Badge / name-tag</h3>
     <p>Portrait card sized for a conference badge or name-tag.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.card_badge | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.card_badge | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.card_badge | relative_url }}{{ v }}" download="watershed-hydrology-badge.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.card_badge | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 
   <article class="whl-card">
-    <div class="whl-dl-media"><img src="{{ d.card_story | relative_url }}" alt="Instagram Story card" loading="lazy"></div>
+    <div class="whl-dl-media"><img src="{{ d.card_story | relative_url }}{{ v }}" alt="Instagram Story card" loading="lazy"></div>
     <h3>Instagram Story</h3>
     <p>1080×1920, ready to post as an Instagram or WhatsApp Story.</p>
     <div class="whl-btn-row">
-      <a class="whl-btn whl-btn-primary" href="{{ d.card_story | relative_url }}" download><i class="fas fa-download"></i> Download PNG</a>
-      <a class="whl-btn whl-btn-ghost" href="{{ d.card_story | relative_url }}" target="_blank" rel="noopener">Preview</a>
+      <a class="whl-btn whl-btn-primary" href="{{ d.card_story | relative_url }}{{ v }}" download="watershed-hydrology-story.png"><i class="fas fa-download"></i> Download PNG</a>
+      <a class="whl-btn whl-btn-ghost" href="{{ d.card_story | relative_url }}{{ v }}" target="_blank" rel="noopener">Preview</a>
     </div>
   </article>
 </div>
