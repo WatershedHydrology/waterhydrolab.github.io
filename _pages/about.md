@@ -34,7 +34,7 @@ carriers:
     buttons:
       - { label: "@WaterHydroLab", url: "https://x.com/WaterHydroLab", icon: "fab fa-x-twitter", style: primary }
       - { label: GitHub, url: "https://github.com/waterhydrolab", icon: "fab fa-github" }
-  - image: assets/img/media/field-monitoring.jpg
+  - image: assets/img/media/field-team.jpg
     title: Get in touch
     text: Reach the team & quick access.
     buttons:
