@@ -111,7 +111,7 @@
   WHL: lab design system — MUST come after main.css so it wins. Lives
   outside /assets/css/ so the purgecss step never strips it.
 -->
-<link rel="stylesheet" href="{{ '/assets/whl.css' | relative_url | bust_file_cache }}">
+<link rel="stylesheet" href="{{ '/assets/whl-v2.css' | relative_url | bust_file_cache }}">
 
 {% if page.layout == 'cv' and site.plugins contains 'al_folio_cv' and site.al_folio.features.cv.enabled != false %}
   <link rel="stylesheet" href="{{ '/assets/css/al-folio-cv.css' | relative_url | bust_file_cache }}">
