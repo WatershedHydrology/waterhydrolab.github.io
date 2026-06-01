@@ -251,12 +251,44 @@ h6,
   padding-left: 0.95rem;
   padding-right: 0.95rem;
   color: #c4d6ee !important; /* light blue on the navy bar */
+  position: relative;
+  border-radius: 9px;
+  transition: color 0.16s ease, background-color 0.16s ease;
 }
-#navbar .nav-link:hover {
+/* Hover/active highlight: text brightens to white, a soft blue pill fades in,
+   and a gradient accent underline sweeps across. Clearly visible on the navy bar
+   (the old hover only nudged #c4d6ee -> #fff, which read as no change at all). */
+#navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.78rem;
+  right: 0.78rem;
+  bottom: 0.16rem;
+  height: 2.5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #7fb0ff, #2e6be6);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#navbar .navbar-nav .nav-item .nav-link:hover,
+#navbar .navbar-nav .nav-item .nav-link:focus-visible,
+#navbar .nav-link:hover,
+#navbar .nav-link:focus-visible {
+  /* long-form selector (1,4,0) is required to beat the base
+     "#navbar .navbar-nav .nav-item .nav-link" (1,3,0) !important colour —
+     the old "#navbar .nav-link:hover" (1,2,0) lost, so hover never turned white. */
   color: #fff !important;
+  background-color: rgb(127 176 255 / 14%);
+}
+#navbar .nav-link:hover::after,
+#navbar .nav-link:focus-visible::after,
+#navbar .navbar-nav .nav-item.active > .nav-link::after {
+  transform: scaleX(1);
 }
 #navbar .navbar-nav .nav-item.active > .nav-link {
   color: #fff !important;
+  background-color: rgb(127 176 255 / 9%);
 }
 
 /* Light hamburger toggler for the dark bar (mobile) */

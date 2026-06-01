@@ -27,7 +27,7 @@ public_folder: "/assets/img/uploads"
 
 site_url: https://watershedhydrologylab.com
 display_url: https://watershedhydrologylab.com
-logo_url: /assets/img/whl_logo.png
+logo_url: /assets/img/whl_logo_v2.png
 
 collections:
   # ---------------------------------------------------------------------------
