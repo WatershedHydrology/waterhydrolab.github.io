@@ -7,7 +7,7 @@
   // means the deploy config can't be lost if the project is ever recreated.
   //
   // NOTE: "name" must match the Worker's name in the Cloudflare dashboard.
-  "name": "watershedhydrologylab-site",
+  "name": "waterhydrolab",
   "compatibility_date": "2025-05-01",
   "assets": {
     "directory": "./_site",
